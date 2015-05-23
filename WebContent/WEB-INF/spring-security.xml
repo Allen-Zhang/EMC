@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:sec="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/security
+		http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+			
+	<!-- <sec:http auto-config="true">
+    	<sec:intercept-url pattern="/main*" access="ROLE_USER"/> -->
+    	
+    	<sec:http auto-config="true" use-expressions="true">
+    	<sec:intercept-url pattern="/main*" access="hasRole('ROLE_USER')"/>
+    	
+    	<sec:form-login 
+        	login-page="/login.html"
+        	default-target-url="/main.html"
+        	authentication-failure-url="/login.html?login_error=1"/>
+        <sec:logout logout-success-url="/login.html"/>
+	</sec:http>
+ 	
+	<sec:authentication-manager alias="authenticationManager">
+        <sec:authentication-provider user-service-ref="customUserDetailsService"/>
+        
+        <!-- <sec:authentication-provider>
+        	<sec:jdbc-user-service data-source-ref="dataSource"
+		   		users-by-username-query="
+		      		select username, password, enabled 
+		      		from users where username=?" 
+		   		authorities-by-username-query="
+		      		select u.username, r.authority from users u, user_roles r 
+		      		where u.user_id = r.user_id and u.username =?"	/>
+		</sec:authentication-provider> -->
+    </sec:authentication-manager>
+    
+<!--     <bean id="customUserDetailsService" class="com.mercury.service.CustomUserDetailsService">
+    	<property name="pd" ref="personDao"/>
+    </bean>
+	<bean id="personDao" class="com.mercury.dao.impl.PersonDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean> -->
+
+	<bean id="customUserDetailsService" class="com.mercury.service.CustomUserDetailsService">
+    	<property name="ud" ref="userDao"/>
+    </bean>
+	<bean id="userDao" class="com.mercury.dao.impl.UserDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+<!-- 	<sec:http auto-config="true" use-expressions="true">
+		<sec:intercept-url pattern="/main*" access="hasRole('ROLE_USER')" />
+		<sec:form-login 
+        	login-page="/login.html"
+        	default-target-url="/main.html"
+        	authentication-failure-url="/login.html?login_error=1"/>
+        <sec:logout logout-success-url="/login.html"/>
+	</sec:http>
+
+	<sec:authentication-manager alias="authenticationManager">
+		<sec:authentication-provider user-service-ref="myUserDetailsService"/>
+	</sec:authentication-manager>
+	
+	<bean id="userDao" class="com.mercury.dao.impl.UserDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+ 
+	<bean id="myUserDetailsService" class="com.mercury.service.MyUserDetailsService">
+		<property name="userDao" ref="userDao" />
+	</bean> -->
+	
+</beans>
