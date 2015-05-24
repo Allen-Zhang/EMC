@@ -11,8 +11,9 @@
 		</id>
 		<property name="username" column="Username"/>
 		<property name="password" column="Password"/>
+		<property name="email" column="Email"/>
 		<property name="enabled" column="Enabled"/>
-		<set name="userRoles" table="User_roles" inverse="true" lazy="false">  <!-- cascade="all" --> 
+		<set name="userRoles" table="User_roles" inverse="true" lazy="false">  
 			<key column="User_id"/>
 			<one-to-many class="com.mercury.bean.UserRole"/>
 		</set>

@@ -20,11 +20,11 @@ public class UserDaoImpl implements UserDao {
 	public User findByUserName(String username) {
 		String hql = "from User where username = ?";
 		List<User> users = template.find(hql, username);
+//		System.out.println("User: " + users.get(0).getUsername());  // for testing
 		if (users.size() > 0) {
 			return users.get(0);
 		} else {
 			return null;
 		}
 	}
-
 }

@@ -9,7 +9,7 @@
 				<param name="sequence">USER_ROLE_ID_SEQ</param>
 			</generator>
 		</id>
-		<many-to-one name="user" column="User_id" class="com.mercury.bean.User"/> <!-- fetch="join" -->
+		<many-to-one name="user" column="User_id" class="com.mercury.bean.User"/> 
 		<property name="authority" column="Authority"/>
 	</class>
 </hibernate-mapping>
