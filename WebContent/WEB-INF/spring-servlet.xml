@@ -22,10 +22,10 @@
         <property name="suffix" value=".jsp" />
     </bean>
 	
-	<bean id="loginController" class="com.mercury.controller.LoginController"/>
+	<mvc:annotation-driven />
+	<!-- <bean id="loginController" class="com.mercury.controller.LoginController"/> -->
 	
-	<!-- RESTful Demo Configuration -->
-	<mvc:annotation-driven /> 
+	<!-- RESTful Testing Configuration -->
     <util:list id="stocks">
     	<bean class="com.mercury.bean.Stock">
     		<property name="id" value="BAC"/>
