@@ -6,7 +6,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Hello Page</title>
 </head>
-<body>
 <h1><font color="blue">${title}</font></h1>
 <a href="<c:url value='/j_spring_security_logout'/>">Logout</a>
 </body>

@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Index</title>
+<title>Home Page2</title>
 </head>
 <body>
-<h1>Just For Tesing</h1>
+
 </body>
 </html>

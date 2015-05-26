@@ -28,6 +28,7 @@
 	<servlet-mapping>
 		<servlet-name>spring</servlet-name>
 		<url-pattern>*.html</url-pattern>
+		<!-- <url-pattern>/*</url-pattern> -->
 	</servlet-mapping>
 	
 	<!-- Spring Listeners and Corresponding parameters -->

@@ -22,10 +22,17 @@ public class StockController {
 	@Resource  // initialize a Collection field automatically ~ @Autowired
 	private List<Stock> stocks;
 	
-	@RequestMapping(value="market", method=RequestMethod.GET)
+	@RequestMapping(value="/market", method=RequestMethod.GET)
 	@ResponseBody  // the viewResolver will be bypassed
 	public List<Stock> marketData() {
+		System.out.println("StockController executed!!!!");
 		YahooFinance.marketData(stocks);
 		return stocks;  // return a POJO, it will be converted to JSON automatically 
 	}
+	
+	@RequestMapping(value="/home")
+	public String homePage() {
+		return "home";
+	}
+
 }

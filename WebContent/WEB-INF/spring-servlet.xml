@@ -23,7 +23,6 @@
     </bean>
 	
 	<mvc:annotation-driven />
-	<!-- <bean id="loginController" class="com.mercury.controller.LoginController"/> -->
 	
 	<!-- RESTful Testing Configuration -->
     <util:list id="stocks">
