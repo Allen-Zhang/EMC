@@ -8,11 +8,11 @@ package com.mercury.bean;
  * @param monthlyPayment monthly payment of loan
  */
 public class Loan {
-	double purchase; 
-	int termInYears;
-	double interestRate; 
-	double downPayment;
-//	double monthlyPayment;
+	private double purchase; 
+	private int termInYears;
+	private double interestRate; 
+	private double downPayment;
+//	private double monthlyPayment;
 	
 	public double getPurchase() {
 		return purchase;
