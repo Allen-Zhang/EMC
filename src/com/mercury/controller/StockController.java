@@ -30,9 +30,9 @@ public class StockController {
 		return stocks;  // return a POJO, it will be converted to JSON automatically 
 	}
 	
-	@RequestMapping(value="/home")
+	@RequestMapping(value="/restful")
 	public String homePage() {
-		return "home";
+		return "restful";
 	}
 
 }

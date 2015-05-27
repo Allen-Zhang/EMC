@@ -4,28 +4,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Home Page</title>
+<title>Test RESTful Page</title>
 <script src="js/angular.min.js"></script>
 <script>
 	angular.module("mainModule", []).controller("mainController", function($scope, $interval, $http) {
 		// Initialization
 		$scope.stocksArray = [];
-		/* $interval(function() { */
+		$interval(function() { 
 			$http({  // AJAX call
 				method: "GET",
 				url: "market.html",
 			}).success(function(data) {
 				$scope.stocksArray = data;
 			}).error(function(data) {
-				alert("error: "+data);
-				/* alert("AJAX Error!"); */
+				alert("AJAX Error!");
 			});
-		/* }, 2000); */
+		}, 2000);
 	});	
 </script>
 </head>
 <body ng-app="mainModule">
-<h1>Welcome Home!!</h1>	
 <h2>This demo is show real time market data using Angular JS</h2>
 <div ng-controller="mainController">
 	<h3>Market Data</h3>
