@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.mercury.bean.InterestRate" table="Interest_rates_test">
+		<id name="state_id" column="State_id">
+			<generator class="sequence">
+				<param name="sequence">STATE_ID_SEQ_TEST</param>
+			</generator>
+		</id>
+		<property name="state" column="State"/>
+		<property name="fix_30" column="Fix_30"/>
+		<property name="fix_20" column="Fix_20"/>
+		<property name="fix_15" column="Fix_15"/>
+	</class>
+</hibernate-mapping>
