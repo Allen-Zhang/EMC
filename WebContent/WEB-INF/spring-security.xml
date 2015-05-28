@@ -14,15 +14,14 @@
     	<sec:intercept-url pattern="/content/**" access="isAuthenticated()"/> -->
     	<sec:form-login 
         	login-page="/login.html"
-        	default-target-url="/main.html"
+        	default-target-url="/main.html" 
         	authentication-failure-url="/login.html?login_error=1"/>
-        	
         	<!-- authentication-success-handler-ref="postSuccessAuthHandler" -->
-        	
-        <sec:logout logout-success-url="/login.html"/>
+        <sec:logout logout-success-url="/login.html" delete-cookies="JSESSIONID"/>
 	</sec:http>
  	
-<!--  	<bean id="postSuccessAuthHandler" class="com.mercury.security.PostSuccessfulAuthenticationHandler">
+ 	<!-- 
+ 	<bean id="postSuccessAuthHandler" class="com.mercury.security.PostSuccessfulAuthenticationHandler">
 	    <property name="defaultTargetUrl" value="main.html" />
 	    <property name="alwaysUseDefaultTargetUrl" value="true" />
 	</bean>
@@ -30,7 +29,8 @@
  	<bean id="authenticationFilter" class="org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter">
   		<property name="authenticationManager" ref="authenticationManager"/>
   		<property name="filterProcessesUrl" value="/j_spring_security_check"/>
-	</bean>  -->
+	</bean> 
+ 	-->
  	
 	<sec:authentication-manager alias="authenticationManager">
         <sec:authentication-provider user-service-ref="customUserDetailsService"/>
