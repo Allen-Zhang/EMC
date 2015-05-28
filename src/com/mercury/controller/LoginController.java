@@ -9,6 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import com.mercury.service.JavaMailService;
+import com.mercury.service.EmailValidateService;
 
 @Controller
 public class LoginController {
@@ -24,15 +25,21 @@ public class LoginController {
 	@RequestMapping(value="/main", method = RequestMethod.GET)
 	public ModelAndView mainPage() {	
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("hello");
-		mav.addObject("title", "Hello, welcome to Customized Spring Security");
-		/*String sender = "sijiyangyi24@gmail.com";
-		String receiver = "diaoyakun@gmail.com";*/
-		String dear = "new user";
-		String content = "Please click the following link to activate your account";
-		System.out.println("begin sending");
-		jms.sendMail(dear, content);
-		System.out.println("done sending");
+		
+		String from = "sijiyangyi24@gmail.com";
+		String to = "iloveliverpoolgo@gmail.com";
+		String subject = "Thanks for registeration!";
+		String msg = "Dear new user:Please click the following link to activate your account";
+		EmailValidateService evs = new EmailValidateService();
+		if (evs.validateEmail(to)) {
+			jms.sendMail(from, to, subject, msg);
+			mav.setViewName("hello");
+			mav.addObject("title", "Hello, welcome to Customized Spring Security");
+		}else{
+		mav.setViewName("login");
+		mav.addObject("message", "Fail");
+		}
+
 		return mav;
 	}
 }

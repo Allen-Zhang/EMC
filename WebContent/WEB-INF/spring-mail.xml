@@ -13,45 +13,12 @@
 			<props>
                 <prop key="mail.smtp.auth">true</prop>
 	            <prop key="mail.smtp.socketFactory.port">465</prop>
-                <!-- <prop key="mail.smtp.ssl.enable">true</prop> -->
                 <prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
-              <!--   <prop key="mail.smtp.socketFactory.fallback">false</prop>
-                <prop key="mail.debug">true</prop> -->
                 <prop key="mail.smtp.port">465</prop>
-                <!-- <prop key="mail.smtp.starttls.enable">true</prop> -->
        		</props>
 		</property>
-<!-- 		<property name="host" value="smtp.gmail.com" />
-		<property name="port" value="587" />
-		<property name="username" value="sijiyangyi24" />
-		<property name="password" value="yangyi259878" />
- 
-		<property name="javaMailProperties">
-	   		<props>
-       	      <prop key="mail.smtp.auth">true</prop>
-       	      <prop key="mail.smtp.starttls.enable">true</prop>
-       	      <prop key="mail.debug">true</prop>
-       	   </props>
-		</property> -->
 	</bean>
-	
-	<!-- <bean id="mailMail" class="com.mercury.mail.MailMail"> -->
 	<bean id="javaMailService" class="com.mercury.service.JavaMailService">
 		<property name="mailSender" ref="mailSender" />
-		<property name="simpleMailMessage" ref="customerMailMessage" />
 	</bean>
- 
-	 <bean id="customerMailMessage" class="org.springframework.mail.SimpleMailMessage">
-		<property name="from" value="iloveliverpoolgo@gmail.com" />
-		<property name="to" value="sijiyangyi24@gmail.com" />
-		<property name="subject" value="Thanks for your registeration!" />
-		<property name="text">
-		<value>
-			<![CDATA[
-				Dear %s,
-				Mail Content : %s
-			]]>
-		</value>
-    </property>
-</bean>
 </beans>
