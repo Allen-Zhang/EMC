@@ -1,5 +1,7 @@
 package com.mercury.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,12 +10,21 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.mercury.bean.Loan;
+import com.mercury.service.MortgageService;
 import com.mercury.util.MortgageCalculator;
 
 @Controller
 @SessionAttributes
 public class MortgageController {
 
+	@Autowired
+	@Qualifier("mortgageService")
+	private MortgageService ms;
+	
+	public MortgageController() {
+		System.out.println("Create MortgageController!!");
+	}
+	
 //	@Autowired
 //	@Qualifier("mortgageCalculator")
 //	MortgageCalculator calculator;
@@ -46,10 +57,10 @@ public class MortgageController {
 //		return mav;
 //	}
 	
+	// RESTful web service
 	@RequestMapping(value = "/result", method = RequestMethod.POST)	
 	@ResponseBody
 	public String calculateMonthlyPayment(@RequestBody Loan loan)   {	
-		System.out.println("MortgageController executed!!!!");  // for testing
 		String monthlyPayment = String.valueOf(MortgageCalculator.calculateMonthlyPayment(
 				loan.getPurchase(), loan.getTermInYears(), loan.getInterestRate(), loan.getDownPayment()));
 		System.out.println("P: " + monthlyPayment);

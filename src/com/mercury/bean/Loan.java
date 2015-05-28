@@ -5,14 +5,12 @@ package com.mercury.bean;
  * @param termInYears term of loan in years
  * @param interestRate loan interest rate, 5.6% = 5.6
  * @param downPayment down payment of loan, 5.6% = 5.6
- * @param monthlyPayment monthly payment of loan
  */
 public class Loan {
 	private double purchase; 
 	private int termInYears;
 	private double interestRate; 
 	private double downPayment;
-//	private double monthlyPayment;
 	
 	public double getPurchase() {
 		return purchase;
@@ -38,10 +36,4 @@ public class Loan {
 	public void setDownPayment(double downPayment) {
 		this.downPayment = downPayment;
 	}
-//	public double getMonthlyPayment() {
-//		return monthlyPayment;
-//	}
-//	public void setMonthlyPayment(double monthlyPayment) {
-//		this.monthlyPayment = monthlyPayment;
-//	}
 }

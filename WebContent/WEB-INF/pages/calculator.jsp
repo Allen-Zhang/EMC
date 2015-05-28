@@ -15,11 +15,11 @@
 		<li class="active"><a href="#">Home</a></li>
 		<li><a href="#">Calculator</a></li>
 		<li><a href="#">Result</a></li>
+		<li><a href="#">Chart</a></li>
 		<li><a href="#">Interest Rate</a></li>
-		<li><a href="#">About</a></li>
-		<li><a href="#">Contact</a></li>
 	</ul>
 	</nav>
+	<br/>
 	<div>
 		<form class="form-horizontal" ng-submit="calculateMonthlyPayment()">
 			<div class="form-group">                    
@@ -64,13 +64,14 @@
 		    <div class="form-group">
 		    	<div class="col-sm-offset-3 col-sm-9">
 		      		<button type="reset" class="btn btn-primary">Reset</button>
-		      		<button type="submit" class="btn btn-primary">Calculate</button>
+		      		<button type="submit" class="btn btn-primary" >Calculate</button>
 		    	</div>
 		  	</div>       
 		</form>
 		<h2>Monthly payment is: {{monthlyPayment}}</h2>
 	</div>
 </div>
+<script src="js/jquery-1.11.3.min.js"></script>
 <script src="js/angular.min.js"></script>
 <script src="js/myApp.js"></script>
 <script src="js/controller/calculatorController.js"></script>

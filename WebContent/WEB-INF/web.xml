@@ -8,7 +8,7 @@
 	
 	<display-name>EMC</display-name>
 	<welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>/login.html</welcome-file>
 	</welcome-file-list>
 	
 	<!-- Oracle Data Source -->

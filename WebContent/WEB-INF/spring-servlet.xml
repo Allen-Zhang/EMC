@@ -25,7 +25,7 @@
 	
 	<mvc:annotation-driven />
 	
-    <!-- <bean id="mortgageCalculator" class="com.mercury.service.MortgageCalculator"/> -->
+    <bean id="mortgageService" class="com.mercury.service.MortgageService"/>
 	
 	<!-- RESTful Testing Configuration -->
     <util:list id="stocks">
