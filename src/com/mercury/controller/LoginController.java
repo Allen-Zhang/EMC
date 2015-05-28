@@ -16,9 +16,9 @@ public class LoginController {
 	@Qualifier("javaMailService")
 	private JavaMailService jms;
 	
-	@RequestMapping(value="/login", method = RequestMethod.GET)
+	@RequestMapping(value="/security/login", method = RequestMethod.GET)
 	public String login(ModelMap model) {
-		return "login";
+		return "/security/login";
 	}
 	
 	@RequestMapping(value="/main", method = RequestMethod.GET)

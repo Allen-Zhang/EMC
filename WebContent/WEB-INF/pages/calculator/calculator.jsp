@@ -4,8 +4,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Mortgage Calculator</title>
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/justified-nav.css">
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/justified-nav.css">
 </head>
 <body ng-controller="calculatorCtrl">
 <div class="container">
@@ -71,9 +71,9 @@
 		<h2>Monthly payment is: {{monthlyPayment}}</h2>
 	</div>
 </div>
-<script src="js/jquery-1.11.3.min.js"></script>
-<script src="js/angular.min.js"></script>
-<script src="js/myApp.js"></script>
-<script src="js/controller/calculatorController.js"></script>
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script src="../js/angular.min.js"></script>
+<script src="../js/myApp.js"></script>
+<script src="../js/controller/calculatorController.js"></script>
 </body>
 </html>

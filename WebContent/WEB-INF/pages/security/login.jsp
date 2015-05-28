@@ -16,7 +16,7 @@
 		position: relative;
 	}
 </style>
-<script src="js/jquery-1.11.3.min.js">
+<script src="../js/jquery-1.11.3.min.js">
 </script>
 <script>
 	$(document).ready(function() {
