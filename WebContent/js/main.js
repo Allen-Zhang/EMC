@@ -1,5 +1,4 @@
 $(document).ready(function() {
-	
 	/* 
 	 * Click function for Calculate button on the calculator page
 	 */
