@@ -1,31 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html ng-app="myApp">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Test RESTful Page</title>
 <script src="js/angular.min.js"></script>
-<script>
-	angular.module("mainModule", []).controller("mainController", function($scope, $interval, $http) {
-		// Initialization
-		$scope.stocksArray = [];
-		$interval(function() { 
-			$http({  // AJAX call
-				method: "GET",
-				url: "market.html",
-			}).success(function(data) {
-				$scope.stocksArray = data;
-			}).error(function(data) {
-				alert("AJAX Error!");
-			});
-		}, 2000);
-	});	
-</script>
+<script src="js/myApp.js"></script>
+<script src="js/controller/stockController.js"></script>
 </head>
-<body ng-app="mainModule">
+<body>
 <h2>This demo is show real time market data using Angular JS</h2>
-<div ng-controller="mainController">
+<div ng-controller="stockCtrl">
 	<h3>Market Data</h3>
 	<table id="stockList" border="1" style="width: 500px">
 		<tr>
