@@ -1,12 +1,10 @@
-/*$(document).ready(function() {
-	$("#calculateBtn").click(function() {
-		
+$(document).ready(function() {
+	
+	/* 
+	 * Click function for Calculate button on the calculator page
+	 */
+	$("#calculatorBtn").click(function() {
+		$("#calculatorNav a[href='#resultPane']").trigger("click");
 	});
+	
 });
-
-function switchTab(tabIndex) {
-	  $("#calculatorNav li").each(function() {
-		$(this).removeClass("active");
-	});
-	$("#calculatorNav li:eq(" + tabIndex + ")").addClass("active");
-}*/

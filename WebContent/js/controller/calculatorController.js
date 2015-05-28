@@ -5,6 +5,11 @@
 angular.module("myApp")
 	.controller("calculatorCtrl", ['$scope','$http',function($scope,$http){
 		$scope.loan = [];
+		$scope.purchase='';
+		$scope.termInYears='';
+		$scope.interestRate='';
+		$scope.downPayment='';
+		
 		$scope.calculateMonthlyPayment = function(){		
 			$scope.loan.push({'purchase' : $scope.purchase, 'termInYears' : $scope.termInYears, 
 				'interestRate' : $scope.interestRate, 'downPayment' : $scope.downPayment});
@@ -22,10 +27,5 @@ angular.module("myApp")
 			.error(function(data, status, headers, config) {
 				alert( "failure message: " + JSON.stringify({data : data}));  // JSON.stringify() converts a JavaScript value to a JSON string
 			});		
-			// Making the fields empty
-			$scope.purchase='';
-			$scope.termInYears='';
-			$scope.interestRate='';
-			$scope.downPayment='';
 		};
 	}]);
