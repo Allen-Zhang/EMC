@@ -22,4 +22,9 @@ public class LoginController {
 		mav.addObject("title", "Hello, welcome to Customized Spring Security");
 		return mav;
 	}
+	
+	@RequestMapping(value="/account/signup", method = RequestMethod.GET)
+	public String login() {
+		return "/account/signup";
+	}
 }

@@ -9,69 +9,110 @@
 </head>
 <body ng-controller="calculatorCtrl">
 <div class="container">
-	<h1>Mortgage Calculator</h1>
-	<nav>
-	<ul class="nav nav-justified">
-		<li class="active"><a href="#">Home</a></li>
-		<li><a href="#">Calculator</a></li>
-		<li><a href="#">Result</a></li>
-		<li><a href="#">Chart</a></li>
-		<li><a href="#">Interest Rate</a></li>
-	</ul>
-	</nav>
-	<br/>
+	<!-- Application Header -->
 	<div>
-		<form class="form-horizontal" ng-submit="calculateMonthlyPayment()">
-			<div class="form-group">                    
-		        <label for="purchase" class="col-sm-3 control-label"><font color="red">* </font>Purchase price</label>
-		        <div class="col-sm-9">
-		        	<div class="input-group">
-		      			<div class="input-group-addon">$</div>
-		            	<input type="text" class="form-control" id="purchase" name="purchase" placeholder="Purchase price" ng-model="purchase">
-		            </div>
-		        </div>
-		    </div>
-			<div class="form-group">                    
-		        <label for="termInYears" class="col-sm-3 control-label"><font color="red">* </font>Loan term</label>
-		        <div class="col-sm-9">
-		            <input type="text" class="form-control" id="termInYears" name="termInYears" placeholder="Term of loan in years" ng-model="termInYears">
-		        </div>
-		    </div>
-		<!--     <div class="form-group">                    
-		        <label for="state" class="col-sm-3 control-label"><font color="red">* </font>State</label>
-		        <div class="col-sm-9">
-		            <input type="text" class="form-control" id="state" name="state" placeholder="State">
-		        </div>
-		    </div> -->
-		    <div class="form-group">                    
-		        <label for="state" class="col-sm-3 control-label"><font color="red">* </font>Interest Rate</label>
-		        <div class="col-sm-9">
-		        	<div class="input-group">
-			            <input type="text" class="form-control" id="interestRate" name="interestRate" placeholder="Interest Rate" ng-model="interestRate">
-			            <div class="input-group-addon">%</div>
-		            </div>
-		        </div>
-		    </div>
-		    <div class="form-group">                    
-		        <label for="downPayment" class="col-sm-3 control-label"><font color="red">* </font>Down payment</label>
-		        <div class="col-sm-9">
-		        	<div class="input-group">
-		            	<input type="text" class="form-control" id="downPayment" name="downPayment" placeholder="Down payment" ng-model="downPayment">
-		            	<div class="input-group-addon">%</div>
-		            </div>
-		        </div>
-		    </div>
-		    <div class="form-group">
-		    	<div class="col-sm-offset-3 col-sm-9">
-		      		<button type="reset" class="btn btn-primary">Reset</button>
-		      		<button type="submit" class="btn btn-primary" >Calculate</button>
-		    	</div>
-		  	</div>       
-		</form>
-		<h2>Monthly payment is: {{monthlyPayment}}</h2>
+		<h1><font color="blue">Header Here...</font></h1>
+	</div>
+	<hr/>
+	
+	<!-- Mortgage Calculator Content -->
+	<h3>Mortgage Calculator</h3>
+	<div role="tabpanel">
+		<!-- Nav Tabs -->
+		<ul class="nav nav-justified" role="tablist" id="calculatorNav">
+			<li role="presentation" class="active">
+				<a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a>
+			</li>
+			<li role="presentation">
+				<a href="#calculatorPane" role="tab" data-toggle="tab">Calculator</a>
+			</li>
+			<li role="presentation">
+				<a href="#result" aria-controls="result" role="tab" data-toggle="tab">Result</a>
+			</li>
+			<li role="presentation">
+				<a href="#chart" aria-controls="chart" role="tab" data-toggle="tab">Chart</a>
+			</li>
+		</ul>
+		<br/>
+		<!-- Tab Panes -->
+		<div class="tab-content">
+			<!-- Home Pane -->
+			<div role="tabpanel" class="tab-pane active" id="home">
+				Home
+			</div>
+			
+			<!-- Calculator Pane -->
+			<div role="tabpanel" class="tab-pane" id="calculatorPane">
+				<form class="form-horizontal" ng-submit="calculateMonthlyPayment()">
+					<div class="form-group">                    
+				        <label for="purchase" class="col-sm-3 control-label"><font color="red">* </font>Purchase price</label>
+				        <div class="col-sm-9">
+				        	<div class="input-group">
+				      			<div class="input-group-addon">$</div>
+				            	<input type="text" class="form-control" id="purchase" name="purchase" placeholder="Purchase price" ng-model="purchase">
+				            </div>
+				        </div>
+				    </div>
+					<div class="form-group">                    
+				        <label for="termInYears" class="col-sm-3 control-label"><font color="red">* </font>Loan term</label>
+				        <div class="col-sm-9">
+				            <input type="text" class="form-control" id="termInYears" name="termInYears" placeholder="Term of loan in years" ng-model="termInYears">
+				        </div>
+				    </div>
+				<!--     <div class="form-group">                    
+				        <label for="state" class="col-sm-3 control-label"><font color="red">* </font>State</label>
+				        <div class="col-sm-9">
+				            <input type="text" class="form-control" id="state" name="state" placeholder="State">
+				        </div>
+				    </div> -->
+				    <div class="form-group">                    
+				        <label for="state" class="col-sm-3 control-label"><font color="red">* </font>Interest Rate</label>
+				        <div class="col-sm-9">
+				        	<div class="input-group">
+					            <input type="text" class="form-control" id="interestRate" name="interestRate" placeholder="Interest Rate" ng-model="interestRate">
+					            <div class="input-group-addon">%</div>
+				            </div>
+				        </div>
+				    </div>
+				    <div class="form-group">                    
+				        <label for="downPayment" class="col-sm-3 control-label"><font color="red">* </font>Down payment</label>
+				        <div class="col-sm-9">
+				        	<div class="input-group">
+				            	<input type="text" class="form-control" id="downPayment" name="downPayment" placeholder="Down payment" ng-model="downPayment">
+				            	<div class="input-group-addon">%</div>
+				            </div>
+				        </div>
+				    </div>
+				    <div class="form-group">
+				    	<div class="col-sm-offset-3 col-sm-9">
+				      		<button type="reset" class="btn btn-primary">Reset</button>
+				      		<button type="submit" id="calculatorBtn" class="btn btn-primary" >Calculate</button>
+				    	</div>
+				  	</div>       
+				</form>
+			</div>
+			
+			<!-- Result Pane -->
+			<div role="tabpanel" class="tab-pane" id="result">
+				<h2>Monthly payment is: {{monthlyPayment}}</h2>
+			</div>
+			
+			<!-- Chart Pane -->
+			<div role="tabpanel" class="tab-pane" id="chart">
+				Chart
+			</div>
+		</div>
+	</div>
+	
+	<hr/>
+	<!-- Application Footer -->
+	<div>
+		<h1><font color="blue">Footer Here...</font></h1>
 	</div>
 </div>
 <script src="../js/jquery-1.11.3.min.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/bootstrap.min.js"></script>
 <script src="../js/angular.min.js"></script>
 <script src="../js/myApp.js"></script>
 <script src="../js/controller/calculatorController.js"></script>
