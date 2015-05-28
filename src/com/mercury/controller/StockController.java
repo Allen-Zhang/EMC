@@ -25,7 +25,6 @@ public class StockController {
 	@RequestMapping(value="/market", method=RequestMethod.GET)
 	@ResponseBody  // the viewResolver will be bypassed
 	public List<Stock> marketData() {
-		System.out.println("StockController executed!!!!");  // for testing
 		YahooFinance.marketData(stocks);
 		return stocks;  // return a POJO, it will be converted to JSON automatically 
 	}

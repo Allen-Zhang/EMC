@@ -4,7 +4,7 @@ package com.mercury.bean;
  * @param purchase total amount of loan
  * @param termInYears term of loan in years
  * @param interestRate loan interest rate, 5.6% = 5.6
- * @param downPayment down payment of loan
+ * @param downPayment down payment of loan, 5.6% = 5.6
  * @param monthlyPayment monthly payment of loan
  */
 public class Loan {
