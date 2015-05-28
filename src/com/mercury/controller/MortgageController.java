@@ -16,26 +16,10 @@ import com.mercury.util.MortgageCalculator;
 @Controller
 @SessionAttributes
 public class MortgageController {
-
 	@Autowired
 	@Qualifier("mortgageService")
 	private MortgageService ms;
 	
-	public MortgageController() {
-		System.out.println("Create MortgageController!!");
-	}
-	
-//	@Autowired
-//	@Qualifier("mortgageCalculator")
-//	MortgageCalculator calculator;
-//	
-//	public MortgageCalculator getCalculator() {
-//		return calculator;
-//	}
-//	public void setCalculator(MortgageCalculator calculator) {
-//		this.calculator = calculator;
-//	}
-
 	@RequestMapping(value="/calculator")
 	public String calculatorPage() {
 		return "calculator";
