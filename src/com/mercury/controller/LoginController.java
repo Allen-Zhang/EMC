@@ -27,4 +27,9 @@ public class LoginController {
 	public String login() {
 		return "/account/signup";
 	}
+	
+	@RequestMapping(value="/home", method = RequestMethod.GET)
+	public String homePage() {
+		return "/home";
+	}
 }

@@ -31,6 +31,7 @@
 			</li>
 		</ul>
 		<br/>
+		
 		<!-- Tab Panes -->
 		<div class="tab-content">
 			<!-- Calculator Pane -->
@@ -82,14 +83,6 @@
 				    	</div>
 				  	</div>       
 				</form>
-			
-				<!-- <h2>EMC Home</h2>
-				<p>
-					EMC is a calculator to help you to calculator loans. You needs to log in the system 
-					and input the necessary information. Then EMC will output the monthly payment with 
-					the payment schedule. You can also add additional principals for each month and EMC 
-					will calculate how much you can save for interest.
-				</p> -->
 			</div>
 			
 			<!-- Result Pane -->
@@ -104,7 +97,6 @@
 		</div>
 	</div>
 	
-	<hr/>
 	<!-- Application Footer -->
 	<div>
 		<h1><font color="blue">Footer Here...</font></h1>
