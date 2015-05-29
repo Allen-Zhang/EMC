@@ -15,7 +15,7 @@ public class LoginController {
 		return "/security/login";
 	}
 	
-	@RequestMapping(value="/main", method = RequestMethod.POST)
+	@RequestMapping(value="/main", method = RequestMethod.GET)
 	public ModelAndView mainPage() {	
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("hello");

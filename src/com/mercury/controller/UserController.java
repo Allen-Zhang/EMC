@@ -41,18 +41,16 @@ public class UserController {
 			mav.addObject("title", "Hello, the username is OK");
 			return mav;
 		}*/
-/*		String username = user.getUsername();
-		String passwaor = user.getPassword();*/
-		User user1 = new User();
+/*		User user1 = new User();
 		user1.setUsername("allen");
-		user1.setPassword("allen");
+		user1.setPassword("allen");*/
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("Error");
 		mav.addObject("title", "Hello, the username is existed");
-		if(us.checkUser(user1.getUsername())!= null){
+		if(us.checkUser(user.getUsername())!= null){
 			return mav;
 		}else{
-			us.saveUser(user1);
+			us.saveUser(user);
 			mav.setViewName("Thanks for your registeration");
 			mav.addObject("title", "Hello, the username is OK");
 			return mav;
