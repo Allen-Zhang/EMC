@@ -31,4 +31,8 @@ public class UserDaoImpl implements UserDao {
 	public void save(User user){
 		template.save(user);
 	}
+	@Override
+	public void update(User user) {
+		template.update(user);
+	}
 }

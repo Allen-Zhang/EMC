@@ -21,5 +21,8 @@ public class UserService {
 	public void saveUser(User user){
 		ud.save(user);
 	}
+	public void updateUser(User user) {
+		ud.update(user);
+	}
 	
 }

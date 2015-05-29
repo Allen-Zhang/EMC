@@ -3,6 +3,7 @@ package com.mercury.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -66,7 +67,7 @@ public class UserController {
 			return mav;
 		}
 	}*/
-	public ModelAndView processUser(@ModelAttribute("user") User user)   {
+	public ModelAndView processUser(@ModelAttribute("user") User user, BindingResult result)   {
 				ModelAndView mav = new ModelAndView();
 				// Duplicates
 				if(us.checkUser(user.getUsername())!= null){
@@ -83,5 +84,14 @@ public class UserController {
 				}
 			}
 	
-
+	@RequestMapping(value = "/account/update", method = RequestMethod.POST)	
+	@ResponseBody
+	public ModelAndView updatePassword(@ModelAttribute("user") User user, BindingResult result)   {
+		ModelAndView mav = new ModelAndView();
+	
+		mav.setViewName("update");
+		mav.addObject("message", "Hello, the user password is updated");
+		return mav;
+		
+	}
 }

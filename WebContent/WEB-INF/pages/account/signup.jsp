@@ -16,7 +16,7 @@
 
 		<!-- User Pane -->
 	<div role="tabpanel" class="tab-pane" id="userPane">
-		<form class="form-horizontal" action="register.html" method="post">
+		<form id="signupForm" class="form-horizontal" action="register.html" method="post">
 			<div class="form-group">                    
 		        <label for="username" class="col-sm-3 control-label"><font color="red">* </font>Username</label>
 		        <div class="col-sm-9">
@@ -63,6 +63,9 @@
 <script src="../js/jquery-1.11.3.min.js"></script>
 <script src="../js/main.js"></script>
 <script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery.validate.min.js"></script>
+<script src="../js/validation.js"></script>
+
 <!-- <script src="../js/angular.min.js"></script> -->
 <!-- <script src="../js/myApp.js"></script> -->
 <!-- <script src="../js/controller/userController.js"></script> -->
