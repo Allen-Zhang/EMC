@@ -6,6 +6,7 @@
 <title>Mortgage Calculator</title>
 <link rel="stylesheet" href="../css/bootstrap.min.css">
 <link rel="stylesheet" href="../css/justified-nav.css">
+<link rel="stylesheet" href="../css/bootstrap-formhelpers.min.css">
 </head>
 <body ng-controller="calculatorCtrl">
 <div class="container">
@@ -52,13 +53,14 @@
 				            <input type="text" class="form-control" id="termInYears" name="termInYears" placeholder="Term of loan in years" ng-model="termInYears">
 				        </div>
 				    </div>
-				    <!-- <div class="form-group">                    
+				    <div class="form-group">                    
 				        <label for="state" class="col-sm-3 control-label"><font color="red">* </font>State</label>
 				        <div class="col-sm-9">
-				            <input type="text" class="form-control" id="state" name="state" placeholder="State">
+				        <div class="bfh-selectbox bfh-states" data-country="US" data-state="CA"></div>
+				            <!-- <input type="text" class="form-control" id="state" name="state" placeholder="State"> -->
 				        </div>
-				    </div> -->
-				    <div class="form-group">                    
+				    </div>
+				    <!-- <div class="form-group">                    
 				        <label for="state" class="col-sm-3 control-label"><font color="red">* </font>Interest Rate</label>
 				        <div class="col-sm-9">
 				        	<div class="input-group">
@@ -66,7 +68,7 @@
 					            <div class="input-group-addon">%</div>
 				            </div>
 				        </div>
-				    </div>
+				    </div> -->
 				    <div class="form-group">                    
 				        <label for="downPayment" class="col-sm-3 control-label"><font color="red">* </font>Down payment</label>
 				        <div class="col-sm-9">

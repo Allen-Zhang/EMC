@@ -6,6 +6,9 @@ public class InterestRate {
 	private double fix_30;
 	private double fix_20;
 	private double fix_15;
+	private double arm_5;
+	private double arm_7;
+	private double arm_10;
 	
 	public int getState_id() {
 		return state_id;
@@ -36,5 +39,23 @@ public class InterestRate {
 	}
 	public void setFix_15(double fix_15) {
 		this.fix_15 = fix_15;
+	}
+	public double getArm_5() {
+		return arm_5;
+	}
+	public void setArm_5(double arm_5) {
+		this.arm_5 = arm_5;
+	}
+	public double getArm_7() {
+		return arm_7;
+	}
+	public void setArm_7(double arm_7) {
+		this.arm_7 = arm_7;
+	}
+	public double getArm_10() {
+		return arm_10;
+	}
+	public void setArm_10(double arm_10) {
+		this.arm_10 = arm_10;
 	}
 }

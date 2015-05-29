@@ -14,18 +14,23 @@
         http://www.springframework.org/schema/util 
         http://www.springframework.org/schema/util/spring-util-3.0.xsd">
 		
-    <context:component-scan base-package="com.mercury.controller" />
+    <context:component-scan base-package="com.mercury.controller"/>
+    <mvc:annotation-driven/>
     
     <!-- View Resolver -->     
     <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
-        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
-        <property name="prefix" value="/WEB-INF/pages/" />
-        <property name="suffix" value=".jsp" />
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".jsp"/>
     </bean>
 	
-	<mvc:annotation-driven />
-	
-    <bean id="mortgageService" class="com.mercury.service.MortgageService"/>
+	<!-- Services -->
+	<bean id="customUserDetailsService" class="com.mercury.service.CustomUserDetailsService">
+    	<property name="ud" ref="userDao"/>
+    </bean>
+    <bean id="mortgageService" class="com.mercury.service.MortgageService">
+    	<property name="rd" ref="interestRateDao"/>
+    </bean>
 	
 	<!-- RESTful Testing Configuration -->
     <util:list id="stocks">

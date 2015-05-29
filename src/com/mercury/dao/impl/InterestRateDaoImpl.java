@@ -5,10 +5,10 @@ import java.util.List;
 import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
-import com.mercury.bean.User;
-import com.mercury.dao.UserDao;
+import com.mercury.bean.InterestRate;
+import com.mercury.dao.InterestRateDao;
 
-public class UserDaoImpl implements UserDao {
+public class InterestRateDaoImpl implements InterestRateDao {
 	private HibernateTemplate template;
 	
 	public void setSessionFactory(SessionFactory sessionFactory) {
@@ -17,18 +17,14 @@ public class UserDaoImpl implements UserDao {
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public User findByUserName(String username) {
-		String hql = "from User where username = ?";
-		List<User> users = template.find(hql, username);
-		if (users.size() > 0) {
-			return users.get(0);
+	public InterestRate findByState(String state) {
+		String hql = "from InterestRate where state = ?";
+		List<InterestRate> rates = template.find(hql, state);
+		if (rates.size() > 0) {
+			return rates.get(0);
 		} else {
 			return null;
 		}
 	}
-	
-	@Override
-	public void save(User user){
-		template.save(user);
-	}
+
 }

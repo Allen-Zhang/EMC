@@ -9,7 +9,7 @@ package com.mercury.bean;
 public class Loan {
 	private double purchase; 
 	private int termInYears;
-	private double interestRate; 
+	private String state;
 	private double downPayment;
 	
 	public double getPurchase() {
@@ -24,11 +24,11 @@ public class Loan {
 	public void setTermInYears(int termInYears) {
 		this.termInYears = termInYears;
 	}
-	public double getInterestRate() {
-		return interestRate;
+	public String getState() {
+		return state;
 	}
-	public void setInterestRate(double interestRate) {
-		this.interestRate = interestRate;
+	public void setState(String state) {
+		this.state = state;
 	}
 	public double getDownPayment() {
 		return downPayment;

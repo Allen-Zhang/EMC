@@ -23,8 +23,8 @@
  	
  	<!-- 
  	<bean id="postSuccessAuthHandler" class="com.mercury.security.PostSuccessfulAuthenticationHandler">
-	    <property name="defaultTargetUrl" value="main.html" />
-	    <property name="alwaysUseDefaultTargetUrl" value="true" />
+	    <property name="defaultTargetUrl" value="main.html"/>
+	    <property name="alwaysUseDefaultTargetUrl" value="true"/>
 	</bean>
  	
  	<bean id="authenticationFilter" class="org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter">
@@ -42,15 +42,8 @@
 		      		from users where username=?" 
 		   		authorities-by-username-query="
 		      		select u.username, r.authority from users u, user_roles r 
-		      		where u.user_id = r.user_id and u.username =?"	/>
+		      		where u.user_id = r.user_id and u.username =?"/>
 		</sec:authentication-provider> -->
     </sec:authentication-manager>
-
-	<bean id="customUserDetailsService" class="com.mercury.service.CustomUserDetailsService">
-    	<property name="ud" ref="userDao"/>
-    </bean>
-	<bean id="userDao" class="com.mercury.dao.impl.UserDaoImpl">
-		<property name="sessionFactory" ref="sessionFactory"/>
-	</bean>
 
  </beans>

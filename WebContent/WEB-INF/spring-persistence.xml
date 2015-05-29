@@ -7,7 +7,7 @@
 		
 	<!-- JNDI DataSource -->
     <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
-    	<property name="jndiName" value="java:comp/env/jdbc/myoracle" />
+    	<property name="jndiName" value="java:comp/env/jdbc/myoracle"/>
 	</bean>
 	
 	<!-- Hibernate Session Factory -->
@@ -23,8 +23,17 @@
 			<list>
 				<value>com/mercury/mapping/User.hbm.xml</value>
 				<value>com/mercury/mapping/UserRole.hbm.xml</value>
+				<value>com/mercury/mapping/InterestRate.hbm.xml</value>
 			</list>
 		</property>
+	</bean>
+	
+	<!-- DAOs -->
+	<bean id="userDao" class="com.mercury.dao.impl.UserDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="interestRateDao" class="com.mercury.dao.impl.InterestRateDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	
 </beans>

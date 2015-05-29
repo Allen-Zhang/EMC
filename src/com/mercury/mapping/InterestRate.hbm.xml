@@ -11,5 +11,8 @@
 		<property name="fix_30" column="Fix_30"/>
 		<property name="fix_20" column="Fix_20"/>
 		<property name="fix_15" column="Fix_15"/>
+		<property name="arm_5" column="Arm_5"/>
+		<property name="arm_7" column="Arm_7"/>
+		<property name="arm_10" column="Arm_10"/>
 	</class>
 </hibernate-mapping>

@@ -44,9 +44,12 @@ public class MortgageController {
 	// RESTful web service
 	@RequestMapping(value = "/calculator/result", method = RequestMethod.POST)	
 	@ResponseBody
-	public String calculateMonthlyPayment(@RequestBody Loan loan)   {	
-		String monthlyPayment = String.valueOf(MortgageCalculator.calculateEnhancedMonthlyPayment(
-				loan.getPurchase(), loan.getTermInYears(), loan.getInterestRate(), loan.getDownPayment(), 0, 0));
+	public double calculateMonthlyPayment(@RequestBody Loan loan)   {	
+		double monthlyPayment = MortgageCalculator.calculateEnhancedMonthlyPayment(
+				loan.getPurchase(), 
+				loan.getTermInYears(), 
+				ms.getFixedRate(loan.getState(), loan.getTermInYears()), 
+				loan.getDownPayment(), 0, 0);
 		System.out.println("P: " + monthlyPayment);
 		return monthlyPayment;
 	}

@@ -76,10 +76,15 @@ INSERT INTO users VALUES (user_id_seq.NEXTVAL, 'admin', 'admin', 'admin@gmail.co
 INSERT INTO users VALUES (user_id_seq.NEXTVAL, 'allen', 'allen', 'allen@gmail.com', 1);
 INSERT INTO users VALUES (user_id_seq.NEXTVAL, 'yakun', 'yakun', 'yakun@gmail.com', 1);
 INSERT INTO users VALUES (user_id_seq.NEXTVAL, 'freddie', 'freddie', 'freddie@gmail.com', 1);
+commit;
 INSERT INTO user_roles VALUES (user_role_id_seq.NEXTVAL, 1, 'ROLE_ADMIN');
 INSERT INTO user_roles VALUES (user_role_id_seq.NEXTVAL, 2, 'ROLE_USER');
 INSERT INTO user_roles VALUES (user_role_id_seq.NEXTVAL, 3, 'ROLE_USER');
 INSERT INTO user_roles VALUES (user_role_id_seq.NEXTVAL, 4, 'ROLE_USER');
+commit;
+INSERT INTO interest_rates VALUES (state_id_seq.NEXTVAL, 'VA', 8.1, 6.1, 4.1, 8.1, 6.1, 4.1);
+INSERT INTO interest_rates VALUES (state_id_seq.NEXTVAL, 'MA', 8.3, 6.3, 4.3, 8.3, 6.3, 4.3);
+INSERT INTO interest_rates VALUES (state_id_seq.NEXTVAL, 'NY', 8.7, 6.7, 4.7, 8.7, 6.7, 4.7);
 commit;
 
 /* Drop all tables */
@@ -90,24 +95,3 @@ DROP TABLE persistent_login;
 DROP SEQUENCE user_id_seq;
 DROP SEQUENCE user_role_id_seq;
 DROP SEQUENCE state_id_seq;
-
-/* Testing */
-CREATE TABLE interest_rates_test
-( state_id NUMBER(2),
-  state VARCHAR2(2) NOT NULL,
-  fix_30 NUMBER(5,2) NOT NULL,
-  fix_20 NUMBER(5,2) NOT NULL,
-  fix_15 NUMBER(5,2) NOT NULL,
-  CONSTRAINT interest_rates_test_pk PRIMARY KEY(state_id)
-);
-CREATE SEQUENCE state_id_seq_test 
-  MINVALUE 1 
-  START WITH 1
-  INCREMENT BY 1  
-  NOCACHE 
-  NOORDER 
-  NOCYCLE;
-INSERT INTO interest_rates_test VALUES (state_id_seq_test.NEXTVAL, 'VA', 8.1, 6.1, 4.1);
-INSERT INTO interest_rates_test VALUES (state_id_seq_test.NEXTVAL, 'MA', 8.3, 6.3, 4.3);
-INSERT INTO interest_rates_test VALUES (state_id_seq_test.NEXTVAL, 'NY', 8.7, 6.7, 4.7);
-commit;

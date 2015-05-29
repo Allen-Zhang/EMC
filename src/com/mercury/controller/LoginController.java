@@ -23,11 +23,6 @@ public class LoginController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/account/signup", method = RequestMethod.GET)
-	public String login() {
-		return "/account/signup";
-	}
-	
 	@RequestMapping(value="/home", method = RequestMethod.GET)
 	public String homePage() {
 		return "/home";
