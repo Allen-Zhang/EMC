@@ -31,6 +31,9 @@
     <bean id="mortgageService" class="com.mercury.service.MortgageService">
     	<property name="rd" ref="interestRateDao"/>
     </bean>
+    <bean id="userService" class="com.mercury.service.UserService">
+    	<property name="ud" ref="userDao"/>
+    </bean>
 	
 	<!-- RESTful Testing Configuration -->
     <util:list id="stocks">

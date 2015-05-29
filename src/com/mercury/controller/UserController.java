@@ -7,21 +7,23 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mercury.bean.User;
 import com.mercury.service.UserService;;
 
 @Controller
+@SessionAttributes
 public class UserController {
 	@Autowired
-	@Qualifier("UserService")
+	@Qualifier("userService")
 	private UserService us;
 	@RequestMapping(value="/account/signup", method = RequestMethod.GET)
 	public String accountPage(){
 		return "/account/signup";
 	}
-	@RequestMapping(value = "/account/register", method = RequestMethod.GET)	
+	@RequestMapping(value = "/account/register", method = RequestMethod.POST)	
 	@ResponseBody
 	public ModelAndView processUser(@RequestBody User user)   {
 /*		User user1 = new User();
