@@ -14,7 +14,7 @@ import com.mercury.dao.impl.UserDaoImpl;
 public class UserController {
 	@RequestMapping(value="/account/signup", method = RequestMethod.GET)
 	public String accountPage(){
-		return "account/signup";
+		return "/account/signup";
 	}
 	@RequestMapping(value = "/account/register", method = RequestMethod.GET)	
 	@ResponseBody

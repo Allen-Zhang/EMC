@@ -56,19 +56,9 @@
 				    <div class="form-group">                    
 				        <label for="state" class="col-sm-3 control-label"><font color="red">* </font>State</label>
 				        <div class="col-sm-9">
-				        <div class="bfh-selectbox bfh-states" data-country="US" data-state="CA"></div>
-				            <!-- <input type="text" class="form-control" id="state" name="state" placeholder="State"> -->
+				            <input type="text" class="form-control" id="state" name="state" placeholder="State" ng-model="state">
 				        </div>
 				    </div>
-				    <!-- <div class="form-group">                    
-				        <label for="state" class="col-sm-3 control-label"><font color="red">* </font>Interest Rate</label>
-				        <div class="col-sm-9">
-				        	<div class="input-group">
-					            <input type="text" class="form-control" id="interestRate" name="interestRate" placeholder="Interest Rate" ng-model="interestRate">
-					            <div class="input-group-addon">%</div>
-				            </div>
-				        </div>
-				    </div> -->
 				    <div class="form-group">                    
 				        <label for="downPayment" class="col-sm-3 control-label"><font color="red">* </font>Down payment</label>
 				        <div class="col-sm-9">

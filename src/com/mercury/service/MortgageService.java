@@ -26,12 +26,4 @@ public class MortgageService {
 			return 0;  // error
 		}
 	}
-	
-//	public UserInfo process(User user) {
-//		hd.save(user);
-//		UserInfo userInfo = new UserInfo();
-//		userInfo.setMessage("Hello " + user.getName() + ", welcome to JavaEE!");
-//		userInfo.setUsers(hd.queryAll());
-//		return userInfo;
-//	}
 }

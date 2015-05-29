@@ -3,9 +3,10 @@ package com.mercury.bean;
 /**
  * @param purchase total amount of loan
  * @param termInYears term of loan in years
- * @param interestRate loan interest rate, 5.6% = 5.6
+ * @param state state of loan
  * @param downPayment down payment of loan, 5.6% = 5.6
  */
+//@JsonIgnoreProperties(ignoreUnknown = true)
 public class Loan {
 	private double purchase; 
 	private int termInYears;

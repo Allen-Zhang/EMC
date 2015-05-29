@@ -7,17 +7,17 @@ angular.module("myApp")
 		$scope.loan = [];
 		$scope.purchase='';
 		$scope.termInYears='';
-		$scope.interestRate='';
+		$scope.state='';
 		$scope.downPayment='';
 		
 		$scope.calculateMonthlyPayment = function(){		
 			$scope.loan.push({'purchase' : $scope.purchase, 'termInYears' : $scope.termInYears, 
-				'interestRate' : $scope.interestRate, 'downPayment' : $scope.downPayment});
+				'state' : $scope.state, 'downPayment' : $scope.downPayment});
 			// Writing it to the server
 			var dataObj = {
 					purchase : $scope.purchase,
 					termInYears : $scope.termInYears,
-					interestRate : $scope.interestRate,
+					state : $scope.state,
 					downPayment : $scope.downPayment
 			};	
 			$http.post('result.html', dataObj)

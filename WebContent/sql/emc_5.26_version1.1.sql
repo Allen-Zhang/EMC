@@ -10,7 +10,7 @@ CREATE TABLE users
   email VARCHAR2(50) NOT NULL,
   enabled NUMBER(1) DEFAULT 0 NOT NULL,
   CONSTRAINT users_pk PRIMARY KEY(user_id),
-  CONSTRAINT username_unique UNIQUE (username)
+  CONSTRAINT username_uk UNIQUE (username)
 );
 
 /* Create a table user_roles */
@@ -32,7 +32,8 @@ CREATE TABLE interest_rates
   arm_5 NUMBER(5,2) NOT NULL,
   arm_7 NUMBER(5,2) NOT NULL,
   arm_10 NUMBER(5,2) NOT NULL,
-  CONSTRAINT interest_rates_pk PRIMARY KEY(state_id)
+  CONSTRAINT interest_rates_pk PRIMARY KEY(state_id),
+  CONSTRAINT interest_rates_uk UNIQUE (state)
 );
 
 /* Create a table persistent_login */
