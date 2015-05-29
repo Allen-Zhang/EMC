@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html ng-app="myApp">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>SignUp Page</title>
@@ -15,7 +15,7 @@
 
 			<!-- User Pane -->
 			<div role="tabpanel" class="tab-pane" id="userPane">
-				<form class="form-horizontal">
+				<form class="form-horizontal" ng-submit="register()">
 					<div class="form-group">                    
 				        <label for="username" class="col-sm-3 control-label"><font color="red">* </font>Username</label>
 				        <div class="col-sm-9">
@@ -65,5 +65,6 @@
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/angular.min.js"></script>
 <script src="../js/myApp.js"></script>
+<script src="../js/controller/userController.js"></script>
 </body>
 </html>

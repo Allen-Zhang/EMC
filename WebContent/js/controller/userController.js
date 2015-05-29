@@ -10,14 +10,17 @@ angular.module("myApp")
 		$scope.email='';
 
 		$scope.user = [];
-		$scope.calculateMonthlyPayment = function(){		
+		$scope.register = function(){	
 			$scope.user.push({'username' : $scope.username, 'password' : $scope.password, 
 				'email' : $scope.email});
 			// Writing it to the server
 			var dataObj = {
 					username : $scope.username,
 					password : $scope.password,
-					email : $scope.email,
+					email : $scope.email
+//					username : 'Di',
+//					password : 'diaoyakun',
+//					email : 'diaoyakun@gmail.com'
 			};	
 			$http.post('register.html', dataObj)
 			.success(function(data, status, headers, config) {

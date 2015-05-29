@@ -44,6 +44,9 @@ public class UserController {
 /*		User user1 = new User();
 		user1.setUsername("allen");
 		user1.setPassword("allen");*/
+		System.out.println("abc: "+user.getUsername());
+		System.out.println("bb: "+user.getPassword());
+		System.out.println("cc: "+user.getEmail());
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("Error");
 		mav.addObject("title", "Hello, the username is existed");
