@@ -15,15 +15,16 @@ public class MortgageService {
 
 	public double getFixedRate(String state, int termInYears) {
 		InterestRate rate = rd.findByState(state);
-		switch (termInYears) {
-		case 30:
-			return rate.getFix_30();
-		case 20:
-			return rate.getFix_20();
-		case 15:
-			return rate.getFix_15();
-		default:
-			return 0;  // error
+		if (rate != null) {
+			switch (termInYears) {
+			case 30:
+				return rate.getFix_30();
+			case 20:
+				return rate.getFix_20();
+			case 15:
+				return rate.getFix_15();
+			}
 		}
+		return -1;  // error;
 	}
 }

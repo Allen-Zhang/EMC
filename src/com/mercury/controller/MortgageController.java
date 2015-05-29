@@ -26,15 +26,15 @@ public class MortgageController {
 	}
 	
 	// RESTful web service
-	@RequestMapping(value = "/calculator/result", method = RequestMethod.POST)	
+	@RequestMapping(value="/calculator/result", method=RequestMethod.POST)	
 	@ResponseBody
 	public double calculateMonthlyPayment(@RequestBody Loan loan) {
-		double monthlyPayment = MortgageCalculator.calculateEnhancedMonthlyPayment(
-				loan.getPurchase(), 
-				loan.getTermInYears(), 
-				ms.getFixedRate(loan.getState(), loan.getTermInYears()),
-				loan.getDownPayment(), 0, 0);
-		System.out.println("P: " + monthlyPayment);
-		return monthlyPayment;
+		double interestRate = ms.getFixedRate(loan.getState(), loan.getTermInYears());
+		if (interestRate != -1) {
+			return MortgageCalculator.calculateEnhancedMonthlyPayment(
+				loan.getPurchase(), loan.getTermInYears(), interestRate, loan.getDownPayment(), 0, 0);
+		} else {
+			return -1;  // error
+		}
 	}
 }

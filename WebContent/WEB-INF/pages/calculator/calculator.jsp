@@ -6,7 +6,6 @@
 <title>Mortgage Calculator</title>
 <link rel="stylesheet" href="../css/bootstrap.min.css">
 <link rel="stylesheet" href="../css/justified-nav.css">
-<link rel="stylesheet" href="../css/bootstrap-formhelpers.min.css">
 </head>
 <body ng-controller="calculatorCtrl">
 <div class="container">
@@ -39,33 +38,75 @@
 			<div role="tabpanel" class="tab-pane active" id="calculatorPane">
 				<form class="form-horizontal" ng-submit="calculateMonthlyPayment()">
 					<div class="form-group">                    
-				        <label for="purchase" class="col-sm-3 control-label"><font color="red">* </font>Purchase price</label>
+				        <label for="state" class="col-sm-3 control-label"><font color="red">* </font>State</label>
+				        <div class="col-sm-9">
+					        <select class="form-control" ng-model="state" ng-options="key for (key, value) in stateList">
+					      		<option value=""></option>
+					    	</select>
+						</div>
+				    </div>
+					<div class="form-group">                    
+				        <label for="purchase" class="col-sm-3 control-label"><font color="red">* </font>
+				        	Purchase price&nbsp&nbsp
+				        	<img alt="Question" src="../img/question-icon.png" data-toggle="tooltip" 
+				        	data-placement="top" title="{{purchaseQuest}}">
+				        </label>
 				        <div class="col-sm-9">
 				        	<div class="input-group">
 				      			<div class="input-group-addon">$</div>
-				            	<input type="text" class="form-control" id="purchase" name="purchase" placeholder="Purchase price" ng-model="purchase">
+				            	<input type="text" class="form-control" ng-model="purchase">
 				            </div>
 				        </div>
 				    </div>
 					<div class="form-group">                    
-				        <label for="termInYears" class="col-sm-3 control-label"><font color="red">* </font>Loan term</label>
+				        <label for="termInYears" class="col-sm-3 control-label"><font color="red">* </font>
+				        	Loan term&nbsp&nbsp
+				        	<img alt="Question" src="../img/question-icon.png" data-toggle="tooltip" 
+				        	data-placement="top" title="{{termInYearsQuest}}">
+				        </label>
 				        <div class="col-sm-9">
-				            <input type="text" class="form-control" id="termInYears" name="termInYears" placeholder="Term of loan in years" ng-model="termInYears">
+				        	<label class="radio-inline">
+							  	<input type="radio" ng-model="termInYears" value="30">30 years
+							</label>
+							<label class="radio-inline">
+							  	<input type="radio" ng-model="termInYears" value="20">20 years
+							</label>
+							<label class="radio-inline">
+							  	<input type="radio" ng-model="termInYears" value="15">15 years
+							</label>
 				        </div>
 				    </div>
 				    <div class="form-group">                    
-				        <label for="state" class="col-sm-3 control-label"><font color="red">* </font>State</label>
+				        <label for="loanType" class="col-sm-3 control-label"><font color="red">* </font>
+				        	Loan type&nbsp&nbsp
+				        	<img alt="Question" src="../img/question-icon.png" data-toggle="tooltip" 
+				        	data-placement="top" title="{{loanTypeQuest}}">
+				        </label>
 				        <div class="col-sm-9">
-				            <input type="text" class="form-control" id="state" name="state" placeholder="State" ng-model="state">
+				        	<label class="radio-inline">
+							  	<input type="radio" ng-model="loanType" value="fixed">Fixed rate
+							</label>
+							<label class="radio-inline">
+							  	<input type="radio" ng-model="loanType" value="5_year_arm">5-year ARM
+							</label>
+							<label class="radio-inline">
+							  	<input type="radio" ng-model="loanType" value="7_year_arm">7-year ARM
+							</label>
+							<label class="radio-inline">
+							  	<input type="radio" ng-model="loanType" value="10_year_arm">10-year ARM
+							</label>
 				        </div>
 				    </div>
 				    <div class="form-group">                    
-				        <label for="downPayment" class="col-sm-3 control-label"><font color="red">* </font>Down payment</label>
+				        <label for="downPayment" class="col-sm-3 control-label"><font color="red">* </font>
+				        	Down payments&nbsp&nbsp
+				        	<img alt="Question" src="../img/question-icon.png" data-toggle="tooltip" 
+				        	data-placement="top" title="{{downPaymentQuest}}">
+				        </label>
 				        <div class="col-sm-9">
-				        	<div class="input-group">
-				            	<input type="text" class="form-control" id="downPayment" name="downPayment" placeholder="Down payment" ng-model="downPayment">
-				            	<div class="input-group-addon">%</div>
-				            </div>
+			            	<select class="form-control" ng-model="downPayment" ng-options="key for (key, value) in downPaymentList">
+					      		<option value=""></option>
+					    	</select>
 				        </div>
 				    </div>
 				    <div class="form-group">
