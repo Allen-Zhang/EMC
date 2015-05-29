@@ -8,6 +8,7 @@ angular.module('myApp')
 		$scope.termInYears = '';
 		$scope.state = '';
 		$scope.downPayment = '';
+		$scope.loanType = '';
 		
 		$scope.loan = [];
 		$scope.stateList = {
