@@ -4,32 +4,31 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>SignUp Page</title>
 <link rel="stylesheet" href="../css/bootstrap.min.css">
+<title>Update</title>
 </head>
-
 <body>
 <div class="container">
 	
-<!-- SignUp Content -->
-<h3>SignUp</h3>
+<!-- Update Content -->
+<h3>Update</h3>
 
 		<!-- User Pane -->
 	<div role="tabpanel" class="tab-pane" id="userPane">
-		<form id="signupForm" class="form-horizontal" action="register.html" method="post">
+		<form id="updateForm" class="form-horizontal" action="update.html" method="post">
 			<div class="form-group">                    
-		        <label for="username" class="col-sm-3 control-label"><font color="red">* </font>Username</label>
+		        <label for="password" class="col-sm-3 control-label"><font color="red">* </font>Original Password</label>
 		        <div class="col-sm-9">
 		        	<div class="input-group">
-		            	<input type="text" class="form-control" id="username" name="username" placeholder="Username">
+		            	<input type="password" class="form-control" id="updatePassword" name="updatePassword" placeholder="Update Password">
 		            </div>
 		        </div>
 		    </div>
 			<div class="form-group">                    
-		        <label for="password" class="col-sm-3 control-label"><font color="red">* </font>Password</label>
+		        <label for="password" class="col-sm-3 control-label"><font color="red">* </font>Update Password</label>
 		        <div class="col-sm-9">
 		        	<div class="input-group">
-		            	<input type="password" class="form-control" id="password" name="password" placeholder="Password">
+		            	<input type="password" class="form-control" id="updatePassword" name="updatePassword" placeholder="Update Password">
 		            </div>
 		        </div>
 		    </div>
@@ -42,18 +41,18 @@
 		            </div>
 		        </div>
 		    </div>
-		    <div class="form-group">                    
+<!-- 		    <div class="form-group">                    
 		        <label for="email" class="col-sm-3 control-label"><font color="red">* </font>Email</label>
 		        <div class="col-sm-9">
 		        	<div class="input-group">
 		            	<input type="email" class="form-control" id="email" name="email" placeholder="Email">
 		            </div>
 		        </div>
-		    </div>
+		    </div> -->
 		    <div class="form-group">
 		    	<div class="col-sm-offset-3 col-sm-9">
 		      		<button type="reset" class="btn btn-primary">Reset</button>
-		      		<button type="submit" id="signupBtn" class="btn btn-primary" >Submit</button>
+		      		<button type="submit" id="updateBtn" class="btn btn-primary" >Update</button>
 		    	</div>
 		    </div>
 		</form>
