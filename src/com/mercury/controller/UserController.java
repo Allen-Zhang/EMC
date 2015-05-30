@@ -82,13 +82,12 @@ public class UserController {
 					mav.addObject("message", "Hello, the username is OK");
 					return mav;
 				}
-			}
+	}
 	
-	@RequestMapping(value = "/account/update", method = RequestMethod.POST)	
+	@RequestMapping(value = "/account/update", method = RequestMethod.GET)	
 	@ResponseBody
-	public ModelAndView updatePassword(@ModelAttribute("user") User user, BindingResult result)   {
+	public ModelAndView updatePassword()   {
 		ModelAndView mav = new ModelAndView();
-	
 		mav.setViewName("update");
 		mav.addObject("message", "Hello, the user password is updated");
 		return mav;
