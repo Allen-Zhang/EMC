@@ -65,6 +65,9 @@
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/jquery.validate.min.js"></script>
 <script src="../js/validation.js"></script>
+
+
+>>>>>>> origin/account
 <!-- <script src="../js/angular.min.js"></script> -->
 <!-- <script src="../js/myApp.js"></script> -->
 <!-- <script src="../js/controller/userController.js"></script> -->
