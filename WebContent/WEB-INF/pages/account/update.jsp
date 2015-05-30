@@ -20,7 +20,7 @@
 		        <label for="password" class="col-sm-3 control-label"><font color="red">* </font>Original Password</label>
 		        <div class="col-sm-9">
 		        	<div class="input-group">
-		            	<input type="password" class="form-control" id="updatePassword" name="updatePassword" placeholder="Update Password">
+		            	<input type="password" class="form-control" id="originalPassword" name="originalPassword" placeholder="Original Password">
 		            </div>
 		        </div>
 		    </div>

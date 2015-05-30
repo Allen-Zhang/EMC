@@ -35,4 +35,5 @@ public class UserDaoImpl implements UserDao {
 	public void update(User user) {
 		template.update(user);
 	}
+
 }

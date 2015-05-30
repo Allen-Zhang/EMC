@@ -21,7 +21,9 @@ public class UserService {
 	public void saveUser(User user){
 		ud.save(user);
 	}
-	public void updateUser(User user) {
+	public void updatePassword(String username, String newPwd) {
+		User user = ud.findByUserName(username);
+		user.setPassword(newPwd);
 		ud.update(user);
 	}
 	

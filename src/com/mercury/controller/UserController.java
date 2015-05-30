@@ -2,6 +2,7 @@ package com.mercury.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -24,6 +25,7 @@ public class UserController {
 	public String accountPage(){
 		return "/account/signup";
 	}
+	
 	@RequestMapping(value = "/account/register", method = RequestMethod.POST)	
 	@ResponseBody
 	/*public ModelAndView processUser(HttpServletRequest request)   {
@@ -67,7 +69,7 @@ public class UserController {
 			return mav;
 		}
 	}*/
-	public ModelAndView processUser(@ModelAttribute("user") User user, BindingResult result)   {
+	public ModelAndView processUser(@ModelAttribute("user") User user)   {
 				ModelAndView mav = new ModelAndView();
 				// Duplicates
 				if(us.checkUser(user.getUsername())!= null){
@@ -83,13 +85,22 @@ public class UserController {
 					return mav;
 				}
 			}
-	
+	//updatePassWord
+	@RequestMapping(value="/account/update", method = RequestMethod.GET)
+	public String updatePasswordPage(){
+		return "/account/update";
+	}
 	@RequestMapping(value = "/account/update", method = RequestMethod.POST)	
 	@ResponseBody
-	public ModelAndView updatePassword(@ModelAttribute("user") User user, BindingResult result)   {
+	public ModelAndView updatePassword()   {
 		ModelAndView mav = new ModelAndView();
-	
-		mav.setViewName("update");
+		org.springframework.security.core.userdetails.User userDetails 
+			= (org.springframework.security.core.userdetails.User)
+				SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//		user.setPassword(userDetails.getPassword());
+//		System.out.println(user.getUsername() + "\t" + user.getPassword());
+		us.updatePassword(userDetails.getUsername(), "11111211");
+		mav.setViewName("home");
 		mav.addObject("message", "Hello, the user password is updated");
 		return mav;
 		
