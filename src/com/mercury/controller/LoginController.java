@@ -11,7 +11,6 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class LoginController {
 
-	
 	@RequestMapping(value="/security/login", method = RequestMethod.GET)
 	public String login(ModelMap model) {
 		return "/security/login";
@@ -25,9 +24,5 @@ public class LoginController {
 		mav.addObject("title", "Hello, " + user.getUsername() + " welcome to Customized Spring Security");
 		return mav;
 	}
-	
-	@RequestMapping(value="/home", method = RequestMethod.GET)
-	public String homePage() {
-		return "/home";
-	}
+
 }

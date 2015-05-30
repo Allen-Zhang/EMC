@@ -16,7 +16,7 @@
 	<hr/>
 	
 	<!-- Mortgage Calculator Content -->
-	<h3>Mortgage Calculator1</h3>
+	<h3>Mortgage Calculator2</h3>
 	<div role="tabpanel">
 		<!-- Nav Tabs -->
 		<ul class="nav nav-justified" role="tablist" id="calculatorNav">

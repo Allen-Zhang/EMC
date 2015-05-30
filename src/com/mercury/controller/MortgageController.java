@@ -20,11 +20,6 @@ public class MortgageController {
 	@Qualifier("mortgageService")
 	private MortgageService ms;
 	
-	@RequestMapping(value="/calculator/calculator")
-	public String calculatorPage() {
-		return "calculator/calculator";
-	}
-	
 	// RESTful web service
 	@RequestMapping(value="/calculator/result", method=RequestMethod.POST)	
 	@ResponseBody
