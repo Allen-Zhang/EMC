@@ -84,6 +84,7 @@ public class UserController {
 					mav.addObject("message", "Hello, the username is OK");
 					return mav;
 				}
+<<<<<<< HEAD
 			}
 	//updatePassWord
 	@RequestMapping(value="/account/update", method = RequestMethod.GET)
@@ -101,6 +102,15 @@ public class UserController {
 //		System.out.println(user.getUsername() + "\t" + user.getPassword());
 		us.updatePassword(userDetails.getUsername(), "11111211");
 		mav.setViewName("home");
+=======
+	}
+	
+	@RequestMapping(value = "/account/update", method = RequestMethod.GET)	
+	@ResponseBody
+	public ModelAndView updatePassword()   {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("update");
+>>>>>>> origin/account
 		mav.addObject("message", "Hello, the user password is updated");
 		return mav;
 		
