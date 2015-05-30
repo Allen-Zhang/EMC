@@ -12,7 +12,6 @@
 	
 <!-- Update Content -->
 <h3>Update</h3>
-
 		<!-- User Pane -->
 	<div role="tabpanel" class="tab-pane" id="userPane">
 		<form id="updateForm" class="form-horizontal" action="update.html" method="post">
