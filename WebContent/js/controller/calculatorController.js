@@ -3,12 +3,12 @@
  * @Framework: AngularJS 
  */ 
 angular.module('myApp')
-	.controller('calculatorCtrl', ['$scope','$http',function($scope,$http){
+	.controller('calculatorCtrl', ['$scope', '$http', function($scope, $http){
 		$scope.purchase = '';
-		$scope.termInYears = '';
+		$scope.termInYears = '30';
 		$scope.state = '';
 		$scope.downPayment = '';
-		$scope.loanType = '';
+		$scope.loanType = 'fixed';
 		
 		$scope.loan = [];
 		$scope.stateList = {
@@ -35,7 +35,7 @@ angular.module('myApp')
 		/* 
 		 * Calculate monthly payment
 		 */
-		$scope.calculateMonthlyPayment = function(){		
+		$scope.calculateMonthlyPayment = function() {		
 			$scope.loan.push({'purchase' : $scope.purchase, 'termInYears' : $scope.termInYears, 
 				'state' : $scope.state, 'downPayment' : $scope.downPayment});
 			// Object that send to server
@@ -52,5 +52,12 @@ angular.module('myApp')
 			.error(function(data, status, headers, config) {
 				alert("failure message: " + JSON.stringify({data : data}));  // JSON.stringify() converts a JavaScript value to a JSON string
 			});		
+		};
+		
+		/*
+		 * Toggle loan type radio buttons
+		 */
+		$scope.isFixedSelected = function() {
+			return $scope.termInYears == 30 ? false : true;
 		};
 	}]);

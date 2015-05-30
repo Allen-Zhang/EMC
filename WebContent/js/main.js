@@ -1,8 +1,10 @@
 $(document).ready(function() {
-	// Initialize the tooltip
+	
+	/********************** Calculator Section **********************/
+	// Initialize the tooltip on calculator page
 	$('[data-toggle="tooltip"]').tooltip();
 
-	// Click function for Calculate button on the calculator page
+	// Click function for Calculate button on calculator page
 	$("#calculatorBtn").click(function() {
 		$("#calculatorNav a[href='#resultPane']").trigger("click");
 	});

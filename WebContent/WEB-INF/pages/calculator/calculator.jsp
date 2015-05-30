@@ -87,13 +87,13 @@
 							  	<input type="radio" ng-model="loanType" value="fixed">Fixed rate
 							</label>
 							<label class="radio-inline">
-							  	<input type="radio" ng-model="loanType" value="5_year_arm">5-year ARM
+							  	<input type="radio" ng-model="loanType" ng-disabled="isFixedSelected()" value="5_year_arm">5-year ARM
 							</label>
 							<label class="radio-inline">
-							  	<input type="radio" ng-model="loanType" value="7_year_arm">7-year ARM
+							  	<input type="radio" ng-model="loanType" ng-disabled="isFixedSelected()" value="7_year_arm">7-year ARM
 							</label>
 							<label class="radio-inline">
-							  	<input type="radio" ng-model="loanType" value="10_year_arm">10-year ARM
+							  	<input type="radio" ng-model="loanType" ng-disabled="isFixedSelected()" value="10_year_arm">10-year ARM
 							</label>
 				        </div>
 				    </div>

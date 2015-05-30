@@ -31,7 +31,7 @@ public class MortgageController {
 	public double calculateMonthlyPayment(@RequestBody Loan loan) {
 		double interestRate = ms.getFixedRate(loan.getState(), loan.getTermInYears());
 		if (interestRate != -1) {
-			return MortgageCalculator.calculateEnhancedMonthlyPayment(
+			return MortgageCalculator.calculateMonthlyPayment(
 				loan.getPurchase(), loan.getTermInYears(), interestRate, loan.getDownPayment(), 0, 0);
 		} else {
 			return -1;  // error

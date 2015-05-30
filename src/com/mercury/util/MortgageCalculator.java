@@ -8,13 +8,13 @@ public class MortgageCalculator {
 	public static double calculateTotalInterest(double purchase, int termInYears,
 			double interestRate, double downPayment, int extraPayment, int extraMonth){
 		double loanAmount = purchase*(1 - downPayment/100);
-		double monthlyPayment =calculateEnhancedMonthlyPayment(purchase, termInYears,
+		double monthlyPayment =calculateMonthlyPayment(purchase, termInYears,
 				interestRate, downPayment, extraPayment, extraMonth);
 		double totalInterest = monthlyPayment * 12 * termInYears - loanAmount;
 		return totalInterest;
 	}
 	
-	public static double calculateEnhancedMonthlyPayment(double purchase, int termInYears, 
+	public static double calculateMonthlyPayment(double purchase, int termInYears, 
 			double interestRate, double downPayment, int extraPayment, int extraMonth) {
 			interestRate /= 100.0;
 			downPayment /= 100.0;
@@ -24,11 +24,11 @@ public class MortgageCalculator {
 
 			double temp1 = Math.pow((1 + monthlyRate), termInMonths);
 			double temp2 = Math.pow((1 + monthlyRate), (termInMonths - extraMonth));
-			double enhancedMonthlyPayment = loanAmount * monthlyRate * temp1 / (temp1 - 1) - extraPayment * (temp1 - temp2) / (temp1 - 1);
-			return enhancedMonthlyPayment;
+			double monthlyPayment = loanAmount * monthlyRate * temp1 / (temp1 - 1) - extraPayment * (temp1 - temp2) / (temp1 - 1);
+			return monthlyPayment;
 	}
 
-	public static void displayMonthlyBalance(double purchase,int termInYears, 
+	public static void getRemainingPrincipal(double purchase,int termInYears, 
 			double interestRate, double monthlyPayment, double downPayment, double extraPayment, double extraMonth){
 		NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
 	
@@ -69,7 +69,7 @@ public class MortgageCalculator {
 		System.out.print("Please enter extraMonth: ");
 		int extraMonth = scanner.nextInt();
 
-		double monthlyPayment = calculateEnhancedMonthlyPayment(
+		double monthlyPayment = calculateMonthlyPayment(
 	            purchase, termInYears, interestRate, downPayment,extraPayment, extraMonth);
 		double totalInterest = calculateTotalInterest(purchase, termInYears, interestRate, downPayment, extraPayment, extraMonth);
 		NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
@@ -81,6 +81,6 @@ public class MortgageCalculator {
 		System.out.println("Monthly Payment: "+
 		         currencyFormat.format(monthlyPayment));
 
-		displayMonthlyBalance(purchase, termInYears, interestRate, monthlyPayment, downPayment, extraPayment, extraMonth);
+		getRemainingPrincipal(purchase, termInYears, interestRate, monthlyPayment, downPayment, extraPayment, extraMonth);
 	} 
 }
