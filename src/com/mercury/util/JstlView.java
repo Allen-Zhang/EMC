@@ -16,14 +16,21 @@ public class JstlView extends InternalResourceView {
 
 		// Determine the path for the request dispatcher.
 		String dispatcherPath = prepareForRendering(request, response);
-
+		
 		// Set original view being asked for as a request parameter
-		request.setAttribute("content", dispatcherPath.substring(dispatcherPath.lastIndexOf("/") + 1));
+		String[] content = dispatcherPath.split("/");
+		String path = "";
+		if (content.length > 4) {
+			path = "/";
+			for (int i = 3; i < content.length - 1; i++) {
+				path = content[i] + "/";
+			}
+		}
+		request.setAttribute("content", path + dispatcherPath.substring(dispatcherPath.lastIndexOf("/") + 1));
 
 		// Force everything to be template.jsp
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/pages/layout/template.jsp");
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/pages/template.jsp");
 		requestDispatcher.include(request, response);
-
 	}
 
 }

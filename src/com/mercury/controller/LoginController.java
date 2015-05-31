@@ -11,12 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class LoginController {
 
-	@RequestMapping(value="/security/login", method = RequestMethod.GET)
-	public String login(ModelMap model) {
-		return "/security/login";
-	}
-	
-	@RequestMapping(value="/main", method = RequestMethod.GET)
+	@RequestMapping(value="/welcome", method = RequestMethod.GET)
 	public ModelAndView mainPage() {	
 		ModelAndView mav = new ModelAndView();
 		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();

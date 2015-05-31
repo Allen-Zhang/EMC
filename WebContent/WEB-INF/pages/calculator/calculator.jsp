@@ -4,19 +4,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Mortgage Calculator</title>
-<link rel="stylesheet" href="../css/bootstrap.min.css">
-<link rel="stylesheet" href="../css/justified-nav.css">
 </head>
 <body ng-controller="calculatorCtrl">
 <div class="container">
-	<!-- Application Header -->
-	<div>
-		<h1><font color="blue">Enhanced Mortgage Calculator</font></h1>
-	</div>
-	<hr/>
-	
 	<!-- Mortgage Calculator Content -->
-	<h3>Mortgage Calculator1</h3>
+	<h3>Mortgage Calculator</h3>
 	<div role="tabpanel">
 		<!-- Nav Tabs -->
 		<ul class="nav nav-justified" role="tablist" id="calculatorNav">
@@ -48,7 +40,7 @@
 					<div class="form-group">                    
 				        <label for="purchase" class="col-sm-3 control-label"><font color="red">* </font>
 				        	Purchase price&nbsp&nbsp
-				        	<img alt="Question" src="../img/question-icon.png" data-toggle="tooltip" 
+				        	<img alt="Question" src="img/question-icon.png" data-toggle="tooltip" 
 				        	data-placement="top" title="{{purchaseQuest}}">
 				        </label>
 				        <div class="col-sm-9">
@@ -61,7 +53,7 @@
 					<div class="form-group">                    
 				        <label for="termInYears" class="col-sm-3 control-label"><font color="red">* </font>
 				        	Loan term&nbsp&nbsp
-				        	<img alt="Question" src="../img/question-icon.png" data-toggle="tooltip" 
+				        	<img alt="Question" src="img/question-icon.png" data-toggle="tooltip" 
 				        	data-placement="top" title="{{termInYearsQuest}}">
 				        </label>
 				        <div class="col-sm-9">
@@ -79,7 +71,7 @@
 				    <div class="form-group">                    
 				        <label for="loanType" class="col-sm-3 control-label"><font color="red">* </font>
 				        	Loan type&nbsp&nbsp
-				        	<img alt="Question" src="../img/question-icon.png" data-toggle="tooltip" 
+				        	<img alt="Question" src="img/question-icon.png" data-toggle="tooltip" 
 				        	data-placement="top" title="{{loanTypeQuest}}">
 				        </label>
 				        <div class="col-sm-9">
@@ -100,7 +92,7 @@
 				    <div class="form-group">                    
 				        <label for="downPayment" class="col-sm-3 control-label"><font color="red">* </font>
 				        	Down payments&nbsp&nbsp
-				        	<img alt="Question" src="../img/question-icon.png" data-toggle="tooltip" 
+				        	<img alt="Question" src="img/question-icon.png" data-toggle="tooltip" 
 				        	data-placement="top" title="{{downPaymentQuest}}">
 				        </label>
 				        <div class="col-sm-9">
@@ -127,19 +119,10 @@
 			<div role="tabpanel" class="tab-pane" id="chartPane">
 				Chart
 			</div>
+			
 		</div>
 	</div>
-	
-	<!-- Application Footer -->
-	<div>
-		<h1><font color="blue">Footer Here...</font></h1>
-	</div>
 </div>
-<script src="../js/jquery-1.11.3.min.js"></script>
-<script src="../js/main.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<script src="../js/angular.min.js"></script>
-<script src="../js/myApp.js"></script>
-<script src="../js/controller/calculatorController.js"></script>
+<script src="js/controller/calculatorController.js"></script>
 </body>
 </html>

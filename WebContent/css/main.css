@@ -1,0 +1,22 @@
+body {
+  padding-top: 15px;
+}
+
+.content {
+	min-height: 550px;
+}
+
+/* Sticky footer styles */
+.footer {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 20px;
+}
+
+/* Login form */
+.login-form {
+  padding:20px;
+  min-width: 250px;
+  width: 100%;
+  box-sizing: border-box;
+}

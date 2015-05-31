@@ -8,10 +8,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title></title>
 <link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/justified-nav.css">
+<link rel="stylesheet" href="css/main.css">
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/myApp.js"></script>
 </head>
 <body>
+	<!-- Header -->
 	<jsp:include page="header.jsp" />
-	<jsp:include page="${content}" />
-	<jsp:include page="footer.jsp" />
+	<!-- Content -->
+	<div class="content">
+		<jsp:include page="${content}" />
+	</div>
+	<!-- Footer -->
+	<div class="footer">
+		<jsp:include page="footer.jsp" />
+	</div>
 </body>
 </html>
