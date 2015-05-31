@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.mercury.bean.Loan;
-import com.mercury.service.AdminService;
 import com.mercury.service.MortgageService;
 import com.mercury.util.MortgageCalculator;
 
@@ -18,18 +17,13 @@ import com.mercury.util.MortgageCalculator;
 @SessionAttributes
 public class AdminController {
 	@Autowired
-	@Qualifier("adminService")
-	private AdminService as;
+	@Qualifier("mortgateService")
+	private MortgageService as;
 	// RESTful web service
 	@RequestMapping(value="/result", method=RequestMethod.POST)	
 	@ResponseBody
 	public double updatedInterestRate(@RequestBody Loan loan) {
-		double interestRate = as.getFixedRate(loan.getState(), loan.getTermInYears());
-		if (interestRate != -1) {
-			return MortgageCalculator.calculateMonthlyPayment(
-				loan.getPurchase(), loan.getTermInYears(), interestRate, loan.getDownPayment(), 0, 0);
-		} else {
-			return -1;  // error
-		}
+
+		return -1;
 	}
 }
