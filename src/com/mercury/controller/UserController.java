@@ -4,10 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
@@ -28,32 +28,7 @@ public class UserController {
 	
 	@RequestMapping(value = "/account/register", method = RequestMethod.POST)	
 	@ResponseBody
-	/*public ModelAndView processUser(HttpServletRequest request)   {
-		User user1 = new User();
-		user1.setUsername("freddie");
-		user1.setPassword("freddie");
-		UserDaoImpl udi = new UserDaoImpl();
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("Error");
-		mav.addObject("title", "Hello, the username is existed");
-		if(udi.findByUserName(user1.getUsername())!= null){
-			return mav;
-		} else{
-			udi.save(user1);
-			mav.setViewName("");
-			mav.addObject("title", "Hello, the username is OK");
-			return mav;
-		}
-		User user1 = new User();
-		user1.setUsername("allen");
-		user1.setPassword("allen");
-		System.out.println("abc: "+user.getUsername());
-		System.out.println("bb: "+user.getPassword());
-		System.out.println("cc: "+user.getEmail());
-		User user = new User();
-		user.setUsername(request.getParameter("username"));
-		user.setPassword(request.getParameter("password"));
-		user.setEmail(request.getParameter("email"));
+	public ModelAndView processUser(@ModelAttribute("user") User user)   {
 		ModelAndView mav = new ModelAndView();
 		// Duplicates
 		if(us.checkUser(user.getUsername())!= null){
@@ -68,23 +43,7 @@ public class UserController {
 			mav.addObject("message", "Hello, the username is OK");
 			return mav;
 		}
-	}*/
-	public ModelAndView processUser(@ModelAttribute("user") User user)   {
-				ModelAndView mav = new ModelAndView();
-				// Duplicates
-				if(us.checkUser(user.getUsername())!= null){
-					mav.setViewName("signup");
-					mav.addObject("message", "Hello, the username is existed");
-					return mav;
-				// Success
-				}else{
-					us.saveUser(user);
-					// send email here....
-					mav.setViewName("home");
-					mav.addObject("message", "Hello, the username is OK");
-					return mav;
-				}
-			}
+	}
 	//updatePassWord
 	@RequestMapping(value="/account/update", method = RequestMethod.GET)
 	public String updatePasswordPage(){
@@ -92,17 +51,24 @@ public class UserController {
 	}
 	@RequestMapping(value = "/account/update", method = RequestMethod.POST)	
 	@ResponseBody
-	public ModelAndView updatePassword()   {
+	public ModelAndView updatePassword(@RequestParam("originalPassword") String password,
+			@RequestParam("updatePassword") String updatePassword) {
 		ModelAndView mav = new ModelAndView();
 		org.springframework.security.core.userdetails.User userDetails 
 			= (org.springframework.security.core.userdetails.User)
 				SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//		user.setPassword(userDetails.getPassword());
-//		System.out.println(user.getUsername() + "\t" + user.getPassword());
-		us.updatePassword(userDetails.getUsername(), "2222");
-		mav.setViewName("home");
-
-		mav.addObject("message", "Hello, the user password is updated");
+		User user = us.checkUser(userDetails.getUsername());
+		if(!password.equals(user.getPassword())) {
+			System.out.println("error");
+			mav.setViewName("update");
+			mav.addObject("message", "Your input password is not the same as original password");
+			return mav;
+		}else{
+			System.out.println("OK");
+			us.updatePassword(userDetails.getUsername(), updatePassword);
+			mav.setViewName("home");
+			mav.addObject("message", "Hello, the user password is updated");
+		}
 		return mav;
 		
 	}

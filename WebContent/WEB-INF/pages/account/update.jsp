@@ -16,18 +16,18 @@
 	<div role="tabpanel" class="tab-pane" id="userPane">
 		<form id="updateForm" class="form-horizontal" action="update.html" method="post">
 			<div class="form-group">                    
-		        <label for="password" class="col-sm-3 control-label"><font color="red">* </font>Original Password</label>
+		        <label for="password" class="col-sm-3 control-label"><font color="red">* </font>Old Password</label>
 		        <div class="col-sm-9">
 		        	<div class="input-group">
-		            	<input type="password" class="form-control" id="originalPassword" name="originalPassword" placeholder="Original Password">
+		            	<input type="password" class="form-control" id="originalPassword" name="originalPassword" placeholder="Old Password">
 		            </div>
 		        </div>
 		    </div>
 			<div class="form-group">                    
-		        <label for="password" class="col-sm-3 control-label"><font color="red">* </font>Update Password</label>
+		        <label for="password" class="col-sm-3 control-label"><font color="red">* </font>New Password</label>
 		        <div class="col-sm-9">
 		        	<div class="input-group">
-		            	<input type="password" class="form-control" id="updatePassword" name="updatePassword" placeholder="Update Password">
+		            	<input type="password" class="form-control" id="updatePassword" name="updatePassword" placeholder="New Password">
 		            </div>
 		        </div>
 		    </div>
@@ -62,7 +62,7 @@
 <script src="../js/main.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/jquery.validate.min.js"></script>
-<script src="../js/validation.js"></script>
+<script src="../js/updatePwdValidation.js"></script>
 <!-- <script src="../js/angular.min.js"></script> -->
 <!-- <script src="../js/myApp.js"></script> -->
 <!-- <script src="../js/controller/userController.js"></script> -->
