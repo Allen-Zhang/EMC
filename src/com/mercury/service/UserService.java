@@ -26,6 +26,11 @@ public class UserService {
 		user.setPassword(newPwd);
 		ud.update(user);
 	}
+	public void updateEmail(String username, String email) {
+		User user = ud.findByUserName(username);
+		user.setEmail(email);
+		ud.update(user);
+	}
 	public void activateUser(String username){
 		User user = ud.findByUserName(username);
 		user.setEnabled(true);
