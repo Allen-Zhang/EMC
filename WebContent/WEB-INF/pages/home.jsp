@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="container">
-	<h2 class="text-center">EMC Home</h2>
+	<h2 class="text-center">Enhanced Mortgage Calculator</h2>
 	<p>
 		EMC is a calculator to help you to calculator loans. You needs to log in the system 
 		and input the necessary information. Then EMC will output the monthly payment with 

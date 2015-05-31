@@ -21,7 +21,7 @@ public class MortgageController {
 	private MortgageService ms;
 	
 	// RESTful web service
-	@RequestMapping(value="/calculator/result", method=RequestMethod.POST)	
+	@RequestMapping(value="/result", method=RequestMethod.POST)	
 	@ResponseBody
 	public double calculateMonthlyPayment(@RequestBody Loan loan) {
 		double interestRate = ms.getFixedRate(loan.getState(), loan.getTermInYears());

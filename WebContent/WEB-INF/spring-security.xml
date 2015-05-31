@@ -14,11 +14,11 @@
     	<!-- <sec:intercept-url pattern="/**" access="permitAll"/>
     	<sec:intercept-url pattern="/content/**" access="isAuthenticated()"/> -->
     	<sec:form-login 
-        	login-page="/security/login.html"
-        	default-target-url="/main.html" 
-        	authentication-failure-url="/security/login.html?login_error=1"/>
+        	login-page="/home.html"
+        	default-target-url="/welcome.html" 
+        	authentication-failure-url="/home.html?login_error=1"/>
         	<!-- authentication-success-handler-ref="postSuccessAuthHandler" -->
-        <sec:logout logout-success-url="/security/login.html" delete-cookies="JSESSIONID"/>
+        <sec:logout logout-success-url="/home.html" delete-cookies="JSESSIONID"/>
 	</sec:http>
  	
  	<!-- 

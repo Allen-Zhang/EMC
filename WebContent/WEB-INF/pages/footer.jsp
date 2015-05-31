@@ -5,9 +5,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 </head>
 <body>
-	<!-- Application Footer -->
-	<div id="footer">
-		<p>Copyright © 1999-2015 Mercury Systems Inc. All Rights Reserved.</p>
+<!-- Application Footer -->
+<div class="container">
+	<div class="text-center">
+		<p class="text-muted">Copyright © 1999-2015 Mercury Systems Inc. All Rights Reserved.</p>
 	</div>
+</div>
 </body>
 </html>

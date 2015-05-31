@@ -18,17 +18,17 @@
     <mvc:annotation-driven/>
     
     <!-- View Resolver -->     
-<!--     <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
-        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-        <property name="prefix" value="/WEB-INF/pages/"/>
-        <property name="suffix" value=".jsp"/>
-    </bean> -->
 	<bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="viewClass" value="com.mercury.util.JstlView" />
 		<property name="prefix" value="/WEB-INF/pages/" />
 		<property name="suffix" value=".jsp" />
 	</bean>     
-	
+	<!--     <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean> -->
+    
 	<!-- Services -->
 	<bean id="customUserDetailsService" class="com.mercury.service.CustomUserDetailsService">
     	<property name="ud" ref="userDao"/>
@@ -39,28 +39,5 @@
     <bean id="userService" class="com.mercury.service.UserService">
     	<property name="ud" ref="userDao"/>
     </bean>
-	
-	<!-- RESTful Testing Configuration -->
-    <util:list id="stocks">
-    	<bean class="com.mercury.bean.Stock">
-    		<property name="id" value="BAC"/>
-    	</bean>
-    	<bean class="com.mercury.bean.Stock">
-    		<property name="id" value="C"/>
-    	</bean>
-    	<bean class="com.mercury.bean.Stock">
-    		<property name="id" value="BABA"/>
-    	</bean>
-    	<bean class="com.mercury.bean.Stock">
-    		<property name="id" value="DRYS"/>
-    	</bean>
-    </util:list>
-	
-	<!-- 
-	.xml
-	<mvc:resources location="/css/" mapping="/css/**"/>
-	.jsp
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-	<link rel="stylesheet" href="<c:url value="/css/xx.css"/>"> 
-	-->
+
 </beans>
