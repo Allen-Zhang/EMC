@@ -1,15 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html ng-app="myApp">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Update Interest Rate</title>
 </head>
-<body>
+<body ng-controller="adminCtrl">
 <div class="container">
 	<h3>Update Interest</h3>
-	<form id="updateInterestForm" class="form-horizontal" ng-submit="">
+	<form id="updateInterestForm" class="form-horizontal" ng-submit="updateInterest()">
 		<div class="form-group">                    
 	        <label for="state" class="col-sm-3 control-label"><font color="red">* </font>State</label>
 	        <div class="col-sm-9">
