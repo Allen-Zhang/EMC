@@ -19,7 +19,7 @@
 	    <div class="form-group">
 	    	<div class="col-sm-offset-3 col-sm-9">
 	      		<button type="reset" class="btn btn-primary">Reset</button>
-	      		<button type="submit" id="updateEmailBtn" class="btn btn-primary" >Update</button>
+	      		<button type="submit" id="updateEmailBtn" class="btn btn-primary">Update</button>
 	    	</div>
 	    </div>
 	</form>

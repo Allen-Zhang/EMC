@@ -17,6 +17,11 @@ public class DispatcherController {
 		return "calculator/calculator";
 	}
 
+	@RequestMapping(value = "/signup", method = RequestMethod.GET)
+	public String accountPage() {
+		return "account/signup";
+	}
+	
 	@RequestMapping(value = "/updatePassword", method = RequestMethod.GET)
 	public String updatePasswordPage() {
 		return "account/updatePassword";

@@ -18,6 +18,7 @@
        		</props>
 		</property>
 	</bean>
+	
 	<bean id="javaMailService" class="com.mercury.service.JavaMailService">
 		<property name="mailSender" ref="mailSender" />
 	</bean>

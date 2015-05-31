@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="refresh" content="5;URL=http://localhost:8080/EMC/home.html">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Activate Account</title>
 </head>
 <body>
 

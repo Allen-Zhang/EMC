@@ -8,3 +8,4 @@
 - Forget password
 - Form validation 
 - CSS (logo ...)
+- Activate account (invalid link)

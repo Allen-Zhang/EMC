@@ -37,7 +37,7 @@ public class CustomUserDetailsService implements UserDetailsService{
 		UserDetails userDetails = new User(
 				user.getUsername(),
 				user.getPassword(),
-				true,
+				user.isEnabled(),
 				true,
 				true,
 				true,

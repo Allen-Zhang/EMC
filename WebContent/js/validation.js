@@ -13,7 +13,7 @@ $(document).ready(function() {
 		}
 	});
 
-	//Validation for update password form
+	// Validation for update password form
 	$("#updatePassowrdForm").validate({
 		rules : {
 			oldPassword : {

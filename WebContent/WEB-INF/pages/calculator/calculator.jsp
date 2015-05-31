@@ -3,7 +3,7 @@
 <html ng-app="myApp">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Mortgage Calculator</title>
+<title>Calculator</title>
 </head>
 <body ng-controller="calculatorCtrl">
 <div class="container">
