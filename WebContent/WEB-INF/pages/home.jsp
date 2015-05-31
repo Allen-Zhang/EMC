@@ -14,6 +14,7 @@
 		the payment schedule. You can also add additional principals for each month and EMC 
 		will calculate how much you can save for interest.
 	</p>
+	<h2>${message}</h2>
 </div>
 </body>
 </html>

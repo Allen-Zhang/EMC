@@ -13,7 +13,10 @@ public class JstlView extends InternalResourceView {
 	@Override
 	protected void renderMergedOutputModel(Map<String, Object> model,
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
-
+		
+		// Expose the model object as request attributes.
+	    exposeModelAsRequestAttributes(model, request);
+		
 		// Determine the path for the request dispatcher.
 		String dispatcherPath = prepareForRendering(request, response);
 		
@@ -27,7 +30,7 @@ public class JstlView extends InternalResourceView {
 			}
 		}
 		request.setAttribute("content", path + dispatcherPath.substring(dispatcherPath.lastIndexOf("/") + 1));
-
+		
 		// Force everything to be template.jsp
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/pages/template.jsp");
 		requestDispatcher.include(request, response);

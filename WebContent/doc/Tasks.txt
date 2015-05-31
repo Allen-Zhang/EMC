@@ -2,6 +2,7 @@
 - Calculator (display results, chart)
 - Encrypt (password)
 - Remember me
+- Show message
 
 
 - Admin

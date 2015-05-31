@@ -38,7 +38,7 @@ public class UserController {
 	public ModelAndView login() {	
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("home");
-		mav.addObject("message", "Welcome back " + getLoginUser().getUsername());
+		mav.addObject("message", "Welcome back " + getLoginUser().getUsername() + "!");
 		return mav;
 	}
 	
