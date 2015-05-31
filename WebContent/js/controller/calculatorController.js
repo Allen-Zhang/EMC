@@ -57,7 +57,7 @@ angular.module('myApp')
 		/* 
 		 * Calculate monthly payment
 		 */
-		$scope.calculateMonthlyPayment = function() {		
+		$scope.calculate = function() {		
 			$scope.loan.push({
 				'purchase' : $scope.purchase, 
 				'termInYears' : $scope.termInYears, 
@@ -75,7 +75,7 @@ angular.module('myApp')
 			};	
 			$http.post('result.html', dataObj)
 			.success(function(data, status, headers, config) {
-				$scope.monthlyPayment = "$" + data;
+				$scope.results = data;
 			})
 			.error(function(data, status, headers, config) {
 				alert("failure message: " + JSON.stringify({data : data}));  // JSON.stringify() converts a JavaScript value to a JSON string

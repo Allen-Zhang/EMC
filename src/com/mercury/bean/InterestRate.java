@@ -1,5 +1,8 @@
 package com.mercury.bean;
 
+/**
+ * Interest rate in year
+ */
 public class InterestRate {
 	private int state_id;
 	private String state;

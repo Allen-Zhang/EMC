@@ -28,7 +28,7 @@
 		<div class="tab-content">
 			<!-- Calculator Pane -->
 			<div role="tabpanel" class="tab-pane active" id="calculatorPane">
-				<form class="form-horizontal" ng-submit="calculateMonthlyPayment()">
+				<form class="form-horizontal" ng-submit="calculate()">
 					<div class="form-group">                    
 				        <label for="state" class="col-sm-3 control-label"><font color="red">* </font>State</label>
 				        <div class="col-sm-9">
@@ -113,7 +113,27 @@
 			
 			<!-- Result Pane -->
 			<div role="tabpanel" class="tab-pane" id="resultPane">
-				<h2>Monthly payment is: {{monthlyPayment}}</h2>
+				<!-- <h2>Monthly payment is: {{monthlyPayment}}</h2> -->
+				<table class="table table-striped" id="FAQ-table">
+			  <thead>
+			    <tr>
+			      <th>Month</th>
+			      <th>Monthly Payment</th>
+			      <th>Extra Payment</th>
+			      <th>Interest Rate</th>
+			      <th>Remaining Principal</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr ng-repeat="result in results">
+			      <td>{{result.month}}</td>
+			      <td>{{result.monthlyPayment | currency}}</td>
+			      <td>{{result.extraPayment | currency}}</td>
+			      <td>{{result.interestRate * 100}}%</td>
+			      <td>{{result.remainingPrincipal | currency}}</td>
+			    </tr> 
+			  </tbody>
+			</table>
 			</div>
 			
 			<!-- Chart Pane -->
