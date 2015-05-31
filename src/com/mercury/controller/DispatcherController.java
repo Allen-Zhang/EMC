@@ -31,5 +31,8 @@ public class DispatcherController {
 	public String updateEmailPage() {
 		return "account/updateEmail";
 	}
-
+	@RequestMapping(value = "/updateInterestRate", method = RequestMethod.GET)
+	public String updateInterestRatePage() {
+		return "account/updateInterestRate";
+	}
 }
