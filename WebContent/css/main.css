@@ -4,6 +4,7 @@ body {
 
 .content {
 	min-height: 550px;
+	/*min-height: 480px;*/
 }
 
 /* Sticky footer styles */

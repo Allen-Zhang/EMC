@@ -12,6 +12,7 @@ public class Loan {
 	private int termInYears;
 	private String state;
 	private double downPayment;
+	private String loanType;
 	
 	public double getPurchase() {
 		return purchase;
@@ -36,5 +37,11 @@ public class Loan {
 	}
 	public void setDownPayment(double downPayment) {
 		this.downPayment = downPayment;
+	}
+	public String getLoanType() {
+		return loanType;
+	}
+	public void setLoanType(String loanType) {
+		this.loanType = loanType;
 	}
 }
