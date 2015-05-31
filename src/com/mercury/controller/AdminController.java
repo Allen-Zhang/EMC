@@ -11,19 +11,18 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.mercury.bean.Loan;
 import com.mercury.service.MortgageService;
-import com.mercury.util.MortgageCalculator;
 
 @Controller
 @SessionAttributes
 public class AdminController {
 	@Autowired
 	@Qualifier("mortgateService")
-	private MortgageService as;
+	private MortgageService ms;
 	// RESTful web service
 	@RequestMapping(value="/result", method=RequestMethod.POST)	
 	@ResponseBody
 	public double updatedInterestRate(@RequestBody Loan loan) {
-
-		return -1;
+		double interestRate = ms.getInterestRate(loan.getState(), loan.getLoanType());
+		return interestRate;
 	}
 }
