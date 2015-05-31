@@ -14,7 +14,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.mercury.bean.User;
 import com.mercury.service.JavaMailService;
-import com.mercury.service.UserService;;
+import com.mercury.service.UserService;
+
+;
 
 @Controller
 @SessionAttributes
@@ -22,34 +24,41 @@ public class UserController {
 	@Autowired
 	@Qualifier("userService")
 	private UserService us;
-	
+
 	@Autowired
 	@Qualifier("javaMailService")
 	private JavaMailService jms;
-	
-	@RequestMapping(value="/account/signup", method = RequestMethod.GET)
-	public String accountPage(){
-		return "/account/signup";
+
+	private org.springframework.security.core.userdetails.User getUserDetails() {
+		return (org.springframework.security.core.userdetails.User) SecurityContextHolder
+				.getContext().getAuthentication().getPrincipal();
 	}
 	
-	@RequestMapping(value = "/account/register", method = RequestMethod.POST)	
+	@RequestMapping(value = "/account/signup", method = RequestMethod.GET)
+	public String accountPage() {
+		return "/account/signup";
+	}
+
+	@RequestMapping(value = "/account/register", method = RequestMethod.POST)
 	@ResponseBody
-	public ModelAndView processUser(@ModelAttribute("user") User user)   {
+	public ModelAndView processUser(@ModelAttribute("user") User user) {
 		ModelAndView mav = new ModelAndView();
 		// Duplicates
-		if(us.checkUser(user.getUsername())!= null){
+		if (us.checkUser(user.getUsername()) != null) {
 			mav.setViewName("signup");
 			mav.addObject("message", "Hello, the username is existed");
 			return mav;
-		// Success
-		}else{
+			// Success
+		} else {
 			us.saveUser(user);
 			// send email here....
 			String from = "sijiyangyi24@gmail.com";
 			String to = user.getEmail();
 			String subject = "Dear: " + user.getUsername();
-			String msg = "Please click the following link to activate your account" +"\n" + 
-			"http://localhost:8080/EMC/account/activate.html?id="+user.getUsername();
+			String msg = "Please click the following link to activate your account"
+					+ "\n"
+					+ "http://localhost:8080/EMC/account/activate.html?id="
+					+ user.getUsername();
 			jms.sendMail(from, to, subject, msg);
 			mav.setViewName("home");
 			mav.addObject("message", "Hello, the username is OK");
@@ -57,59 +66,43 @@ public class UserController {
 		}
 	}
 
-	//updatePassWord
-	@RequestMapping(value="/account/update", method = RequestMethod.GET)
-	public String updatePasswordPage(){
-		return "/account/update";
-	}
-	@RequestMapping(value = "/account/update", method = RequestMethod.POST)	
-	@ResponseBody
-	public ModelAndView updatePassword(@RequestParam("originalPassword") String password,
-			@RequestParam("updatePassword") String updatePassword) {
+	// updatePassWord
+	@RequestMapping(value = "/changePassword", method = RequestMethod.POST)
+	public ModelAndView updatePassword(
+			@RequestParam("oldPassword") String oldPassword,
+			@RequestParam("newPassword") String newPassword) {
 		ModelAndView mav = new ModelAndView();
-		org.springframework.security.core.userdetails.User userDetails 
-			= (org.springframework.security.core.userdetails.User)
-				SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		User user = us.checkUser(userDetails.getUsername());
-		if(!password.equals(user.getPassword())) {
-			System.out.println("error");
-			mav.setViewName("update");
-			mav.addObject("message", "Your input password is not the same as original password");
-			return mav;
-		}else{
-			System.out.println("OK");
-			us.updatePassword(userDetails.getUsername(), updatePassword);
-			mav.setViewName("home");
-			mav.addObject("message", "Hello, the user's password is updated");
+		User user = us.checkUser(getUserDetails().getUsername());
+		// old password is wrong
+		if (!oldPassword.equals(user.getPassword())) {
+			mav.setViewName("account/updatePassword"); // go back to updatePassword page
+			mav.addObject("message", "Sorry, your old password is wrong!");
+		// old password is correct
+		} else {
+			us.updatePassword(getUserDetails().getUsername(), newPassword);
+			mav.setViewName("home"); // go to home page
+			mav.addObject("message", "Your password is updated succeed!");
 		}
 		return mav;
-		
+
 	}
-	//updateEmail
-	@RequestMapping(value="/account/updateEmail", method = RequestMethod.GET)
-	public String updateEmailPage(){
-		return "/account/updateEmail";
-	}
-	@RequestMapping(value = "/account/updateEmail", method = RequestMethod.POST)	
-	@ResponseBody
-	public ModelAndView updateEmail(@RequestParam("updateEmail") String updateEmail) {
+
+	// updateEmail
+	@RequestMapping(value = "/changeEmail", method = RequestMethod.POST)
+	public ModelAndView updateEmail(@RequestParam("newEmail") String newEmail) {
 		ModelAndView mav = new ModelAndView();
-		org.springframework.security.core.userdetails.User userDetails 
-			= (org.springframework.security.core.userdetails.User)
-				SecurityContextHolder.getContext().getAuthentication().getPrincipal();		
-		us.updateEmail(userDetails.getUsername(), updateEmail);
-		mav.setViewName("home");
-		mav.addObject("message", "Hello, the user's email is updated");
+		us.updateEmail(getUserDetails().getUsername(), newEmail);
+		mav.setViewName("home"); // go to home page
+		mav.addObject("message", "Your email is updated succeed!");
 		return mav;
 	}
 
-	//activate user account
-	@RequestMapping(value="/account/activate", method = RequestMethod.GET)
-	public String activateUserAccountPage(@RequestParam("id") String id){
+	// activate user account
+	@RequestMapping(value = "/account/activate", method = RequestMethod.GET)
+	public String activateUserAccountPage(@RequestParam("id") String id) {
 		System.out.println(id);
 		us.activateUser(id);
 		return "/account/activate";
 	}
 
 }
-

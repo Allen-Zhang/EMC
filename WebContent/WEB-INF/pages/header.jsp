@@ -37,8 +37,7 @@
 							<input type="password" class="form-control" name="j_password" id="j_password" placeholder="Password">
 						</div>
 						<div class="checkbox">
-							<label><input type="checkbox" name="rememberMe" checked> Remember me for 90 days
-							</label>
+							<label><input type="checkbox" name="rememberMe" checked> Remember me for 90 days</label>
 						</div>
 						<a href="#">Forgot Password?</a>
 						<button type="submit" class="btn btn-primary pull-right">Sign In</button>
@@ -46,6 +45,8 @@
 				</ul>
 			</li>
 			<li><a href="signup.html">Sign Up</a></li>
+			<li><a href="updatePassword.html">Update P</a></li>
+			<li><a href="updateEmail.html">Update E</a></li>
 		</ul>
 	</div>
 	</nav>

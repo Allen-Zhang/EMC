@@ -12,6 +12,8 @@
 <link rel="stylesheet" href="css/main.css">
 <script src="js/jquery-1.11.3.min.js"></script>
 <script src="js/main.js"></script>
+<script src="js/jquery.validate.min.js"></script>
+<script src="js/validation.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/angular.min.js"></script>
 <script src="js/myApp.js"></script>

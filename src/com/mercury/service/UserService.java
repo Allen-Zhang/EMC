@@ -6,8 +6,6 @@ import com.mercury.dao.UserDao;
 public class UserService {
 	private UserDao ud;
 
-	
-
 	public UserDao getUd() {
 		return ud;
 	}

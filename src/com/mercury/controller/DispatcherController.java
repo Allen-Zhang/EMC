@@ -7,15 +7,24 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class DispatcherController {
 
-	@RequestMapping(value="/home", method=RequestMethod.GET)
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String homePage() {
 		return "home";
 	}
 
-	@RequestMapping(value="/calculator", method=RequestMethod.GET)
+	@RequestMapping(value = "/calculator", method = RequestMethod.GET)
 	public String calculatorPage() {
 		return "calculator/calculator";
 	}
-	
-	
+
+	@RequestMapping(value = "/updatePassword", method = RequestMethod.GET)
+	public String updatePasswordPage() {
+		return "account/updatePassword";
+	}
+
+	@RequestMapping(value = "/updateEmail", method = RequestMethod.GET)
+	public String updateEmailPage() {
+		return "account/updateEmail";
+	}
+
 }
