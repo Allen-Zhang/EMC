@@ -20,16 +20,16 @@ public class MortgageController {
 	@Qualifier("mortgageService")
 	private MortgageService ms;
 	
-	// RESTful web service
-	@RequestMapping(value="/result", method=RequestMethod.POST)	
-	@ResponseBody
-	public double calculateMonthlyPayment(@RequestBody Loan loan) {
-		double interestRate = ms.getFixedRate(loan.getState(), loan.getTermInYears());
-		if (interestRate != -1) {
-			return MortgageCalculator.calculateMonthlyPayment(
-				loan.getPurchase(), loan.getTermInYears(), interestRate, loan.getDownPayment(), 0, 0);
-		} else {
-			return -1;  // error
-		}
-	}
+//	// RESTful web service
+//	@RequestMapping(value="/result", method=RequestMethod.POST)	
+//	@ResponseBody
+//	public double calculateMonthlyPayment(@RequestBody Loan loan) {
+//		double interestRate = ms.getFixedRate(loan.getState(), loan.getTermInYears());
+//		if (interestRate != -1) {
+//			return MortgageCalculator.calculateMonthlyPayment(
+//				loan.getPurchase(), loan.getTermInYears(), interestRate, loan.getDownPayment(), 0, 0);
+//		} else {
+//			return -1;  // error
+//		}
+//	}
 }

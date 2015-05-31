@@ -13,17 +13,25 @@ public class MortgageService {
 		this.rd = rd;
 	}
 
-	public double getFixedRate(String state, int termInYears) {
+	/*
+	 * loanType: 15_fix, 20_fix, 30_fix, 30_arm_5, 30_arm_7, 30_arm_10
+	 */
+	public double getInterestRate(String state, String loanType) {
 		InterestRate rate = rd.findByState(state);
 		if (rate != null) {
-			switch (termInYears) {
-			case 30:
-				return rate.getFix_30();
-			case 20:
-				return rate.getFix_20();
-			case 15:
+			// Using if else since switch not support String type in Java 6
+			if (loanType.equals("15_fix"))
 				return rate.getFix_15();
-			}
+			else if (loanType.equals("20_fix"))
+				return rate.getFix_20();
+			else if (loanType.equals("30_fix"))
+				return rate.getFix_30();
+			else if (loanType.equals("30_arm_5"))
+				return rate.getArm_5();
+			else if (loanType.equals("30_arm_7"))
+				return rate.getArm_7();
+			else if (loanType.equals("30_arm_10"))
+				return rate.getArm_10();
 		}
 		return -1;  // error;
 	}

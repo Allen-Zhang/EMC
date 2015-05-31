@@ -5,7 +5,7 @@ package com.mercury.bean;
  * @param termInYears term of loan in years
  * @param state state of loan
  * @param downPayment down payment of loan, 5.6% = 5.6
- * @param loanType type of loan 
+ * @param loanType type of loan (15_fix, 20_fix, 30_fix, 30_arm_5, 30_arm_7, 30_arm_10)
  */
 //@JsonIgnoreProperties(ignoreUnknown = true)
 public class Loan {
