@@ -16,7 +16,7 @@ import com.mercury.service.MortgageService;
 @SessionAttributes
 public class AdminController {
 	@Autowired
-	@Qualifier("mortgateService")
+	@Qualifier("mortgageService")
 	private MortgageService ms;
 	// RESTful web service
 	@RequestMapping(value="/result", method=RequestMethod.POST)	

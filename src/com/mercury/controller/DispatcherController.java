@@ -33,6 +33,6 @@ public class DispatcherController {
 	}
 	@RequestMapping(value = "/updateInterestRate", method = RequestMethod.GET)
 	public String updateInterestRatePage() {
-		return "account/updateInterestRate";
+		return "admin/updateInterestRate";
 	}
 }
