@@ -18,9 +18,6 @@ angular.module("myApp")
 					username : $scope.username,
 					password : $scope.password,
 					email : $scope.email
-//					username : 'Di',
-//					password : 'diaoyakun',
-//					email : 'diaoyakun@gmail.com'
 			};	
 			$http.post('register.html', dataObj)
 			.success(function(data, status, headers, config) {
@@ -31,4 +28,4 @@ angular.module("myApp")
 			});		
 		
 		};
-	}]);
+}]);
