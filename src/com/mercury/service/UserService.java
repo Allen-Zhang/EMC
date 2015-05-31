@@ -26,5 +26,10 @@ public class UserService {
 		user.setPassword(newPwd);
 		ud.update(user);
 	}
+	public void activateUser(String username){
+		User user = ud.findByUserName(username);
+		user.setEnabled(true);
+		ud.update(user);
+	}
 	
 }
