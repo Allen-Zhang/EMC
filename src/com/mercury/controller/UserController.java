@@ -56,6 +56,7 @@ public class UserController {
 			return mav;
 		}
 	}
+
 	//updatePassWord
 	@RequestMapping(value="/account/update", method = RequestMethod.GET)
 	public String updatePasswordPage(){
@@ -79,7 +80,7 @@ public class UserController {
 			System.out.println("OK");
 			us.updatePassword(userDetails.getUsername(), updatePassword);
 			mav.setViewName("home");
-			mav.addObject("message", "Hello, the user password is updated");
+			mav.addObject("message", "Hello, the user's password is updated");
 		}
 		return mav;
 		
@@ -95,13 +96,13 @@ public class UserController {
 		ModelAndView mav = new ModelAndView();
 		org.springframework.security.core.userdetails.User userDetails 
 			= (org.springframework.security.core.userdetails.User)
-				SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		System.out.println("OK");
+				SecurityContextHolder.getContext().getAuthentication().getPrincipal();		
 		us.updateEmail(userDetails.getUsername(), updateEmail);
 		mav.setViewName("home");
-		mav.addObject("message", "Hello, the user email is updated");	
-		return mav;		
+		mav.addObject("message", "Hello, the user's email is updated");
+		return mav;
 	}
+
 	//activate user account
 	@RequestMapping(value="/account/activate", method = RequestMethod.GET)
 	public String activateUserAccountPage(@RequestParam("id") String id){
