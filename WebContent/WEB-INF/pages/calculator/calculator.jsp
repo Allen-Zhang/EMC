@@ -108,6 +108,7 @@
 				    	</div>
 				  	</div>       
 				</form>
+				<h2>RealLoanType: {{getRealLoanType(termInYears, loanType)}}</h2>
 			</div>
 			
 			<!-- Result Pane -->

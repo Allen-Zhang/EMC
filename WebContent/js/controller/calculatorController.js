@@ -3,13 +3,14 @@
  * @Framework: AngularJS 
  */ 
 angular.module('myApp')
-	.controller('calculatorCtrl', ['$scope', '$http', function($scope, $http){
+	.controller('calculatorCtrl', ['$scope', '$http', '$window', function($scope, $http) {
 		$scope.purchase = '';
 		$scope.termInYears = '30';
 		$scope.state = '';
 		$scope.downPayment = '';
 		$scope.loanType = 'fixed';
-		
+//		$scope.realLoanType = ;
+	
 		$scope.loan = [];
 		$scope.stateList = {
 				'Alabama' : 'AL', 'Alaska' : 'AK', 'Arizona' : 'AZ', 'Arkansas' : 'AR', 'California' : 'CA', 
@@ -32,18 +33,45 @@ angular.module('myApp')
 		$scope.loanTypeQuest = 'The loan type refers to the loan product selected by the borrower at the time of application such as adjustable-rate mortgage or conventional 30-year fixed-rate mortgage.';
 		$scope.downPaymentQuest = 'The amount of cash you pay toward the purchase of your home to make up the difference between the purchase price and your mortgage loan. Down payments often range between 5% and 20% of the sales price depending on many factors, including your loan, your lender, your credit history, and so forth.';
 		
+		/*
+		 * Get real loan type base on termInYears, loanType
+		 */
+		$scope.getRealLoanType = function(termInYears, loanType) {
+			if (termInYears == 15)
+				return '15_fix';
+			else if (termInYears == 20)
+				return '20_fix';
+			else if (termInYears == 30) {
+				if (loanType == 'fixed')
+					return '30_fix';
+				else if (loanType == '5_year_arm')
+					return '30_arm_5';
+				else if (loanType == '7_year_arm')
+					return '30_arm_7';
+				else if (loanType == '10_year_arm')
+					return '30_arm_10';
+			} else
+				return '';
+		};
+		
 		/* 
 		 * Calculate monthly payment
 		 */
 		$scope.calculateMonthlyPayment = function() {		
-			$scope.loan.push({'purchase' : $scope.purchase, 'termInYears' : $scope.termInYears, 
-				'state' : $scope.state, 'downPayment' : $scope.downPayment});
+			$scope.loan.push({
+				'purchase' : $scope.purchase, 
+				'termInYears' : $scope.termInYears, 
+				'state' : $scope.state, 
+				'downPayment' : $scope.downPayment, 
+				'loanType' : $scope.getRealLoanType($scope.termInYears, $scope.loanType)
+			});
 			// Object that send to server
 			var dataObj = {
 					purchase : $scope.purchase,
 					termInYears : $scope.termInYears,
 					state : $scope.state,
-					downPayment : $scope.downPayment
+					downPayment : $scope.downPayment,
+					loanType : $scope.getRealLoanType($scope.termInYears, $scope.loanType)
 			};	
 			$http.post('result.html', dataObj)
 			.success(function(data, status, headers, config) {
