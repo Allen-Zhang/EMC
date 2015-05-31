@@ -1,0 +1,10 @@
+- security
+- Calculator (display results, chart)
+- Encrypt (password)
+- Remember me
+
+
+- Admin
+- Forget password
+- Form validation 
+- CSS (logo ...)
