@@ -111,5 +111,47 @@ public class UserController {
 		mav.addObject("message", "Your email is updated successfully.");
 		return mav;
 	}
-
+	
+	/* 
+	 * Forget Password
+	 */
+	@RequestMapping(value = "/sendEmailToForgetPassword", method = RequestMethod.POST)
+	public ModelAndView sendEmailToForgetPassword(@RequestParam("username") String username,
+			@RequestParam("email") String email) {
+		ModelAndView mav = new ModelAndView();
+		User user = us.checkUser(username);
+		// username is existed
+		if (user!= null) {
+			// send email to user to reset password 
+			String from = "sijiyangyi24@gmail.com";
+			//send to the email address that user entered,not the email of the user in the DB
+			String to = email;
+			String subject = "Dear: " + user.getUsername();
+			String msg = "Please click the following link to reset your password:"
+					+ "\n" + "http://localhost:8080/EMC/resetPassword.html?username="
+					+user.getUsername();
+			jms.sendMail(from, to, subject, msg);
+			mav.setViewName("home");
+			mav.addObject("success_long", "Please check your email (" + to + ") to reset your password.");
+			return mav;
+		} else {
+			mav.setViewName("account/forgetPassword");  // go back to signup page
+			mav.addObject("error", "Sorry, username is not existed.");
+			return mav;
+		}
+	}
+	
+	/*
+	 *  Reset password
+	 */
+	@RequestMapping(value = "/resetedPassword", method = RequestMethod.POST)
+	public ModelAndView resetPassword(
+			@RequestParam("newPassword") String newPassword,
+			@RequestParam("username") String username) {
+		us.updatePassword(username, newPassword);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("home");
+		mav.addObject("success", "Password is reset successfully.");
+		return mav;
+	}
 }

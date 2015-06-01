@@ -41,7 +41,7 @@
 							<div class="checkbox">
 								<label><input type="checkbox" name="rememberMe" checked> Remember me for 90 days</label>
 							</div>
-							<a href="#">Forgot Password?</a>
+							<a href="forgetPassword.html">Forget Password?</a>
 							<button type="submit" class="btn btn-primary pull-right">Sign In</button>
 						</form>
 					</ul>

@@ -31,8 +31,6 @@ public class JavaMailService {
 			throw new MailParseException(e);
 			//e.printStackTrace();
 		}
-		System.out.println("1");
 		mailSender.send(message);
-		System.out.println("2");
 	}
 }
