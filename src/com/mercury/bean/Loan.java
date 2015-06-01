@@ -7,14 +7,15 @@ package com.mercury.bean;
  * @param downPayment down payment of loan, 5.6% = 5.6
  * @param loanType type of loan (15_fix, 20_fix, 30_fix, 30_arm_5, 30_arm_7, 30_arm_10)
  */
-//@JsonIgnoreProperties(ignoreUnknown = true)
 public class Loan {
 	private double purchase; 
 	private int termInYears;
 	private String state;
 	private double downPayment;
 	private String loanType;
-	
+	private double extraPayment;  // enhanced field
+	private int extraMonth;  // enhanced field
+	 
 	public double getPurchase() {
 		return purchase;
 	}
@@ -44,5 +45,17 @@ public class Loan {
 	}
 	public void setLoanType(String loanType) {
 		this.loanType = loanType;
+	}
+	public double getExtraPayment() {
+		return extraPayment;
+	}
+	public void setExtraPayment(double extraPayment) {
+		this.extraPayment = extraPayment;
+	}
+	public int getExtraMonth() {
+		return extraMonth;
+	}
+	public void setExtraMonth(int extraMonth) {
+		this.extraMonth = extraMonth;
 	}
 }

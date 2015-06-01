@@ -9,9 +9,9 @@ body {
 
 /* Sticky footer styles */
 .footer {
-  padding-top: 20px;
+  padding-top: 10px;
   padding-bottom: 20px;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 /* Login form */
@@ -20,4 +20,9 @@ body {
   min-width: 250px;
   width: 100%;
   box-sizing: border-box;
+}
+
+/* emc-table */
+.emc-table th, .emc-table td {
+	text-align: center;
 }

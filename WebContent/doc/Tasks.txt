@@ -10,3 +10,4 @@
 - Form validation 
 - CSS (logo ...)
 - Activate account (invalid link)
+- Database (data)
