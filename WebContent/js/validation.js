@@ -1,4 +1,9 @@
 $(document).ready(function() {
+	
+	$.validator.addMethod("purchase_greater_extraPayment", function(value, element, param) {
+        if ($("#purchase").val()>=$("#extraPayment").val()*$("#extraMonth").val()) return true;
+	}, "ExtraPayment should be less than purchase");
+	
 	// Validation for sign up form
 	$("#signupForm").validate({
 		rules : {
@@ -27,6 +32,21 @@ $(document).ready(function() {
 				required : true,
 				minlength : 5,
 				equalTo : "#newPassword"
+			}
+		}
+	});
+	$("#calculateForm").validate({
+		rules : {
+			purchase : {
+				required : true,
+				number : true,
+				min : 0,		
+			},
+			extraPayment : {
+				number : true,
+				min : 0,
+				max : 5000,
+				purchase_greater_extraPayment : true
 			}
 		}
 	});

@@ -6,7 +6,9 @@ $(document).ready(function() {
 
 	// Click function for Calculate button on calculator page
 	$("#calculatorBtn").click(function() {
-		$("#calculatorNav a[href='#resultPane']").trigger("click");
+		if ($("#calculateForm").valid()) {  // form validation
+			$("#calculatorNav a[href='#resultPane']").trigger("click");
+		}
 	});
 	
 });

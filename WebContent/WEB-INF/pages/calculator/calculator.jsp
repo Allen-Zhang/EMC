@@ -27,7 +27,7 @@
 	<div class="tab-content">
 		<!-- Calculator Pane -->
 		<div role="tabpanel" class="tab-pane active" id="calculatorPane">
-			<form class="form-horizontal" ng-submit="calculate()">
+			<form id="calculateForm" class="form-horizontal" ng-submit="calculate()">
 				<!-- State -->
 				<div class="form-group">                    
 			        <label for="state" class="col-sm-4 control-label"><font color="red">* </font>State</label>
@@ -47,7 +47,7 @@
 			        <div class="col-sm-6">
 			        	<div class="input-group">
 			      			<div class="input-group-addon">$</div>
-			            	<input type="text" class="form-control" ng-model="purchase">
+			            	<input type="text" class="form-control" id="purchase" name="purchase" ng-model="purchase">
 			            </div>
 			        </div>
 			    </div>
@@ -115,7 +115,7 @@
 			        <div class="col-sm-6">
 			        	<div class="input-group">
 			      			<div class="input-group-addon">$</div>
-			            	<input type="text" class="form-control" ng-model="extraPayment">
+			            	<input type="text" class="form-control" id="extraPayment" name="extraPayment" ng-model="extraPayment">
 			            </div>
 			        </div>
 			    </div>
@@ -127,7 +127,7 @@
 			        	data-placement="top" title="{{extraMonthQuest}}">
 			        </label>
 			        <div class="col-sm-6">
-				    	<select class="form-control" ng-model="extraMonth" ng-options="month for month in months">
+				    	<select class="form-control" id="extraMonth" name="extraMonth" ng-model="extraMonth" ng-options="month for month in months">
 				      		<option value=""></option>
 				    	</select>
 			        </div>

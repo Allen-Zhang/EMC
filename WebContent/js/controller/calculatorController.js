@@ -82,33 +82,35 @@ angular.module('myApp')
 		/* 
 		 * Calculate monthly payment
 		 */
-		$scope.calculate = function() {		
-			$scope.loan.push({
-				'purchase' : $scope.purchase, 
-				'termInYears' : $scope.termInYears, 
-				'state' : $scope.state, 
-				'downPayment' : $scope.downPayment, 
-				'loanType' : $scope.getRealLoanType($scope.termInYears, $scope.loanType),
-				'extraPayment' : $scope.extraPayment == '' ? 0 : $scope.extraPayment,
-				'extraMonth' : $scope.extraMonth == '' ? 0 : $scope.extraMonth
-			});
-			// Object that send to server
-			var dataObj = {
-					purchase : $scope.purchase,
-					termInYears : $scope.termInYears,
-					state : $scope.state,
-					downPayment : $scope.downPayment,
-					loanType : $scope.getRealLoanType($scope.termInYears, $scope.loanType),
-					extraPayment : $scope.extraPayment == '' ? 0 : $scope.extraPayment,
-					extraMonth : $scope.extraMonth == '' ? 0 : $scope.extraMonth
-			};	
-			$http.post('result.html', dataObj)
-			.success(function(data, status, headers, config) {
-				$scope.results = data;
-			})
-			.error(function(data, status, headers, config) {
-				alert("failure message: " + JSON.stringify({data : data}));  // JSON.stringify() converts a JavaScript value to a JSON string
-			});		
+		$scope.calculate = function() {	
+			if ($("#calculateForm").valid()) {  // form validation
+				$scope.loan.push({
+					'purchase' : $scope.purchase, 
+					'termInYears' : $scope.termInYears, 
+					'state' : $scope.state, 
+					'downPayment' : $scope.downPayment, 
+					'loanType' : $scope.getRealLoanType($scope.termInYears, $scope.loanType),
+					'extraPayment' : $scope.extraPayment == '' ? 0 : $scope.extraPayment,
+					'extraMonth' : $scope.extraMonth == '' ? 0 : $scope.extraMonth
+				});
+				// Object that send to server
+				var dataObj = {
+						purchase : $scope.purchase,
+						termInYears : $scope.termInYears,
+						state : $scope.state,
+						downPayment : $scope.downPayment,
+						loanType : $scope.getRealLoanType($scope.termInYears, $scope.loanType),
+						extraPayment : $scope.extraPayment == '' ? 0 : $scope.extraPayment,
+						extraMonth : $scope.extraMonth == '' ? 0 : $scope.extraMonth
+				};	
+				$http.post('result.html', dataObj)
+				.success(function(data, status, headers, config) {
+					$scope.results = data;
+				})
+				.error(function(data, status, headers, config) {
+					alert("failure message: " + JSON.stringify({data : data}));  // JSON.stringify() converts a JavaScript value to a JSON string
+				});		
+			}
 		};
 		
 		/*
