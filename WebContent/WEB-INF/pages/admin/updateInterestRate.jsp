@@ -18,31 +18,27 @@
 		    	</select>
 			</div>
 	    </div>
-				    <div class="form-group">                    
-				        <label for="loanType" class="col-sm-3 control-label"><font color="red">* </font>
-				        	Loan type&nbsp&nbsp
-				        	<img alt="Question" src="img/question-icon.png" data-toggle="tooltip" 
-				        	data-placement="top" title="{{loanTypeQuest}}">
-				        </label>
-				        <div class="col-sm-9">
-				        	<label class="radio-inline">
-							  	<input type="radio" ng-model="loanType" value="fixed">Fixed rate
-							</label>
-							<label class="radio-inline">
-							  	<input type="radio" ng-model="loanType" ng-disabled="isFixedSelected()" value="5_year_arm">5-year ARM
-							</label>
-							<label class="radio-inline">
-							  	<input type="radio" ng-model="loanType" ng-disabled="isFixedSelected()" value="7_year_arm">7-year ARM
-							</label>
-							<label class="radio-inline">
-							  	<input type="radio" ng-model="loanType" ng-disabled="isFixedSelected()" value="10_year_arm">10-year ARM
-							</label>
-				        </div>
-				    </div>
+	    <div class="form-group">                    
+	        <label for="loanType" class="col-sm-3 control-label"><font color="red">* </font>Loan Type</label>
+	        <div class="col-sm-9">
+		        <select class="form-control" ng-model="loanType" ng-options="key for (key, value) in loanTypeList">
+		      		<option value=""></option>
+		    	</select>
+			</div>
+	    </div>
+	    <div class="form-group">                    
+	        <label for="interestRate" class="col-sm-3 control-label"><font color="red">* </font>Interest Rate</label>
+	        <div class="col-sm-9">
+		        <select class="form-control" ng-model="interestRate" ng-disabled="">
+		      		<option value=""></option>
+		    	</select>
+			</div>
+	    </div>
+
 	    <div class="form-group">
 	    	<div class="col-sm-offset-3 col-sm-9">
 	      		<button type="reset" class="btn btn-primary">Reset</button>
-	      		<button type="submit" id="updatePasswordBtn" class="btn btn-primary">Update</button>
+	      		<button type="submit" id="updateInterestBtn" class="btn btn-primary">Update</button>
 	    	</div>
 	    </div>
 	</form>

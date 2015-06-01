@@ -57,8 +57,8 @@
 				<li class="dropdown">
             		<a href="" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
             		<ul class="dropdown-menu">
-            			<li><a href="#">User Management</a></li>
-		              	<li><a href="#">Interest Rate Management</a></li>
+            			<li><a href="showInterestRate.html">Interest Rate Table</a></li>
+		              	<li><a href="updateInterestRate.html">Interest Rate Management</a></li>
 	            	</ul>
 	          	</li>
 			</sec:authorize>
