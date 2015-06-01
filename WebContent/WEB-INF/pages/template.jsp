@@ -3,10 +3,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<!-- Introduce CSS Libraries -->
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/justified-nav.css">
 <link rel="stylesheet" href="css/main.css">
-<!-- Introduce Javascript File -->
+<!-- Introduce Javascript Libraries -->
 <script src="js/jquery-1.11.3.min.js"></script>
 <script src="js/main.js"></script>
 <script src="js/jquery.validate.min.js"></script>
@@ -14,7 +15,6 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/angular.min.js"></script>
 <script src="js/myApp.js"></script>
-
 </head>
 <body>
 	<!-- Application Header -->

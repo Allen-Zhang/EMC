@@ -2,6 +2,7 @@ package com.mercury.service;
 
 import com.mercury.bean.User;
 import com.mercury.dao.UserDao;
+import org.apache.commons.codec.digest.DigestUtils;
 
 public class UserService {
 	private UserDao ud;
@@ -34,5 +35,7 @@ public class UserService {
 		user.setEnabled(true);
 		ud.update(user);
 	}
-	
+	public String getMd5Password(String password){
+		return DigestUtils.md5Hex(password);
+	}
 }

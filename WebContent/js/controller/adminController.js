@@ -1,17 +1,13 @@
 /* 
- * Mortgage Calculator Controller
+ * Admin Controller
  * @Framework: AngularJS 
  */
 angular.module("myApp")
-	.controller("adminCtrl", ['$scope','$http', '$log', function($scope,$http,$log){
-		
-		/*$scope.$log = $log;
-		$scope.message = 'Hello World!';*/
-		  		
-		// Making the fields empty
+	.controller("adminCtrl", ['$scope','$http', function($scope, $http){
 		$scope.state='';
 		$scope.loanType='';
-		$scope.interestRate = [];
+		
+		$scope.loan = [];
 		$scope.stateList = {
 				'Alabama' : 'AL', 'Alaska' : 'AK', 'Arizona' : 'AZ', 'Arkansas' : 'AR', 'California' : 'CA', 
 				'Colorado' : 'CO', 'Connecticut' : 'CT', 'Delaware' : 'DE', 'District Of Columbia' : 'DC', 
@@ -25,24 +21,40 @@ angular.module("myApp")
 				'Tennessee' : 'TN', 'Texas' : 'TX', 'Utah' : 'UT', 'Vermont' : 'VT', 'Virginia' : 'VA', 
 				'Washington' : 'WA', 'West Virginia' : 'WV', 'Wisconsin' : 'WI', 'Wyoming' : 'WY'
 	  		};
-		$scope.loanTypeList = {'15_fix' : 'fix_15', '20_fix' : 'fix_20', '30_fix' : 'fix_30',
-			'30_arm_5' : 'arm_5', '30_arm_7' : 'arm_7', '30_arm_10' : 'arm_10'};
-		$scope.updateInterest = function(){	
-			$scope.interestRate.push({'state' : $scope.state, 'loanType' : $scope.loanType});
-			// Writing it to the server
-			var dataObj = {
+		$scope.loanTypeList = {'15_fix' : '15_fix', '20_fix' : '20_fix', '30_fix' : '30_fix', 
+				'30_arm_5' : '30_arm_5', '30_arm_7' : '30_arm_7', '30_arm_10' : '30_arm_10'};
+		
+		/*
+		 * Get a specific interest rate from database
+		 */
+		$scope.getCurrentInterestRate = function(){
+			if ($scope.state != '' && $scope.loanType != '') {
+				$scope.loan.push({'state' : $scope.state, 'loanType' : $scope.loanType});
+				// Writing it to the server
+				var dataObj = {
 					state : $scope.state,
 					loanType : $scope.loanType
-			};	
-			$http.post('result.html', dataObj)
-			.success(function(data, status, headers, config) {
-				$scope.interest = data;
-			})
-			.error(function(data, status, headers, config) {
-				alert( "failure message: " + JSON.stringify({data : data}));  // JSON.stringify() converts a JavaScript value to a JSON string
-			});		
-		
+				};	
+				$http.post('getOldInterestRate.html', dataObj)
+				.success(function(data, status, headers, config) {
+					$scope.rate = data;
+				})
+				.error(function(data, status, headers, config) {
+					alert( "failure message: " + JSON.stringify({data : data}));  // JSON.stringify() converts a JavaScript value to a JSON string
+				});	
+			}
 		};
+		
+		/*
+		 * Disable 'Interest Rate' input condition method
+		 */
+		$scope.enableInterestRateInput = function() {
+			return ($scope.state != '' && $scope.loanType != '') ? false : true;
+		};
+		
+		/*
+		 * Get all interest rates from database
+		 */
 		$http.get('allRatesTypes.html')
 		.success(function(data, status, headers, config) {
 			$scope.rows = data;

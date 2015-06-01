@@ -41,6 +41,10 @@ public class MortgageService {
 		return -1;  // error;
 	}
 	
+	public void updateInterestRate(String state, String loanType, double newInterestRate) {
+		rd.updateInterestRate(state, loanType, newInterestRate);
+	}
+
 	/*
 	 * Mortgage calculation for fixed rate
 	 */
