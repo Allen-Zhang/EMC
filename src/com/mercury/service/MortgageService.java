@@ -1,7 +1,12 @@
 package com.mercury.service;
 
+import java.util.List;
+
 import com.mercury.bean.InterestRate;
+import com.mercury.bean.Loan;
+import com.mercury.bean.Result;
 import com.mercury.dao.InterestRateDao;
+import com.mercury.util.MortgageCalculator;
 
 public class MortgageService {
 	private InterestRateDao rd;
@@ -39,4 +44,46 @@ public class MortgageService {
 	public void updateInterestRate(String state, String loanType, double newInterestRate) {
 		rd.updateInterestRate(state, loanType, newInterestRate);
 	}
+
+	/*
+	 * Mortgage calculation for fixed rate
+	 */
+	public List<Result> getPaymentScheduleInFixedRate(Loan loan) {
+		double interestRate = getInterestRate(loan.getState(), loan.getLoanType());
+		if (interestRate != -1) {
+			List<Result> results = MortgageCalculator.getScheduleInFixedRate(
+					loan.getPurchase(), loan.getTermInYears(), interestRate, 
+					loan.getDownPayment(), loan.getExtraPayment(), loan.getExtraMonth()
+			);
+			return results;
+		} else {
+			return null;  // error
+		}
+	}
+	
+	/*
+	 * Mortgage calculation for adjustable rate
+	 */
+//	public List<Result> getPaymentScheduleInAdjustableRate(Loan loan, int years) {
+//		double fixedRate = getInterestRate(loan.getState(), loan.getLoanType());
+//		
+//		System.out.println("Service - total term: " + loan.getTermInYears());
+//		System.out.println("Service - years: " + years);
+//		System.out.println("Service - fixed rate: " + fixedRate);
+//		
+//		if (fixedRate != -1) {
+//			List<Result> results = MortgageCalculator.getScheduleInAdjustableRate(
+//					loan.getPurchase(), loan.getTermInYears(), fixedRate, years,
+//					loan.getDownPayment(), loan.getExtraPayment(), loan.getExtraMonth()
+//			);
+//			return results;
+//		} else {
+//			return null;  // error
+//		}
+//	}
+	
+	public List<InterestRate> getTypes(){
+		return rd.queryAll();
+	}
+
 }

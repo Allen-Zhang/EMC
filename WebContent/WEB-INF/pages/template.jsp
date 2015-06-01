@@ -14,12 +14,13 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/angular.min.js"></script>
 <script src="js/myApp.js"></script>
+
 </head>
 <body>
 	<!-- Application Header -->
 	<jsp:include page="header.jsp" />
 	<!-- Application Content -->
-	<div class="content">
+	<div class="container content">
 		<jsp:include page="${content}" />
 	</div>
 	<!-- Application Footer -->

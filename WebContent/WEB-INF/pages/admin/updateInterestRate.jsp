@@ -32,11 +32,11 @@
     <div class="form-group"> 
     	<label for="rate" class="col-sm-3 control-label">Interest Rate</label>
     	<div class="col-sm-9">                   
-			<div class="input-group">
-				<div class="input-group-addon">%</div>
-				<input type="text" class="form-control" name="newInterestRate" ng-model="rate" ng-disabled="enableInterestRateInput()">
-			</div>
+		<div class="input-group">
+			<div class="input-group-addon">%</div>
+			<input type="text" class="form-control" name="newInterestRate" ng-model="rate" ng-disabled="enableInterestRateInput()">
 		</div>
+	</div>
     </div>
 
     <div class="form-group">

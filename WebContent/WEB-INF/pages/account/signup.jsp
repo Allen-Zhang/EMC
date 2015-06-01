@@ -6,7 +6,6 @@
 <title>Sign Up</title>
 </head>
 <body>
-<div class="container">
 <h3>Sign Up</h3>
 	<form id="signupForm" class="form-horizontal" action="register.html" method="post">
 		<div class="form-group">                    
@@ -40,6 +39,5 @@
 	    	</div>
 		</div>
 	</form>
-</div>
 </body>
 </html>

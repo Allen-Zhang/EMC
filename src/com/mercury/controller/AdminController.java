@@ -1,5 +1,7 @@
 package com.mercury.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.mercury.bean.InterestRate;
 import com.mercury.bean.Loan;
 import com.mercury.service.MortgageService;
 import com.mercury.util.StateFormater;
@@ -39,6 +42,12 @@ public class AdminController {
 		mav.setViewName("admin/updateInterestRate");
 		mav.addObject("message", "Update interest rate succeeded.");
 		return mav;
+	}
+	@RequestMapping(value = "/allRatesTypes", method = RequestMethod.GET)
+	@ResponseBody
+	public List<InterestRate> getAllRatesTypes() {
+	    List<InterestRate> interestRateTypes = ms.getTypes();
+	    return interestRateTypes;
 	}
 }
 
