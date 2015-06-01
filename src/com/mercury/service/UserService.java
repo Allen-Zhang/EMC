@@ -35,7 +35,7 @@ public class UserService {
 		user.setEnabled(true);
 		ud.update(user);
 	}
-	public String getShaPassword(String password){
-		return DigestUtils.shaHex(password);
+	public String getMd5Password(String password){
+		return DigestUtils.md5Hex(password);
 	}
 }
