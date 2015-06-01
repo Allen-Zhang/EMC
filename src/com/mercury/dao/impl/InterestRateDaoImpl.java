@@ -26,5 +26,23 @@ public class InterestRateDaoImpl implements InterestRateDao {
 			return null;
 		}
 	}
+	
+	public void updateInterestRate(String state, String loanType, double newInterestRate) {
+		InterestRate row = findByState(state);
+		// Using if else since switch not support String type in Java 6
+		if (loanType.equals("15_fix"))
+			row.setFix_15(newInterestRate);
+		else if (loanType.equals("20_fix"))
+			row.setFix_20(newInterestRate);
+		else if (loanType.equals("30_fix"))
+			row.setFix_30(newInterestRate);
+		else if (loanType.equals("30_arm_5"))
+			row.setArm_5(newInterestRate);
+		else if (loanType.equals("30_arm_7"))
+			row.setArm_7(newInterestRate);
+		else if (loanType.equals("30_arm_10"))
+			row.setArm_10(newInterestRate);
+		template.update(row);
+	}
 
 }

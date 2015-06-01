@@ -7,41 +7,45 @@
 <title>Update Interest Rate</title>
 </head>
 <body ng-controller="adminCtrl">
-<div class="container">
-	<h3>Update Interest</h3>
-	<form id="updateInterestForm" class="form-horizontal" ng-submit="updateInterest()">
-		<div class="form-group">                    
-	        <label for="state" class="col-sm-3 control-label"><font color="red">* </font>State</label>
-	        <div class="col-sm-9">
-		        <select class="form-control" ng-model="state" ng-options="key for (key, value) in stateList">
-		      		<option value=""></option>
-		    	</select>
+<h3>Update Interest</h3>
+<form id="updateInterestForm" class="form-horizontal" action="changeInterestRate.html" method="POST">
+	<div class="form-group">                    
+        <label for="state" class="col-sm-3 control-label"><font color="red">* </font>State</label>
+        <div class="col-sm-9">
+	        <select class="form-control" name="state" ng-model="state" 
+	        	ng-options="key for (key, value) in stateList"
+	        	ng-change="getCurrentInterestRate()">
+	      		<option value=""></option>
+	    	</select>
+		</div>
+    </div>
+    <div class="form-group">                    
+        <label for="loanType" class="col-sm-3 control-label"><font color="red">* </font>Loan Type</label>
+        <div class="col-sm-9">
+	        <select class="form-control" name="loanType" ng-model="loanType" 
+	        	ng-options="key for (key, value) in loanTypeList"
+	        	ng-change="getCurrentInterestRate()">
+	      		<option value=""></option>
+	    	</select>
+		</div>
+    </div>
+    <div class="form-group"> 
+    	<label for="rate" class="col-sm-3 control-label">Interest Rate</label>
+    	<div class="col-sm-9">                   
+			<div class="input-group">
+				<div class="input-group-addon">%</div>
+				<input type="text" class="form-control" name="newInterestRate" ng-model="rate" ng-disabled="enableInterestRateInput()">
 			</div>
-	    </div>
-	    <div class="form-group">                    
-	        <label for="loanType" class="col-sm-3 control-label"><font color="red">* </font>Loan Type</label>
-	        <div class="col-sm-9">
-		        <select class="form-control" ng-model="loanType" ng-options="key for (key, value) in loanTypeList">
-		      		<option value=""></option>
-		    	</select>
-			</div>
-	    </div>
-	    <div class="form-group">                    
-	        <label for="interestRate" class="col-sm-3 control-label"><font color="red">* </font>Interest Rate</label>
-	        <div class="col-sm-9">
-		        <select class="form-control" ng-model="interestRate" ng-disabled="">
-		      		<option value=""></option>
-		    	</select>
-			</div>
-	    </div>
+		</div>
+    </div>
 
-	    <div class="form-group">
-	    	<div class="col-sm-offset-3 col-sm-9">
-	      		<button type="reset" class="btn btn-primary">Reset</button>
-	      		<button type="submit" id="updateInterestBtn" class="btn btn-primary">Update</button>
-	    	</div>
-	    </div>
-	</form>
-</div>
+    <div class="form-group">
+    	<div class="col-sm-offset-3 col-sm-9">
+      		<button type="reset" class="btn btn-primary">Reset</button>
+      		<button type="submit" id="updateInterestBtn" class="btn btn-primary">Update</button>
+    	</div>
+    </div>
+</form>
+<script src="js/controller/adminController.js"></script>
 </body>
 </html>
