@@ -6,15 +6,13 @@
 <title>Home</title>
 </head>
 <body>
-<div class="container">
-	<h2 class="text-center">Enhanced Mortgage Calculator</h2>
-	<p>
-		EMC is a calculator to help you to calculator loans. You needs to log in the system 
-		and input the necessary information. Then EMC will output the monthly payment with 
-		the payment schedule. You can also add additional principals for each month and EMC 
-		will calculate how much you can save for interest.
-	</p>
-	<h2>${message}</h2>
-</div>
+<h2 class="text-center">Enhanced Mortgage Calculator</h2>
+<p>
+	EMC is a calculator to help you to calculator loans. You needs to log in the system 
+	and input the necessary information. Then EMC will output the monthly payment with 
+	the payment schedule. You can also add additional principals for each month and EMC 
+	will calculate how much you can save for interest.
+</p>
+<h2>${message}</h2>
 </body>
 </html>

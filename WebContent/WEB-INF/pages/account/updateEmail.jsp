@@ -7,22 +7,20 @@
 <title>Update Email</title>
 </head>
 <body>
-	<div class="container">
-	<h3>Update Email</h3>
-	<form class="form-horizontal" action="changeEmail.html" method="post">
-		<div class="form-group">                    
-	        <label for="newEmail" class="col-sm-3 control-label"><font color="red">* </font>New Email</label>
-	        <div class="col-sm-9">
-	            <input type="email" class="form-control" id="newEmail" name="newEmail" placeholder="New Email">
-	        </div>
-	    </div>
-	    <div class="form-group">
-	    	<div class="col-sm-offset-3 col-sm-9">
-	      		<button type="reset" class="btn btn-primary">Reset</button>
-	      		<button type="submit" id="updateEmailBtn" class="btn btn-primary">Update</button>
-	    	</div>
-	    </div>
-	</form>
-</div>
+<h3>Update Email</h3>
+<form class="form-horizontal" action="changeEmail.html" method="post">
+	<div class="form-group">                    
+        <label for="newEmail" class="col-sm-3 control-label"><font color="red">* </font>New Email</label>
+        <div class="col-sm-9">
+            <input type="email" class="form-control" id="newEmail" name="newEmail" placeholder="New Email">
+        </div>
+    </div>
+    <div class="form-group">
+    	<div class="col-sm-offset-3 col-sm-9">
+      		<button type="reset" class="btn btn-primary">Reset</button>
+      		<button type="submit" id="updateEmailBtn" class="btn btn-primary">Update</button>
+    	</div>
+    </div>
+</form>
 </body>
 </html>
