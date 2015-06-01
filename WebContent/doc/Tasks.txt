@@ -1,15 +1,10 @@
-- security
+- Acitvate  (invalid link)
+- Redirect
 - Calculator (display results, chart)
-- Encrypt (password)
-- Remember me
-- Show message
 
+- Security
 
-
-cache!!!
-
-- Forget password
 - Form validation 
 - CSS (logo ...)
-- Activate account (invalid link)
 - Database (data)
+- Cache!!!

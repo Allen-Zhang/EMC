@@ -16,10 +16,10 @@ $(document).ready(function() {
 	    $(".alert-short").fadeTo(1500, 0).slideUp(500, function(){
 	        $(this).remove(); 
 	    });
-	}, 2000);  // stay for 2 seconds
+	}, 2500);  // stay for 2.5 seconds
 	window.setTimeout(function() {
 	    $(".alert-long").fadeTo(1500, 0).slideUp(500, function(){
 	        $(this).remove(); 
 	    });
-	}, 20000);  // stay for 20 seconds
+	}, 15000);  // stay for 15 seconds
 });

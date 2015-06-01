@@ -78,9 +78,12 @@ public class UserController {
 	 *  Activate account
 	 */
 	@RequestMapping(value = "/activate", method = RequestMethod.GET)
-	public String activateAccount(@RequestParam("id") String id) {
+	public ModelAndView activateAccount(@RequestParam("id") String id) {
 		us.activateUser(id);
-		return "/account/activate";
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("home");
+		mav.addObject("success", "Your account is activated sucessfully.");
+		return mav;
 	}
 
 	/*
@@ -120,7 +123,8 @@ public class UserController {
 	 * Forget Password
 	 */
 	@RequestMapping(value = "/sendEmailToForgetPassword", method = RequestMethod.POST)
-	public ModelAndView sendEmailToForgetPassword(@RequestParam("username") String username,
+	public ModelAndView sendEmailToForgetPassword(
+			@RequestParam("username") String username,
 			@RequestParam("email") String email) {
 		ModelAndView mav = new ModelAndView();
 		User user = us.checkUser(username);
