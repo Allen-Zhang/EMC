@@ -34,7 +34,8 @@
  	-->
  	
 	<sec:authentication-manager alias="authenticationManager">
-        <sec:authentication-provider user-service-ref="customUserDetailsService"/>
+        <sec:authentication-provider user-service-ref="customUserDetailsService">
+        <sec:password-encoder hash="sha" />
         <!-- <sec:authentication-provider>
         	<sec:jdbc-user-service data-source-ref="dataSource"
 		   		users-by-username-query="
@@ -44,6 +45,8 @@
 		      		select u.username, r.authority from users u, user_roles r 
 		      		where u.user_id = r.user_id and u.username =?"/>
 		</sec:authentication-provider> -->
+		
+		</sec:authentication-provider>
     </sec:authentication-manager>
 
 	<bean id="customUserDetailsService" class="com.mercury.service.CustomUserDetailsService">

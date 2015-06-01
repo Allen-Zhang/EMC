@@ -54,6 +54,9 @@ public class UserController {
 			mav.addObject("message", "Sorry, username is already existed.");
 			return mav;
 		} else {
+			String encryptedPassword = us.getShaPassword(user.getPassword());
+			System.out.println("pwd: "+encryptedPassword);
+			user.setPassword(encryptedPassword);
 			us.saveUser(user);
 			// send email to user to activate the account 
 			String from = "sijiyangyi24@gmail.com";
