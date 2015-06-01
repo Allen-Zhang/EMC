@@ -7,7 +7,7 @@
 </head>
 <body ng-controller="adminCtrl">
 <h3>Interest Rate Table</h3>
-<table class="table table-striped emc-table">
+<table class="table table-striped table-hover emc-table">
 	<thead>
 		<tr>
 			<th>State</th>
