@@ -25,24 +25,28 @@ public class AdminController {
 	@Qualifier("mortgageService")
 	private MortgageService ms;
 	
-	// RESTful web service
+	// RESTful web service for get current interest rate
 	@RequestMapping(value="/getOldInterestRate", method=RequestMethod.POST)	
 	@ResponseBody
-	public double getCurrentInterentRate(@RequestBody Loan loan) {
+	public double getCurrentInterestRate(@RequestBody Loan loan) {
 		double currInterestRate = ms.getInterestRate(loan.getState(), loan.getLoanType());
 		return currInterestRate;
 	}
 	
-	//Update rate
+	// Update specific interest rate
 	@RequestMapping(value = "/changeInterestRate", method = RequestMethod.POST)
-	public ModelAndView updateInterestRate( @RequestParam("state") String state,
-			@RequestParam("loanType") String loanType, @RequestParam("newInterestRate") double newInterestRate) {
+	public ModelAndView updateInterestRate( 
+			@RequestParam("state") String state,
+			@RequestParam("loanType") String loanType, 
+			@RequestParam("newInterestRate") double newInterestRate) {
 		ms.updateInterestRate(StateFormater.getInstance().abbreviate(state), loanType, newInterestRate);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("admin/updateInterestRate");
-		mav.addObject("message", "Update interest rate succeeded.");
+		mav.addObject("message", "Update interest rate successfully.");
 		return mav;
 	}
+	
+	// RESTful web service for get all interest rates
 	@RequestMapping(value = "/allRatesTypes", method = RequestMethod.GET)
 	@ResponseBody
 	public List<InterestRate> getAllRatesTypes() {

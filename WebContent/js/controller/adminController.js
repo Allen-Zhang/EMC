@@ -1,17 +1,11 @@
 /* 
- * Mortgage Calculator Controller
+ * Admin Controller
  * @Framework: AngularJS 
  */
 angular.module("myApp")
-	.controller("adminCtrl", ['$scope','$http', '$log', function($scope,$http,$log){
-		
-		/*$scope.$log = $log;
-		$scope.message = 'Hello World!';*/
-		  		
-		// Making the fields empty
+	.controller("adminCtrl", ['$scope','$http', function($scope, $http){
 		$scope.state='';
 		$scope.loanType='';
-		//$scope.newRate = '';
 		
 		$scope.loan = [];
 		$scope.stateList = {
@@ -31,7 +25,7 @@ angular.module("myApp")
 				'30_arm_5' : '30_arm_5', '30_arm_7' : '30_arm_7', '30_arm_10' : '30_arm_10'};
 		
 		/*
-		 * Get current interest rate from database
+		 * Get a specific interest rate from database
 		 */
 		$scope.getCurrentInterestRate = function(){
 			if ($scope.state != '' && $scope.loanType != '') {
@@ -57,6 +51,10 @@ angular.module("myApp")
 		$scope.enableInterestRateInput = function() {
 			return ($scope.state != '' && $scope.loanType != '') ? false : true;
 		};
+		
+		/*
+		 * Get all interest rates from database
+		 */
 		$http.get('allRatesTypes.html')
 		.success(function(data, status, headers, config) {
 			$scope.rows = data;

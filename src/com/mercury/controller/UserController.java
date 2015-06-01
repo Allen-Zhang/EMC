@@ -65,7 +65,7 @@ public class UserController {
 					+ user.getUsername();
 			jms.sendMail(from, to, subject, msg);
 			mav.setViewName("home");
-			mav.addObject("message", "Your account is activated!");
+			mav.addObject("message", "Your account is activated successfully.");
 			return mav;
 		}
 	}
@@ -95,7 +95,7 @@ public class UserController {
 		} else {
 			us.updatePassword(getLoginUser().getUsername(), newPassword);
 			mav.setViewName("home"); // go to home page
-			mav.addObject("message", "Your password is updated succeed.");
+			mav.addObject("message", "Your password is updated successfully.");
 		}
 		return mav;
 	}
@@ -108,7 +108,7 @@ public class UserController {
 		ModelAndView mav = new ModelAndView();
 		us.updateEmail(getLoginUser().getUsername(), newEmail);
 		mav.setViewName("home"); // go to home page
-		mav.addObject("message", "Your email is updated succeed.");
+		mav.addObject("message", "Your email is updated successfully.");
 		return mav;
 	}
 

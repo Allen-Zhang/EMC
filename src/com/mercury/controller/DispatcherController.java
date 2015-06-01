@@ -31,10 +31,12 @@ public class DispatcherController {
 	public String updateEmailPage() {
 		return "account/updateEmail";
 	}
+	
 	@RequestMapping(value = "/updateInterestRate", method = RequestMethod.GET)
 	public String updateInterestRatePage() {
 		return "admin/updateInterestRate";
 	}
+	
 	@RequestMapping(value = "/showInterestRate", method = RequestMethod.GET)
 	public String showInterestRateTablePage() {
 		return "admin/showInterestRate";

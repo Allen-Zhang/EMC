@@ -7,7 +7,7 @@
 <title>Update Interest Rate</title>
 </head>
 <body ng-controller="adminCtrl">
-<h3>Update Interest</h3>
+<h3>Update Interest Rate</h3>
 <form id="updateInterestForm" class="form-horizontal" action="changeInterestRate.html" method="POST">
 	<div class="form-group">                    
         <label for="state" class="col-sm-3 control-label"><font color="red">* </font>State</label>
@@ -38,7 +38,6 @@
 		</div>
 	</div>
     </div>
-
     <div class="form-group">
     	<div class="col-sm-offset-3 col-sm-9">
       		<button type="reset" class="btn btn-primary">Reset</button>
