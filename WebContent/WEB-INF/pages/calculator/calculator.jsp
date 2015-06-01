@@ -47,7 +47,7 @@
 			        <div class="col-sm-6">
 			        	<div class="input-group">
 			      			<div class="input-group-addon">$</div>
-			            	<input type="text" class="form-control" ng-model="purchase">
+			            	<input type="text" class="form-control" ng-model="purchase" id="purchase">
 			            </div>
 			        </div>
 			    </div>

@@ -6,6 +6,10 @@
 <title>Home</title>
 </head>
 <body>
+<!-- Prompt message -->
+<jsp:include page="prompt.jsp" />
+
+<!-- Main body -->
 <h2 class="text-center">Enhanced Mortgage Calculator</h2>
 <p>
 	EMC is a calculator to help you to calculator loans. You needs to log in the system 
@@ -13,6 +17,5 @@
 	the payment schedule. You can also add additional principals for each month and EMC 
 	will calculate how much you can save for interest.
 </p>
-<h2>${message}</h2>
 </body>
 </html>

@@ -39,7 +39,7 @@
 								<input type="password" class="form-control" name="j_password" id="j_password" placeholder="Password">
 							</div>
 							<div class="checkbox">
-								<label><input type="checkbox" name="rememberMe" checked> Remember me for 90 days</label>
+								<label><input type="checkbox" name="_spring_security_remember_me" checked> Remember me for 30 days</label>
 							</div>
 							<a href="forgetPassword.html">Forget Password?</a>
 							<button type="submit" class="btn btn-primary pull-right">Sign In</button>

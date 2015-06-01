@@ -9,4 +9,15 @@ $(document).ready(function() {
 		$("#calculatorNav a[href='#resultPane']").trigger("click");
 	});
 	
+	// Auto fade out alert block
+	window.setTimeout(function() {
+	    $(".alert-short").fadeTo(1500, 0).slideUp(500, function(){
+	        $(this).remove(); 
+	    });
+	}, 2000);  // stay for 2 seconds
+	window.setTimeout(function() {
+	    $(".alert-long").fadeTo(1500, 0).slideUp(500, function(){
+	        $(this).remove(); 
+	    });
+	}, 20000);  // stay for 20 seconds
 });

@@ -38,7 +38,7 @@ public class UserController {
 	public ModelAndView login() {	
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("home");
-		mav.addObject("message", "Welcome back " + getLoginUser().getUsername() + "!");
+		mav.addObject("success", "Welcome back " + getLoginUser().getUsername() + "!");
 		return mav;
 	}
 	
@@ -51,7 +51,7 @@ public class UserController {
 		// username is existed
 		if (us.checkUser(user.getUsername()) != null) {
 			mav.setViewName("account/signup");  // go back to signup page
-			mav.addObject("message", "Sorry, username is already existed.");
+			mav.addObject("error", "Sorry, username is already existed.");
 			return mav;
 		} else {
 			String encryptedPassword = us.getShaPassword(user.getPassword());
@@ -68,7 +68,7 @@ public class UserController {
 					+ user.getUsername();
 			jms.sendMail(from, to, subject, msg);
 			mav.setViewName("home");
-			mav.addObject("message", "Your account is activated successfully.");
+			mav.addObject("success_long", "Congratulation! Your account is registered successfully.<br/>Please check your email (" + to + ") to activate your account.");
 			return mav;
 		}
 	}
@@ -94,11 +94,11 @@ public class UserController {
 		// old password is wrong
 		if (!oldPassword.equals(user.getPassword())) {
 			mav.setViewName("account/updatePassword"); // go back to updatePassword page
-			mav.addObject("message", "Sorry, your old password is wrong.");
+			mav.addObject("error", "Sorry, your old password is wrong.");
 		} else {
 			us.updatePassword(getLoginUser().getUsername(), newPassword);
 			mav.setViewName("home"); // go to home page
-			mav.addObject("message", "Your password is updated successfully.");
+			mav.addObject("success", "Your password is updated successfully.");
 		}
 		return mav;
 	}
@@ -111,7 +111,7 @@ public class UserController {
 		ModelAndView mav = new ModelAndView();
 		us.updateEmail(getLoginUser().getUsername(), newEmail);
 		mav.setViewName("home"); // go to home page
-		mav.addObject("message", "Your email is updated successfully.");
+		mav.addObject("success", "Your email is updated successfully.");
 		return mav;
 	}
 	

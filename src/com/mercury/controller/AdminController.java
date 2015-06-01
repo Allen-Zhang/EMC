@@ -42,7 +42,7 @@ public class AdminController {
 		ms.updateInterestRate(StateFormater.getInstance().abbreviate(state), loanType, newInterestRate);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("admin/updateInterestRate");
-		mav.addObject("message", "Update interest rate successfully.");
+		mav.addObject("success", "Update interest rate successfully.");
 		return mav;
 	}
 	

@@ -26,3 +26,8 @@ body {
 .emc-table th, .emc-table td {
 	text-align: center;
 }
+
+/* Prompt message font */
+.prompt {
+	font-size: 18px;
+}

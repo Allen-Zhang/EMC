@@ -7,6 +7,10 @@
 <title>Update Interest Rate</title>
 </head>
 <body ng-controller="adminCtrl">
+<!-- Prompt message -->
+<jsp:include page="../prompt.jsp" />
+
+<!-- Main body -->
 <h3>Update Interest Rate</h3>
 <form id="updateInterestForm" class="form-horizontal" action="changeInterestRate.html" method="POST">
 	<div class="form-group">                    
