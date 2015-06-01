@@ -19,7 +19,7 @@ public class AdminController {
 	@Qualifier("mortgageService")
 	private MortgageService ms;
 	// RESTful web service
-	@RequestMapping(value="/result", method=RequestMethod.POST)	
+	@RequestMapping(value="/changeInterestRate", method=RequestMethod.POST)	
 	@ResponseBody
 	public double updatedInterestRate(@RequestBody Loan loan) {
 		double interestRate = ms.getInterestRate(loan.getState(), loan.getLoanType());
