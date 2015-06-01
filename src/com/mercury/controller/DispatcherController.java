@@ -35,4 +35,8 @@ public class DispatcherController {
 	public String updateInterestRatePage() {
 		return "admin/updateInterestRate";
 	}
+	@RequestMapping(value = "/showInterestRate", method = RequestMethod.GET)
+	public String showInterestRateTablePage() {
+		return "admin/showInterestRate";
+	}
 }

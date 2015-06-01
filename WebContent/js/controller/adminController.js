@@ -3,7 +3,11 @@
  * @Framework: AngularJS 
  */
 angular.module("myApp")
-	.controller("adminCtrl", ['$scope','$http',function($scope,$http){
+	.controller("adminCtrl", ['$scope','$http', '$log', function($scope,$http,$log){
+		
+		/*$scope.$log = $log;
+		$scope.message = 'Hello World!';*/
+		  		
 		// Making the fields empty
 		$scope.state='';
 		$scope.loanType='';
@@ -39,4 +43,12 @@ angular.module("myApp")
 			});		
 		
 		};
+		$http.get('allRatesTypes.html')
+		.success(function(data, status, headers, config) {
+			$scope.rows = data;
+		})
+		.error(function(data, status, headers, config) {
+			alert( "failure message: " + JSON.stringify({data : data}));  // JSON.stringify() converts a JavaScript value to a JSON string
+		});				
+
 	}]);

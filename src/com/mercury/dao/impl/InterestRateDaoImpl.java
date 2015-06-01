@@ -27,4 +27,11 @@ public class InterestRateDaoImpl implements InterestRateDao {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<InterestRate> queryAll() {
+		String hql = "from InterestRate";
+		return template.find(hql);
+	}
+
 }

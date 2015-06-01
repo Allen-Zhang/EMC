@@ -1,6 +1,5 @@
 package com.mercury.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.mercury.bean.InterestRate;
@@ -79,4 +78,8 @@ public class MortgageService {
 //		}
 //	}
 	
+	public List<InterestRate> getTypes(){
+		return rd.queryAll();
+	}
+
 }
