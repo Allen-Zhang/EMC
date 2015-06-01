@@ -1,5 +1,7 @@
 package com.mercury.service;
 
+import java.util.List;
+
 import com.mercury.bean.InterestRate;
 import com.mercury.dao.InterestRateDao;
 
@@ -34,5 +36,8 @@ public class MortgageService {
 				return rate.getArm_10();
 		}
 		return -1;  // error;
+	}
+	public List<InterestRate> getTypes(){
+		return rd.queryAll();
 	}
 }
