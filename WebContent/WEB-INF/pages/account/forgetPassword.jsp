@@ -7,6 +7,10 @@
 <title>Forget Password</title>
 </head>
 <body>
+<!-- Prompt message -->
+<jsp:include page="../prompt.jsp" />
+
+<!-- Main body -->
 <h3>Forget Password</h3>
 	<form id="resetPasswordForm" class="form-horizontal" action="sendEmailToForgetPassword.html" method="post">
 		<div class="form-group">                    

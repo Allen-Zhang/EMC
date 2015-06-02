@@ -18,6 +18,11 @@ $(document).ready(function() {
 	    });
 	}, 2500);  // stay for 2.5 seconds
 	window.setTimeout(function() {
+	    $(".alert-normal").fadeTo(1500, 0).slideUp(500, function(){
+	        $(this).remove(); 
+	    });
+	}, 10000);  // stay for 10 seconds
+	window.setTimeout(function() {
 	    $(".alert-long").fadeTo(1500, 0).slideUp(500, function(){
 	        $(this).remove(); 
 	    });
