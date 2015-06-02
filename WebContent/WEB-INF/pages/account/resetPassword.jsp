@@ -7,6 +7,10 @@
 <title>Reset Password</title>
 </head>
 <body>
+<!-- Prompt message -->
+<jsp:include page="../prompt.jsp" />
+
+<!-- Main body -->
 <h3>Reset Password</h3>
 	<form id="resetPasswordForm" class="form-horizontal" action="resetedPassword.html" method="post">
 		<div class="form-group">                    

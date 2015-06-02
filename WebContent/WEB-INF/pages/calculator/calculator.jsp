@@ -150,16 +150,16 @@
 						<th>Month</th>
 						<th>Monthly Payment</th>
 						<th ng-show="showExtraPaymentColumn()">Extra Payment</th>
-						<th>Interest Rate</th>
+						<th>Total Payment</th>
 						<th>Remaining Principal</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="result in results">
+					<tr ng-repeat="result in schedule.results">
 						<td>{{result.month}}</td>
 						<td>{{result.monthlyPayment | currency}}</td>
 						<td ng-show="showExtraPaymentColumn()">{{result.extraPayment | currency}}</td>
-						<td>{{result.interestRate}}%</td>
+						<td>{{result.totalPayment | currency}}</td>
 						<td>{{result.remainingPrincipal | currency}}</td>
 					</tr>
 				</tbody>

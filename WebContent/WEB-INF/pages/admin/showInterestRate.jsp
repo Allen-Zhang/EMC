@@ -3,7 +3,7 @@
 <html ng-app="myApp">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Show Interest</title>
+<title>Show Interest Rate</title>
 </head>
 <body ng-controller="adminCtrl">
 <h3>Interest Rate Table</h3>

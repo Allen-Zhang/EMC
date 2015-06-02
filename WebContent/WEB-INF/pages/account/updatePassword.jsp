@@ -7,6 +7,10 @@
 <title>Update Password</title>
 </head>
 <body>
+<!-- Prompt message -->
+<jsp:include page="../prompt.jsp" />
+
+<!-- Main body -->
 <h3>Update Password</h3>
 <form id="updatePassowrdForm" class="form-horizontal" action="changePassword.html" method="post">
 	<div class="form-group">                    

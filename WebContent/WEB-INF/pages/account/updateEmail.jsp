@@ -7,6 +7,10 @@
 <title>Update Email</title>
 </head>
 <body>
+<!-- Prompt message -->
+<jsp:include page="../prompt.jsp" />
+
+<!-- Main body -->
 <h3>Update Email</h3>
 <form class="form-horizontal" action="changeEmail.html" method="post">
 	<div class="form-group">                    

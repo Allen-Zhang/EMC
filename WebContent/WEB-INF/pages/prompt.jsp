@@ -21,10 +21,9 @@
 		<span class="sr-only">Message:</span>${success_long}
 	</div>
 </c:if>
-
-<!-- Error message (alert-short) -->
+<!-- Error message (alert-normal) -->
 <c:if test="${error != null}">
-<div class="alert alert-danger alert-short text-center prompt" role="alert">
+<div class="alert alert-danger alert-normal text-center prompt" role="alert">
 	<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
 	<span class="sr-only">Error:</span>${error}
 </div>
