@@ -49,6 +49,7 @@ public class DispatcherController {
 	public String showForgetPasswordPage() {
 		return "account/forgetPassword";
 	}
+	
 	@RequestMapping(value = "/resetPassword", method = RequestMethod.GET)
 	public ModelAndView showResetPasswordPage(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
