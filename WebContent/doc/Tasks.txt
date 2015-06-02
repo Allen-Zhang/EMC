@@ -1,12 +1,16 @@
-
-- Show message
-- Acitvate  (invalid link)
+Z:
 - Redirect
-- Calculator (display results, chart)
-
 - Security
 
+D:
 - Form validation 
+- Calculator (chart)
 - CSS (logo ...)
-- Database (data)
+
+Y:
 - Cache!!!
+
+
+
+- User_roles table insert?
+- Email link encrypt

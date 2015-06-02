@@ -13,6 +13,7 @@ angular.module('myApp')
 		$scope.extraMonth = 0;  // enhanced field
 */		
 		
+		// ************ For testing ************
 		$scope.purchase = '500000';
 		$scope.termInYears = '30';
 		$scope.state = 'MA';
@@ -20,7 +21,7 @@ angular.module('myApp')
 		$scope.loanType = 'fixed';
 		$scope.extraPayment = 2000;  // enhanced field
 		$scope.extraMonth = 20;  // enhanced field
-		
+		// *************************************
 		
 		$scope.loan = [];  // loan object for request body
 		$scope.stateList = {
@@ -61,20 +62,20 @@ angular.module('myApp')
 		/*
 		 * Get real loan type base on termInYears, loanType
 		 */
-		$scope.getRealLoanType = function(termInYears, loanType) {
+		$scope.getLoanType = function(termInYears, loanType) {
 			if (termInYears == 15)
-				return '15_fix';
+				return 'fix_15';
 			else if (termInYears == 20)
-				return '20_fix';
+				return 'fix_20';
 			else if (termInYears == 30) {
 				if (loanType == 'fixed')
-					return '30_fix';
+					return 'fix_30';
 				else if (loanType == '5_year_arm')
-					return '30_arm_5';
+					return 'arm_5';
 				else if (loanType == '7_year_arm')
-					return '30_arm_7';
+					return 'arm_7';
 				else if (loanType == '10_year_arm')
-					return '30_arm_10';
+					return 'arm_10';
 			} else
 				return '';
 		};
@@ -86,26 +87,24 @@ angular.module('myApp')
 			if ($("#calculateForm").valid()) {  // form validation
 				$scope.loan.push({
 					'purchase' : $scope.purchase, 
-					'termInYears' : $scope.termInYears, 
 					'state' : $scope.state, 
 					'downPayment' : $scope.downPayment, 
-					'loanType' : $scope.getRealLoanType($scope.termInYears, $scope.loanType),
+					'loanType' : $scope.getLoanType($scope.termInYears, $scope.loanType),
 					'extraPayment' : $scope.extraPayment == '' ? 0 : $scope.extraPayment,
 					'extraMonth' : $scope.extraMonth == '' ? 0 : $scope.extraMonth
 				});
 				// Object that send to server
 				var dataObj = {
 						purchase : $scope.purchase,
-						termInYears : $scope.termInYears,
 						state : $scope.state,
 						downPayment : $scope.downPayment,
-						loanType : $scope.getRealLoanType($scope.termInYears, $scope.loanType),
+						loanType : $scope.getLoanType($scope.termInYears, $scope.loanType),
 						extraPayment : $scope.extraPayment == '' ? 0 : $scope.extraPayment,
 						extraMonth : $scope.extraMonth == '' ? 0 : $scope.extraMonth
 				};	
 				$http.post('result.html', dataObj)
 				.success(function(data, status, headers, config) {
-					$scope.results = data;
+					$scope.schedule = data;
 				})
 				.error(function(data, status, headers, config) {
 					alert("failure message: " + JSON.stringify({data : data}));  // JSON.stringify() converts a JavaScript value to a JSON string
