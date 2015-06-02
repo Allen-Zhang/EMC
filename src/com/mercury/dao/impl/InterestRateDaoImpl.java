@@ -23,10 +23,32 @@ public class InterestRateDaoImpl implements InterestRateDao {
 		if (rates.size() > 0) {
 			return rates.get(0);
 		} else {
-			return null;
+			return null;  // not found
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
+	@Override
+	public double findInterestRate(String state, String loanType) {
+		String hql = "select i." + loanType + " from InterestRate as i where i.state = '" + state + "'";
+		List<Double> rates = template.find(hql);
+//		String hql = "select i.? from InterestRate as i where i.state = ?";
+//		List<Double> rates = template.find(hql, loanType, state);
+		if (rates.size() > 0) {
+			return Double.valueOf(rates.get(0));
+		} else {
+			return -1;  // not found
+		}
+	}
+
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<InterestRate> queryAll() {
+		String hql = "from InterestRate";
+		return template.find(hql);
+	}
+
 	public void updateInterestRate(String state, String loanType, double newInterestRate) {
 		InterestRate row = findByState(state);
 		// Using if else since switch not support String type in Java 6
@@ -43,13 +65,6 @@ public class InterestRateDaoImpl implements InterestRateDao {
 		else if (loanType.equals("30_arm_10"))
 			row.setArm_10(newInterestRate);
 		template.update(row);
-	}
-
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<InterestRate> queryAll() {
-		String hql = "from InterestRate";
-		return template.find(hql);
 	}
 
 }

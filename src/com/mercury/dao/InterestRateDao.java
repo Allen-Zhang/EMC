@@ -6,6 +6,7 @@ import com.mercury.bean.InterestRate;
 
 public interface InterestRateDao {
 	public InterestRate findByState(String state);
-	public void updateInterestRate(String state, String loanType, double newInterestRate);
+	public double findInterestRate(String state, String loanType);
 	public List<InterestRate> queryAll();
+	public void updateInterestRate(String state, String loanType, double newInterestRate);
 }

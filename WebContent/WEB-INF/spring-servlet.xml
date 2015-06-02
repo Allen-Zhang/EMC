@@ -30,10 +30,14 @@
     </bean> -->
     
 	<!-- Services -->
-    <bean id="mortgageService" class="com.mercury.service.MortgageService">
-    	<property name="rd" ref="interestRateDao"/>
-    </bean>
     <bean id="userService" class="com.mercury.service.UserService">
     	<property name="ud" ref="userDao"/>
     </bean>
+    <bean id="adminService" class="com.mercury.service.AdminService">
+    	<property name="rd" ref="interestRateDao"/>
+    </bean>
+    <bean id="enhancedMortgageCalculator" class="com.mercury.service.EnhancedMortgageCalculator">
+    	<property name="rd" ref="interestRateDao"/>
+    </bean>
+    
 </beans>

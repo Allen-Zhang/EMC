@@ -2,16 +2,15 @@ package com.mercury.bean;
 
 /**
  * @param purchase total amount of loan
- * @param termInYears term of loan in years
  * @param state state of loan
  * @param downPayment down payment of loan, 5.6% = 5.6
- * @param loanType type of loan (15_fix, 20_fix, 30_fix, 30_arm_5, 30_arm_7, 30_arm_10)
+ * @param loanType type of loan (fix_15, fix_20, fix_30, arm_5, arm_7, arm_10)
  */
 public class Loan {
 	private double purchase; 
-	private int termInYears;
-	private String state;
 	private double downPayment;
+//	private int termInYears;
+	private String state;
 	private String loanType;
 	private double extraPayment;  // enhanced field
 	private int extraMonth;  // enhanced field
@@ -22,23 +21,23 @@ public class Loan {
 	public void setPurchase(double purchase) {
 		this.purchase = purchase;
 	}
-	public int getTermInYears() {
-		return termInYears;
-	}
-	public void setTermInYears(int termInYears) {
-		this.termInYears = termInYears;
-	}
-	public String getState() {
-		return state;
-	}
-	public void setState(String state) {
-		this.state = state;
-	}
 	public double getDownPayment() {
 		return downPayment;
 	}
 	public void setDownPayment(double downPayment) {
 		this.downPayment = downPayment;
+	}
+//	public int getTermInYears() {
+//		return termInYears;
+//	}
+//	public void setTermInYears(int termInYears) {
+//		this.termInYears = termInYears;
+//	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
 	}
 	public String getLoanType() {
 		return loanType;

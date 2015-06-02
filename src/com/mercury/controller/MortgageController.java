@@ -13,30 +13,41 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.mercury.bean.Loan;
 import com.mercury.bean.Result;
-import com.mercury.service.MortgageService;
+import com.mercury.bean.Schedule;
+import com.mercury.service.EnhancedMortgageCalculator;
 
 @Controller
 @SessionAttributes
 public class MortgageController {
 	@Autowired
-	@Qualifier("mortgageService")
-	private MortgageService ms;
+	@Qualifier("enhancedMortgageCalculator")
+	private EnhancedMortgageCalculator mc;
 	
 	// RESTful web service
 	@RequestMapping(value="/result", method=RequestMethod.POST)	
 	@ResponseBody
-	public List<Result> getPaymentSchedule(@RequestBody Loan loan) {
+	public Schedule getPaymentSchedule(@RequestBody Loan loan) {
+		// For cacheable testing
+		System.out.println("Start calculating...");  
+		
+		double purchase = loan.getPurchase();
+		double downPayment = loan.getDownPayment();  // 6.6%
+		double principal = purchase * (1 - downPayment / 100);
+		String state = loan.getState();
 		String loanType = loan.getLoanType();
-		// Fixed rate
-		if (loanType.indexOf("fix") >= 0) {
-			return ms.getPaymentScheduleInFixedRate(loan);
+		double extraPayment = loan.getExtraPayment();
+		int extraMonth = loan.getExtraMonth();
+		
+		double[] monthlyRates = mc.getMonthlyRates(state, loanType);
+		List<Result> results = mc.enhancedMortgageCalculate(principal, loanType, monthlyRates, extraPayment, extraMonth);
+		double savedInterest = 0.0;
+		if (extraPayment != 0 && extraMonth != 0) {
+			savedInterest = mc.getOriginalTotalPayment(principal, loanType, monthlyRates) - mc.getCurrentTotalPayment(results);
+			savedInterest = mc.truncate(savedInterest);
 		}
-		// Adjustable rate
-		else {
-			String[] items = loanType.split("_");
-			int years = Integer.valueOf(items[2]);
-//			return ms.getPaymentScheduleInAdjustableRate(loan, years);
-			return null;
-		}
+		// For cacheable testing
+		System.out.println("Finish calculating.");  
+		
+		return new Schedule(results, purchase, downPayment, results.size() / 12, monthlyRates, savedInterest);
 	}
 }
