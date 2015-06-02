@@ -1,8 +1,10 @@
 package com.mercury.service;
 
-import com.mercury.bean.User;
-import com.mercury.dao.UserDao;
 import org.apache.commons.codec.digest.DigestUtils;
+
+import com.mercury.bean.User;
+import com.mercury.bean.UserRole;
+import com.mercury.dao.UserDao;
 
 public class UserService {
 	private UserDao ud;
@@ -19,7 +21,10 @@ public class UserService {
 		return user;
 	}
 	
+	// Save normal user ROLE_USER
 	public void saveUser(User user){
+		UserRole role = new UserRole(user, "ROLE_USER");
+		user.addUserRole(role);
 		ud.save(user);
 	}
 	

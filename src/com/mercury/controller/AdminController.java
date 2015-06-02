@@ -23,13 +23,13 @@ import com.mercury.util.Adapter;
 public class AdminController {
 	@Autowired
 	@Qualifier("adminService")
-	private AdminService ms;
+	private AdminService as;
 	
 	// RESTful web service for get current interest rate
 	@RequestMapping(value="/getOldInterestRate", method=RequestMethod.POST)	
 	@ResponseBody
 	public double getCurrentInterestRate(@RequestBody Loan loan) {
-		double currInterestRate = ms.getInterestRate(loan.getState(), loan.getLoanType());
+		double currInterestRate = as.getInterestRate(loan.getState(), loan.getLoanType());
 		return currInterestRate;
 	}
 	
@@ -39,7 +39,7 @@ public class AdminController {
 			@RequestParam("state") String state,
 			@RequestParam("loanType") String loanType, 
 			@RequestParam("newInterestRate") double newInterestRate) {
-		ms.updateInterestRate(Adapter.getInstance().abbrebiate(state), loanType, newInterestRate);
+		as.updateInterestRate(Adapter.getInstance().abbrebiate(state), loanType, newInterestRate);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("admin/updateInterestRate");
 		mav.addObject("success", "Update interest rate successfully.");
@@ -50,7 +50,7 @@ public class AdminController {
 	@RequestMapping(value = "/allRatesTypes", method = RequestMethod.GET)
 	@ResponseBody
 	public List<InterestRate> getAllRatesTypes() {
-	    List<InterestRate> interestRateTypes = ms.getTypes();
+	    List<InterestRate> interestRateTypes = as.getTypes();
 	    return interestRateTypes;
 	}
 }
