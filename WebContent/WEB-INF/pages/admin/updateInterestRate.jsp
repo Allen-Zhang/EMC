@@ -16,7 +16,7 @@
 	<div class="form-group">                    
         <label for="state" class="col-sm-3 control-label"><font color="red">* </font>State</label>
         <div class="col-sm-9">
-	        <select class="form-control" name="state" ng-model="state" 
+	        <select class="form-control" name="state" id="state" ng-model="state" 
 	        	ng-options="key for (key, value) in stateList"
 	        	ng-change="getCurrentInterestRate()">
 	      		<option value=""></option>
@@ -26,7 +26,7 @@
     <div class="form-group">                    
         <label for="loanType" class="col-sm-3 control-label"><font color="red">* </font>Loan Type</label>
         <div class="col-sm-9">
-	        <select class="form-control" name="loanType" ng-model="loanType" 
+	        <select class="form-control" name="loanType" id="loanType" ng-model="loanType" 
 	        	ng-options="key for (key, value) in loanTypeList"
 	        	ng-change="getCurrentInterestRate()">
 	      		<option value=""></option>
@@ -38,7 +38,8 @@
     	<div class="col-sm-9">                   
 		<div class="input-group">
 			<div class="input-group-addon">%</div>
-			<input type="text" class="form-control" name="newInterestRate" ng-model="rate" ng-disabled="enableInterestRateInput()">
+			<input type="text" class="form-control" name="newInterestRate" id="newInterestRate" 
+				ng-model="rate" ng-disabled="enableInterestRateInput()">
 		</div>
 	</div>
     </div>

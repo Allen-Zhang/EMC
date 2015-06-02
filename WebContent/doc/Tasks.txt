@@ -3,7 +3,8 @@ Z:
 - Security
 
 D:
-- Form validation 
+
+- User_roles table insert? 
 - Calculator (chart)
 - CSS (logo ...)
 
@@ -12,5 +13,5 @@ Y:
 
 
 
-- User_roles table insert?
+- Form validation (login -> wrong username/password)
 - Email link encrypt

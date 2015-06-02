@@ -29,7 +29,7 @@
 				<li class="dropdown">
 					<a href="" class="dropdown-toggle" data-toggle="dropdown">Sign In <b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<form action="<c:url value='/j_spring_security_check'/>" method="post" class="login-form">
+						<form id="loginForm" action="<c:url value='/j_spring_security_check'/>" method="post" class="login-form">
 							<div class="form-group">
 								<label for="email">Username</label> 
 								<input type="text" class="form-control" name="j_username" id="j_username" placeholder="Username">

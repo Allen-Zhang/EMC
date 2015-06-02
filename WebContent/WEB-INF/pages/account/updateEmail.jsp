@@ -12,7 +12,7 @@
 
 <!-- Main body -->
 <h3>Update Email</h3>
-<form class="form-horizontal" action="changeEmail.html" method="post">
+<form id="updateEmailForm" class="form-horizontal" action="changeEmail.html" method="post">
 	<div class="form-group">                    
         <label for="newEmail" class="col-sm-3 control-label"><font color="red">* </font>New Email</label>
         <div class="col-sm-9">

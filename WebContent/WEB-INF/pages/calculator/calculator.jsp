@@ -3,12 +3,11 @@
 <html ng-app="myApp">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Calculator</title>
+<title>Mortgage Calculator</title>
 </head>
 <body ng-controller="calculatorCtrl">
-<!-- Mortgage Calculator Content -->
-<h3>Mortgage Calculator</h3>
-<div role="tabpanel">
+<!-- Enhanced Mortgage Calculator Content -->
+<div role="tabpanel" id="calculator-body">
 	<!-- Nav Tabs -->
 	<ul class="nav nav-justified" role="tablist" id="calculatorNav">
 		<li role="presentation" class="active">
@@ -143,7 +142,10 @@
 		
 		<!-- Result Pane -->
 		<div role="tabpanel" class="tab-pane" id="resultPane">
-			<!-- <h2>Monthly payment is: {{monthlyPayment}}</h2> -->
+			<!-- Payment Summary Table -->
+			
+			
+			<!-- Payment Schedule Table -->
 			<table class="table table-striped table-hover emc-table">
 				<thead>
 					<tr>

@@ -38,3 +38,8 @@ label.error {
   	padding: 2px 8px;
   	margin-top: 2px;
 }
+
+/* For calculator page */
+#calculator-body {
+	margin-top: -25px;
+}

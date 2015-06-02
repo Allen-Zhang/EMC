@@ -5,6 +5,11 @@ public class UserRole{
 	private User user;
 	private String authority;
 	
+	public UserRole(User user, String authority) {
+		super();
+		this.user = user;
+		this.authority = authority;
+	}
 	public int getUser_role_id() {
 		return user_role_id;
 	}

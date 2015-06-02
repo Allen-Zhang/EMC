@@ -1,24 +1,31 @@
 $(document).ready(function() {
 	
 	$.validator.addMethod("purchase_greater_extraPayment", function(value, element, param) {
-        if ($("#purchase").val()>=$("#extraPayment").val()*$("#extraMonth").val()) return true;
+        if ($("#purchase").val() >= $("#extraPayment").val() * $("#extraMonth").val()) 
+        	return true;
 	}, "ExtraPayment should be less than purchase");
 	
 	// Validation for sign up form
 	$("#signupForm").validate({
 		rules : {
+			username : {
+				required : true
+			},
 			password : {
 				minlength : 5,
 				required : true
 			},
 			confirmedPassword : {
 				minlength : 5,
-				equalTo : "#password",
+				required : true,
+				equalTo : "#password"
+			},
+			email : {
+				required : true
 			}
 		}
 	});
 
-	// Validation for update password form
 	$("#updatePassowrdForm").validate({
 		rules : {
 			oldPassword : {
@@ -35,6 +42,18 @@ $(document).ready(function() {
 			}
 		}
 	});
+	
+	$("#loginForm").validate({
+		rules : {
+			j_username : {
+				required : true					
+			},
+			j_password : {
+				required : true
+			}
+		}
+	});
+	
 	$("#calculateForm").validate({
 		rules : {
 			purchase : {
@@ -47,6 +66,57 @@ $(document).ready(function() {
 				min : 0,
 				max : 5000,
 				purchase_greater_extraPayment : true
+			}
+		}
+	});
+	
+	$("#updateEmailForm").validate({
+		rules : {
+			newEmail : {
+				required : true,
+				email : true
+			}
+		}
+	});
+	
+	$("#forgetPasswordForm").validate({
+		rules : {
+			username : {
+				required : true		
+			},
+			email : {
+				required : true
+			}
+		}
+	});
+	
+	$("#resetPasswordForm").validate({
+		rules : {
+			newPassword : {
+				required : true,	
+				minLength : 5
+			},
+			confirmedPassword : {
+				required : true,
+				minLength : 5,
+				equalTo : "#newPassword"
+			}
+		}
+	});
+	
+	$("#updateInterestForm").validate({
+		rules : {
+			state : {
+				required : true	
+			},
+			loanType : {
+				required : true
+			},
+			newInterestRate : {
+				required : true,
+				number : true,
+				min : 0,
+				max : 15
 			}
 		}
 	});
