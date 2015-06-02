@@ -13,28 +13,39 @@ public class UserService {
 	public void setUd(UserDao ud) {
 		this.ud = ud;
 	}
+	
 	public User checkUser(String username){
 		User user = ud.findByUserName(username);
 		return user;
 	}
+	
 	public void saveUser(User user){
 		ud.save(user);
 	}
+	
 	public void updatePassword(String username, String newPwd) {
 		User user = ud.findByUserName(username);
 		user.setPassword(newPwd);
 		ud.update(user);
 	}
+	
 	public void updateEmail(String username, String email) {
 		User user = ud.findByUserName(username);
 		user.setEmail(email);
 		ud.update(user);
 	}
-	public void activateUser(String username){
+	
+	public String[] activateUser(String username){
 		User user = ud.findByUserName(username);
-		user.setEnabled(true);
-		ud.update(user);
+		if (!user.isEnabled()) {
+			user.setEnabled(true);
+			ud.update(user);
+			return new String[] {"success", "Your account is activated sucessfully."};
+		} else {
+			return new String[] {"error", "Your account has already been activated."};
+		}
 	}
+	
 	public String getMd5Password(String password){
 		return DigestUtils.md5Hex(password);
 	}
