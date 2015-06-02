@@ -56,11 +56,11 @@ public class UserController {
 		} else {
 			// encrypt by md5
 			String encryptedPassword = us.getMd5Password(user.getPassword());  
-			System.out.println("pwd: " + encryptedPassword);
+			System.out.println("Encrypted Password: " + encryptedPassword);  /*** Testing ***/
 			user.setPassword(encryptedPassword);
 			us.saveUser(user);
 			// send email to user to activate the account 
-			String from = "sijiyangyi24@gmail.com";
+			String from = "mercurysystemsinc.emc@gmail.com";
 			String to = user.getEmail();
 			String subject = "Dear: " + user.getUsername();
 			String msg = "Please click the following link to activate your account"
@@ -69,7 +69,7 @@ public class UserController {
 					+ user.getUsername();
 			jms.sendMail(from, to, subject, msg);
 			mav.setViewName("home");
-			mav.addObject("success_long", "Congratulation! Your account is registered successfully.<br/>Please check your email (" + to + ") to activate your account.");
+			mav.addObject("success_long", "Congratulation!  Your account is created successfully.<br/>Please check your email (" + to + ") to activate your account.");
 			return mav;
 		}
 	}
@@ -79,10 +79,10 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/activate", method = RequestMethod.GET)
 	public ModelAndView activateAccount(@RequestParam("id") String id) {
-		us.activateUser(id);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("home");
-		mav.addObject("success", "Your account is activated sucessfully.");
+		String[] messages = us.activateUser(id);
+		mav.addObject(messages[0], messages[1]);
 		return mav;
 	}
 
@@ -131,7 +131,7 @@ public class UserController {
 		// username is existed
 		if (user!= null) {
 			// send email to user to reset password 
-			String from = "sijiyangyi24@gmail.com";
+			String from = "mercurysystemsinc.emc@gmail.com";
 			//send to the email address that user entered,not the email of the user in the DB
 			String to = email;
 			String subject = "Dear: " + user.getUsername();
