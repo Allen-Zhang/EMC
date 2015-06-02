@@ -15,15 +15,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.mercury.bean.InterestRate;
 import com.mercury.bean.Loan;
-import com.mercury.service.MortgageService;
-import com.mercury.util.StateFormater;
+import com.mercury.service.AdminService;
+import com.mercury.util.Adapter;
 
 @Controller
 @SessionAttributes
 public class AdminController {
 	@Autowired
-	@Qualifier("mortgageService")
-	private MortgageService ms;
+	@Qualifier("adminService")
+	private AdminService ms;
 	
 	// RESTful web service for get current interest rate
 	@RequestMapping(value="/getOldInterestRate", method=RequestMethod.POST)	
@@ -39,7 +39,7 @@ public class AdminController {
 			@RequestParam("state") String state,
 			@RequestParam("loanType") String loanType, 
 			@RequestParam("newInterestRate") double newInterestRate) {
-		ms.updateInterestRate(StateFormater.getInstance().abbreviate(state), loanType, newInterestRate);
+		ms.updateInterestRate(Adapter.getInstance().abbrebiate(state), loanType, newInterestRate);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("admin/updateInterestRate");
 		mav.addObject("success", "Update interest rate successfully.");
