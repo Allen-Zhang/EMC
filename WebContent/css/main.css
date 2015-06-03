@@ -1,12 +1,21 @@
 body {
-  padding-top: 15px;
+  padding-top: 10px;
 }
 
 .content {
 	min-height: 550px;
-	/*min-height: 480px;*/
 }
 
+#appNav {
+	padding-top: 15px;
+}
+
+/* .desc {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+ */
 /* Sticky footer styles */
 .footer {
   padding-top: 10px;
@@ -14,6 +23,12 @@ body {
   margin-top: 10px;
 }
 
+/* Logo image */
+.emc-logo {
+	width: 23%;
+	height: 70px;
+	border-radius: 10px;
+}
 /* Login form */
 .login-form {
   padding:20px;
@@ -51,3 +66,4 @@ label.error {
 #calculator-body {
 	margin-top: -25px;
 }
+
