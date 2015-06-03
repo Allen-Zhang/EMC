@@ -11,7 +11,7 @@
 
 <!-- Main body -->
 <h3>Sign Up</h3>
-	<form id="signupForm" class="form-horizontal" action="register.html" method="post">
+	<form id="signupForm" class="form-horizontal" action="signup.html" method="post">
 		<div class="form-group">                    
 	        <label for="username" class="col-sm-3 control-label"><font color="red">* </font>Username</label>
 	        <div class="col-sm-9">

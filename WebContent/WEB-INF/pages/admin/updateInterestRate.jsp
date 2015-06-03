@@ -12,7 +12,7 @@
 
 <!-- Main body -->
 <h3>Update Interest Rate</h3>
-<form id="updateInterestForm" class="form-horizontal" action="changeInterestRate.html" method="POST">
+<form id="updateInterestForm" class="form-horizontal" action="updateInterestRate.html" method="POST">
 	<div class="form-group">                    
         <label for="state" class="col-sm-3 control-label"><font color="red">* </font>State</label>
         <div class="col-sm-9">

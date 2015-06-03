@@ -2,29 +2,25 @@
  * Mortgage Calculator Controller
  * @Framework: AngularJS 
  */ 
-
-var monthlyInterestRates;  // global variable
-
 angular.module('myApp')
 	.controller('calculatorCtrl', ['$scope', '$http', function($scope, $http) {
 		
-		/*$scope.purchase = '';
+		$scope.purchase = '';
 		$scope.termInYears = '30';
 		$scope.state = '';
 		$scope.downPayment = '';
 		$scope.loanType = 'fixed';
 		$scope.extraPayment = 0;  // enhanced field
 		$scope.extraMonth = 0;  // enhanced field
-*/		
 		
 		// ************ For testing ************
-		$scope.purchase = '500000';
-		$scope.termInYears = '30';
-		$scope.state = 'MA';
-		$scope.downPayment = 5;
-		$scope.loanType = 'fixed';
-		$scope.extraPayment = 2000;  // enhanced field
-		$scope.extraMonth = 20;  // enhanced field
+//		$scope.purchase = '500000';
+//		$scope.termInYears = '30';
+//		$scope.state = 'MA';
+//		$scope.downPayment = 5;
+//		$scope.loanType = 'fixed';
+//		$scope.extraPayment = 2000;  // enhanced field
+//		$scope.extraMonth = 20;  // enhanced field
 		// *************************************
 		
 		$scope.schedule = '';

@@ -12,7 +12,7 @@
 
 <!-- Main body -->
 <h3>Update Password</h3>
-<form id="updatePassowrdForm" class="form-horizontal" action="changePassword.html" method="post">
+<form id="updatePassowrdForm" class="form-horizontal" action="updatePassword.html" method="post">
 	<div class="form-group">                    
         <label for="oldPassword" class="col-sm-3 control-label"><font color="red">* </font>Old Password</label>
         <div class="col-sm-9">

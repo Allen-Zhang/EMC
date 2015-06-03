@@ -12,7 +12,7 @@
 
 <!-- Main body -->
 <h3>Forget Password</h3>
-	<form id="forgetPasswordForm" class="form-horizontal" action="sendEmailToForgetPassword.html" method="post">
+	<form id="forgetPasswordForm" class="form-horizontal" action="forgetPassword.html" method="post">
 		<div class="form-group">                    
 	        <label for="username" class="col-sm-3 control-label"><font color="red">* </font>Username</label>
 	        <div class="col-sm-9">

@@ -12,7 +12,7 @@
 
 <!-- Main body -->
 <h3>Reset Password</h3>
-	<form id="resetPasswordForm" class="form-horizontal" action="resetedPassword.html" method="post">
+	<form id="resetPasswordForm" class="form-horizontal" action="resetPassword.html" method="post">
 		<div class="form-group">                    
 	        <label for="newPassword" class="col-sm-3 control-label"><font color="red">* </font>New Password</label>
 	        <div class="col-sm-9">

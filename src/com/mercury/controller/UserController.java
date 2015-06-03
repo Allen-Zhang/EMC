@@ -1,5 +1,7 @@
 package com.mercury.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -34,29 +36,29 @@ public class UserController {
 	/*
 	 * User Login
 	 */
-//	@RequestMapping(value ="/home", method = RequestMethod.GET)
-//	public ModelAndView goHomePage(@RequestParam("status") String status) {	
-//		ModelAndView mav = new ModelAndView();
-//		mav.setViewName("home");
-//		if (status.equals("login_success")) {
-//			mav.addObject("success", "Welcome back " + getLoginUser().getUsername() + "!");
-//		} else if (status.equals("login_error")) {
-//			mav.addObject("error", "Invalid username or password, please try again.");
-//		} 
-//		return mav;
-//	}
-	@RequestMapping(value ="/welcome", method = RequestMethod.GET)
-	public ModelAndView login() {	
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("home");
-		mav.addObject("success", "Welcome back " + getLoginUser().getUsername() + "!");
+	@RequestMapping(value = "/home", method = {RequestMethod.GET, RequestMethod.POST})
+//	public ModelAndView homePage(@RequestParam("status") String status) {	
+	public ModelAndView homePage(HttpServletRequest request) {	
+		ModelAndView mav = new ModelAndView("home");
+		String status = request.getParameter("status");
+		if (status != null) {
+			if (status.equals("login_success")) 
+				mav.addObject("success", "Welcome back " + getLoginUser().getUsername() + "!");
+			else if (status.equals("login_error")) 
+				mav.addObject("error", "Invalid username or password, please try again.");
+		}
 		return mav;
+	}
+	
+	@RequestMapping(value = "/signup", method = RequestMethod.GET)
+	public String accountPage() {
+		return "account/signup";
 	}
 	
 	/* 
 	 * Register account
 	 */
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	@RequestMapping(value = "/signup", method = RequestMethod.POST)
 	public ModelAndView register(@ModelAttribute("user") User user) {
 		ModelAndView mav = new ModelAndView();
 		// username is existed
@@ -79,7 +81,7 @@ public class UserController {
 					+ "http://localhost:8080/EMC/activate.html?id="
 					+ user.getUsername();
 			jms.sendMail(from, to, subject, msg);
-			mav.setViewName("home");
+			mav.setViewName("account/signup");
 			mav.addObject("success_long", "Congratulation!  Your account is created successfully.<br/>Please check your email (" + to + ") to activate your account.");
 			return mav;
 		}
@@ -90,50 +92,64 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/activate", method = RequestMethod.GET)
 	public ModelAndView activateAccount(@RequestParam("id") String id) {
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("home");
+		ModelAndView mav = new ModelAndView("home");
 		String[] messages = us.activateUser(id);
 		mav.addObject(messages[0], messages[1]);
 		return mav;
 	}
 
+	@RequestMapping(value = "/updatePassword", method = RequestMethod.GET)
+	public String updatePasswordPage() {
+		return "account/updatePassword";
+	}
+	
 	/*
 	 *  Update Password
 	 */
-	@RequestMapping(value = "/changePassword", method = RequestMethod.POST)
+	@RequestMapping(value = "/updatePassword", method = RequestMethod.POST)
 	public ModelAndView updatePassword(
 			@RequestParam("oldPassword") String oldPassword,
 			@RequestParam("newPassword") String newPassword) {
 		ModelAndView mav = new ModelAndView();
 		User user = us.checkUser(getLoginUser().getUsername());
 		// old password is wrong
-		if (!oldPassword.equals(user.getPassword())) {
+		String encryptedOldPassword = us.getMd5Password(oldPassword); 
+		if (!encryptedOldPassword.equals(user.getPassword())) {
 			mav.setViewName("account/updatePassword"); // go back to updatePassword page
 			mav.addObject("error", "Sorry, your old password is wrong.");
 		} else {
 			us.updatePassword(getLoginUser().getUsername(), newPassword);
-			mav.setViewName("home"); // go to home page
+			mav.setViewName("account/updatePassword"); // go to home page
 			mav.addObject("success", "Your password is updated successfully.");
 		}
 		return mav;
 	}
 
+	@RequestMapping(value = "/updateEmail", method = RequestMethod.GET)
+	public String updateEmailPage() {
+		return "account/updateEmail";
+	}
+	
 	/*
 	 *  Update Email
 	 */
-	@RequestMapping(value = "/changeEmail", method = RequestMethod.POST)
+	@RequestMapping(value = "/updateEmail", method = RequestMethod.POST)
 	public ModelAndView updateEmail(@RequestParam("newEmail") String newEmail) {
-		ModelAndView mav = new ModelAndView();
+		ModelAndView mav = new ModelAndView("account/updateEmail");
 		us.updateEmail(getLoginUser().getUsername(), newEmail);
-		mav.setViewName("home"); // go to home page
 		mav.addObject("success", "Your email is updated successfully.");
 		return mav;
+	}
+	
+	@RequestMapping(value = "/forgetPassword", method = RequestMethod.GET)
+	public String showForgetPasswordPage() {
+		return "account/forgetPassword";
 	}
 	
 	/* 
 	 * Forget Password
 	 */
-	@RequestMapping(value = "/sendEmailToForgetPassword", method = RequestMethod.POST)
+	@RequestMapping(value = "/forgetPassword", method = RequestMethod.POST)
 	public ModelAndView sendEmailToForgetPassword(
 			@RequestParam("username") String username,
 			@RequestParam("email") String email) {
@@ -160,17 +176,25 @@ public class UserController {
 		}
 	}
 	
+	@RequestMapping(value = "/resetPassword", method = RequestMethod.GET)
+	public ModelAndView showResetPasswordPage(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("account/resetPassword");
+		mav.addObject("username", request.getParameter("username"));
+		return mav;
+	}
+	
 	/*
 	 *  Reset password
 	 */
-	@RequestMapping(value = "/resetedPassword", method = RequestMethod.POST)
+	@RequestMapping(value = "/resetPassword", method = RequestMethod.POST)
 	public ModelAndView resetPassword(
 			@RequestParam("newPassword") String newPassword,
 			@RequestParam("username") String username) {
 		us.updatePassword(username, newPassword);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("home");
-		mav.addObject("success", "Password is reset successfully.");
+		mav.addObject("success", "Your password is reseted successfully.");
 		return mav;
 	}
 }

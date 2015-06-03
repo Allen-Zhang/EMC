@@ -33,8 +33,13 @@ public class AdminController {
 		return currInterestRate;
 	}
 	
+	@RequestMapping(value = "/updateInterestRate", method = RequestMethod.GET)
+	public String updateInterestRatePage() {
+		return "admin/updateInterestRate";
+	}
+	
 	// Update specific interest rate
-	@RequestMapping(value = "/changeInterestRate", method = RequestMethod.POST)
+	@RequestMapping(value = "/updateInterestRate", method = RequestMethod.POST)
 	public ModelAndView updateInterestRate( 
 			@RequestParam("state") String state,
 			@RequestParam("loanType") String loanType, 

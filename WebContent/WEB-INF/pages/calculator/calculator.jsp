@@ -211,7 +211,7 @@
 		<div role="tabpanel" class="tab-pane" id="chartPane">
 			<div ng-show="!showResultPane()"><h3>You have not calculate yet.</h3></div>
 			<div ng-show="showResultPane()">
-				<h3>Monthly Interest Rate Fluctuate Chart</h3> 
+				<h3>Monthly Interest Rate Line Chart</h3> 
 				<div id="calLineChart"></div>
 			</div>
 		</div>
