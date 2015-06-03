@@ -23,6 +23,7 @@ angular.module('myApp')
 		$scope.extraMonth = 20;  // enhanced field
 		// *************************************
 		
+		$scope.schedule = '';
 		$scope.loan = [];  // loan object for request body
 		$scope.stateList = {
 				'Alabama' : 'AL', 'Alaska' : 'AK', 'Arizona' : 'AZ', 'Arkansas' : 'AR', 'California' : 'CA', 
@@ -125,4 +126,38 @@ angular.module('myApp')
 		$scope.showExtraPaymentColumn = function() {
 			return ($scope.extraPayment != 0 && $scope.extraMonth != 0) ? true : false; 
 		};
+		
+		$scope.showResultPane = function() {
+			return $scope.schedule != '' ? true : false; 
+		};
+		
+		$scope.showLoanType = function() {
+			switch($scope.schedule.loanType) {
+			case "fix_15":
+				return "15 years fixed rate";
+			case "fix_20":
+				return "20 years fixed rate";
+			case "fix_30":
+				return "30 years fixed rate";
+			case "arm_5":
+				return "5 years ARM";
+			case "arm_7":
+				return "7 years ARM";
+			case "arm_10":
+				return "10 years ARM";
+			}
+		};
+		
+		$scope.showLoanTermInMonths = function() {
+			return $scope.schedule.termInYears * 12 + " months"; 
+		};
+		
+		$scope.showExtraPayment = function() {
+			return $scope.schedule.extraPayment != 0 ? true : false;
+		};
+		
+		$scope.showExtraMonth = function() {
+			return "/mo for " + $scope.schedule.extraMonth + " months"; 
+		};
+		
 	}]);

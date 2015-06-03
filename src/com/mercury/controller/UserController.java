@@ -34,6 +34,17 @@ public class UserController {
 	/*
 	 * User Login
 	 */
+//	@RequestMapping(value ="/home", method = RequestMethod.GET)
+//	public ModelAndView goHomePage(@RequestParam("status") String status) {	
+//		ModelAndView mav = new ModelAndView();
+//		mav.setViewName("home");
+//		if (status.equals("login_success")) {
+//			mav.addObject("success", "Welcome back " + getLoginUser().getUsername() + "!");
+//		} else if (status.equals("login_error")) {
+//			mav.addObject("error", "Invalid username or password, please try again.");
+//		} 
+//		return mav;
+//	}
 	@RequestMapping(value ="/welcome", method = RequestMethod.GET)
 	public ModelAndView login() {	
 		ModelAndView mav = new ModelAndView();
@@ -51,7 +62,7 @@ public class UserController {
 		// username is existed
 		if (us.checkUser(user.getUsername()) != null) {
 			mav.setViewName("account/signup");  // go back to signup page
-			mav.addObject("error", "Sorry, username is already existed.");
+			mav.addObject("error", "Sorry, username is already exist.");
 			return mav;
 		} else {
 			// encrypt by md5
