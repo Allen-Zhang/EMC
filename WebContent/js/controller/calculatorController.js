@@ -186,8 +186,8 @@ function drawChart(purchase, totalInterest, monthlyInterestRates) {
   ]);
   var options1 = {
     title: 'Ratio of Total Interest and Purchase',
-    width: '100%',
-    height: 240,
+    width: 380,
+    height: 250,
     colors: ['#3300FF', '#33CCFF'],
     pieHole: 0.7,
     fontSize: 14,

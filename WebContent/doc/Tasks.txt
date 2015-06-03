@@ -11,6 +11,3 @@ normal user (login)
 - update password
 - update email
 - logout
-
-calculator
-pie char (legend!)

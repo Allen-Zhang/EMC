@@ -27,7 +27,7 @@
 		associated with a mortgage, such as local and state taxes, and
 		insurance.
 	</p>
-	<p class="alert alert-success">
+	<p class="alert alert-info">
 		EMC is enhanced mortgage calculator that help you to calculate loans with some additional features. You needs to log in the system 
 		and input the necessary information. Then EMC will output the monthly payment with 
 		the payment schedule. You can also add additional principals for each month and EMC 

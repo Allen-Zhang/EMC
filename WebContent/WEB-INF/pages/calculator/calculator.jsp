@@ -163,7 +163,7 @@
 							</tr>
 							<tr>
 								<td>Down Payment</td>
-								<td>{{schedule.purchase * (1 - schedule.downPayment / 100) | currency}}</td>
+								<td>{{schedule.purchase * (schedule.downPayment / 100) | currency}}</td>
 							</tr>
 							<tr ng-show="showExtraPayment()">
 								<td>Extra Payment</td>

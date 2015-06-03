@@ -19,9 +19,10 @@ $(document).ready(function() {
 	});
 	
 	$.validator.addMethod("purchase_greater_extraPayment", function(value, element, param) {
-        if ($("#purchase").val() >= $("#extraPayment").val() * $("#extraMonth").val()) 
+		var principal = $("#purchase").val() * (1 - $("#downPayment").val().replace('%', '') / 100);
+        if (principal >= $("#extraPayment").val() * $("#extraMonth").val()) 
         	return true;
-	}, "Total extra payment should be less than purchase.");
+	}, "Invalid additional monthly payment.");
 	
 	// Validation for sign up form
 	$("#signupForm").validate({
@@ -80,7 +81,9 @@ $(document).ready(function() {
 			purchase : {
 				required : true,
 				number : true,
-				min : 0,		
+				min : 0,
+				max : 10000000
+				      
 			},
 			downPayment : {
 				required : true
