@@ -13,11 +13,18 @@
     	<sec:intercept-url pattern="/welcome*" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')"/>
     	<!-- <sec:intercept-url pattern="/calculator*" access="isAuthenticated()"/>
     	<sec:intercept-url pattern="/update*" access="isAuthenticated()"/> -->
+    	
     	<sec:form-login 
         	login-page="/home.html"
         	default-target-url="/welcome.html" 
         	authentication-failure-url="/home.html?login_error=1"/>
         <sec:logout logout-success-url="/home.html" delete-cookies="JSESSIONID"/>
+    	
+    	<!-- <sec:form-login 
+        	login-page="/home.html"
+        	default-target-url="/home.html?status=login_success" 
+        	authentication-failure-url="/home.html?status=login_error"/>
+        <sec:logout logout-success-url="/home.html" delete-cookies="JSESSIONID"/> -->
         <!-- remember me for 30 days -->
 		<sec:remember-me token-validity-seconds="2592000" data-source-ref="dataSource"/>
 	</sec:http>

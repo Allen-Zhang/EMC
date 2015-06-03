@@ -14,9 +14,9 @@
 			<th>Fixed 30 Years</th>
 			<th>Fixed 20 Years</th>
 			<th>Fixed 15 Years</th>
-			<th>ARM 5</th>
-			<th>ARM 7</th>
-			<th>ARM 10</th>
+			<th>5-year ARM</th>
+			<th>7-year ARM</th>
+			<th>10-year ARM</th>
 		</tr>
 	</thead>
 	<tbody>

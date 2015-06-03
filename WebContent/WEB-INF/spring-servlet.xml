@@ -36,7 +36,7 @@
     <bean id="adminService" class="com.mercury.service.AdminService">
     	<property name="rd" ref="interestRateDao"/>
     </bean>
-    <bean id="enhancedMortgageCalculator" class="com.mercury.service.EnhancedMortgageCalculator">
+    <bean id="calculatorService" class="com.mercury.service.CalculatorService">
     	<property name="rd" ref="interestRateDao"/>
     </bean>
     

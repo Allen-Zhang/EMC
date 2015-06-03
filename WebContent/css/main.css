@@ -22,9 +22,17 @@ body {
   box-sizing: border-box;
 }
 
-/* emc-table */
+/* emc-table style */
 .emc-table th, .emc-table td {
 	text-align: center;
+}
+
+/* For calculator result summary table */
+.emc-summary-table tr td:first-child {
+	font-weight: bold;
+}
+.emc-summary-table tr td:last-child {
+	text-align: right;
 }
 
 /* For prompt message (success, error) */

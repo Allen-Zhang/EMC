@@ -1,9 +1,8 @@
 Z:
-- Redirect
-- Security
+- Redirect!!!
+- Security!!!
 
 D:
-- User_roles table insert?
 - Calculator (chart)
 - CSS (logo ...)
 
@@ -11,6 +10,4 @@ Y:
 - Cache!!!
 
 
-
-- Form validation (login -> wrong username/password)
 - Email link encrypt

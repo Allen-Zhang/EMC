@@ -26,6 +26,7 @@
 	<div class="tab-content">
 		<!-- Calculator Pane -->
 		<div role="tabpanel" class="tab-pane active" id="calculatorPane">
+			<h3>Mortgage Calculator</h3>
 			<form id="calculateForm" class="form-horizontal" ng-submit="calculate()">
 				<!-- State -->
 				<div class="form-group">                    
@@ -39,7 +40,7 @@
 			    <!-- Purchase price -->
 				<div class="form-group">                    
 			        <label for="purchase" class="col-sm-4 control-label"><font color="red">* </font>
-			        	Purchase price&nbsp&nbsp
+			        	Purchase Price&nbsp&nbsp
 			        	<img alt="Question" src="img/question-icon.png" data-toggle="tooltip" 
 			        	data-placement="top" title="{{purchaseQuest}}">
 			        </label>
@@ -53,7 +54,7 @@
 			    <!-- Loan term -->
 				<div class="form-group">                    
 			        <label for="termInYears" class="col-sm-4 control-label"><font color="red">* </font>
-			        	Loan term&nbsp&nbsp
+			        	Loan Term&nbsp&nbsp
 			        	<img alt="Question" src="img/question-icon.png" data-toggle="tooltip" 
 			        	data-placement="top" title="{{termInYearsQuest}}">
 			        </label>
@@ -72,7 +73,7 @@
 			    <!-- Loan type -->
 			    <div class="form-group">                    
 			        <label for="loanType" class="col-sm-4 control-label"><font color="red">* </font>
-			        	Loan type&nbsp&nbsp
+			        	Loan Type&nbsp&nbsp
 			        	<img alt="Question" src="img/question-icon.png" data-toggle="tooltip" 
 			        	data-placement="top" title="{{loanTypeQuest}}">
 			        </label>
@@ -94,7 +95,7 @@
 			    <!-- Down payment -->
 			    <div class="form-group">                    
 			        <label for="downPayment" class="col-sm-4 control-label"><font color="red">* </font>
-			        	Down payment&nbsp&nbsp
+			        	Down Payment&nbsp&nbsp
 			        	<img alt="Question" src="img/question-icon.png" data-toggle="tooltip" 
 			        	data-placement="top" title="{{downPaymentQuest}}">
 			        </label>
@@ -107,7 +108,7 @@
 			    <!-- Extra payment -->
 			    <div class="form-group">                    
 			        <label for="extraPayment" class="col-sm-4 control-label">
-			        	Additional monthly payment&nbsp&nbsp
+			        	Additional Monthly Payment&nbsp&nbsp
 			        	<img alt="Question" src="img/question-icon.png" data-toggle="tooltip" 
 			        	data-placement="top" title="{{extraPaymentQuest}}">
 			        </label>
@@ -121,7 +122,7 @@
 			    <!-- Extra month -->
 			    <div class="form-group">                    
 			        <label for="extraMonth" class="col-sm-4 control-label">
-			        	Months of additional monthly payment&nbsp&nbsp
+			        	Months of Additional Monthly Payment&nbsp&nbsp
 			        	<img alt="Question" src="img/question-icon.png" data-toggle="tooltip" 
 			        	data-placement="top" title="{{extraMonthQuest}}">
 			        </label>
@@ -142,39 +143,89 @@
 		
 		<!-- Result Pane -->
 		<div role="tabpanel" class="tab-pane" id="resultPane">
-			<!-- Payment Summary Table -->
-			
-			
-			<!-- Payment Schedule Table -->
-			<table class="table table-striped table-hover emc-table">
-				<thead>
-					<tr>
-						<th>Month</th>
-						<th>Monthly Payment</th>
-						<th ng-show="showExtraPaymentColumn()">Extra Payment</th>
-						<th>Total Payment</th>
-						<th>Remaining Principal</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr ng-repeat="result in schedule.results">
-						<td>{{result.month}}</td>
-						<td>{{result.monthlyPayment | currency}}</td>
-						<td ng-show="showExtraPaymentColumn()">{{result.extraPayment | currency}}</td>
-						<td>{{result.totalPayment | currency}}</td>
-						<td>{{result.remainingPrincipal | currency}}</td>
-					</tr>
-				</tbody>
-			</table>
+			<div ng-show="!showResultPane()"><h3>You have not calculate yet.</h3></div>
+			<div ng-show="showResultPane()">
+				<div class="row">
+					<!-- Payment Summary Table -->
+					<div class="col-sm-8">
+						<table class="table emc-summary-table">
+							<tr>
+								<td>Loan Type</td>
+								<td>{{showLoanType()}}</td>
+							</tr>
+							<tr>
+								<td>Loan Term</td>
+								<td>{{showLoanTermInMonths()}} </td>
+							</tr>
+							<tr>
+								<td>Purchase Price</td>
+								<td>{{schedule.purchase | currency}}</td>
+							</tr>
+							<tr>
+								<td>Down Payment</td>
+								<td>{{schedule.purchase * (1 - schedule.downPayment / 100) | currency}}</td>
+							</tr>
+							<tr ng-show="showExtraPayment()">
+								<td>Extra Payment</td>
+								<td>{{schedule.extraPayment | currency}}{{showExtraMonth()}}</td>
+							</tr>
+							<tr ng-show="showExtraPayment()">
+								<td>Saved Interest</td>
+								<td>{{schedule.savedInterest | currency}}</td>
+							</tr>
+							<tr>
+								<td></td><td></td>
+							</tr>
+						</table>
+					</div>
+					<!-- Pie Chart -->
+					<div class="col-sm-4">Chart Here...
+					</div>
+				</div>
+				<!-- Payment Schedule Table -->
+				<table class="table table-striped table-hover emc-table">
+					<thead>
+						<tr>
+							<th>Month</th>
+							<th>Monthly Payment</th>
+							<th ng-show="showExtraPaymentColumn()">Extra Payment</th>
+							<th>Total Payment</th>
+							<th>Remaining Principal</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="result in schedule.results">
+							<td>{{result.month}}</td>
+							<td>{{result.monthlyPayment | currency}}</td>
+							<td ng-show="showExtraPaymentColumn()">{{result.extraPayment | currency}}</td>
+							<td>{{result.totalPayment | currency}}</td>
+							<td>{{result.remainingPrincipal | currency}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</div>
 
 		<!-- Chart Pane -->
 		<div role="tabpanel" class="tab-pane" id="chartPane">
-			Chart
+			<div ng-show="!showResultPane()"><h3>You have not calculate yet.</h3></div>
+			<div ng-show="showResultPane()">
+				<h3>InterestRate Fluctuate Chart</h3> 
+				
+				
+				<h1>Rates: {{schedule.monthlyRates}}</h1>
+				
+				<input type="hidden" id="linechartData" value="{{schedule.monthlyRates * 100}}">
+				<div class="text-center col-sm-12">
+					<div id="linechart"></div>
+				</div>
+			</div>
 		</div>
 		
 	</div>
 </div>
 <script src="js/controller/calculatorController.js"></script>
+<script src="https://www.google.com/jsapi"></script>
+<script src="js/google-chart.js"></script>
 </body>
 </html>
