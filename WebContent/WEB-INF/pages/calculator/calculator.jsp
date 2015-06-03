@@ -133,7 +133,7 @@
 			        </div>
 			    </div>
 			    <div class="form-group">
-			    	<div class="col-sm-offset-4 col-sm-12">
+			    	<div class="col-sm-offset-4 col-sm-6">
 			      		<button type="reset" class="btn btn-primary">Reset</button>
 			      		<button type="submit" id="calculatorBtn" class="btn btn-primary">Calculate</button>
 			    	</div>
@@ -179,7 +179,8 @@
 						</table>
 					</div>
 					<!-- Pie Chart -->
-					<div class="col-sm-4">Chart Here...
+					<div class="col-sm-4">
+						<div id="calPieChart"></div>
 					</div>
 				</div>
 				<!-- Payment Schedule Table -->
@@ -210,22 +211,14 @@
 		<div role="tabpanel" class="tab-pane" id="chartPane">
 			<div ng-show="!showResultPane()"><h3>You have not calculate yet.</h3></div>
 			<div ng-show="showResultPane()">
-				<h3>InterestRate Fluctuate Chart</h3> 
-				
-				
-				<h1>Rates: {{schedule.monthlyRates}}</h1>
-				
-				<input type="hidden" id="linechartData" value="{{schedule.monthlyRates * 100}}">
-				<div class="text-center col-sm-12">
-					<div id="linechart"></div>
-				</div>
+				<h3>Monthly Interest Rate Fluctuate Chart</h3> 
+				<div id="calLineChart"></div>
 			</div>
 		</div>
 		
 	</div>
 </div>
-<script src="js/controller/calculatorController.js"></script>
 <script src="https://www.google.com/jsapi"></script>
-<script src="js/google-chart.js"></script>
+<script src="js/controller/calculatorController.js"></script>
 </body>
 </html>
