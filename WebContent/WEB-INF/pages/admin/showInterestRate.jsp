@@ -22,12 +22,12 @@
 	<tbody>
 		<tr ng-repeat="row in rows">
 			<td>{{row.state}}</td>
-			<td>{{row.fix_30}}</td>
-			<td>{{row.fix_20}}</td>
+			<td>{{row.fix_30}}%</td>
+			<td>{{row.fix_20}}%</td>
 			<td>{{row.fix_15}}%</td>
-			<td>{{row.arm_5}}</td>
-			<td>{{row.arm_7}}</td>
-			<td>{{row.arm_10}}</td>
+			<td>{{row.arm_5}}%</td>
+			<td>{{row.arm_7}}%</td>
+			<td>{{row.arm_10}}%</td>
 		</tr>
 	</tbody>
 </table>

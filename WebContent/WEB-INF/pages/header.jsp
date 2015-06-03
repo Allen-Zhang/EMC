@@ -12,7 +12,7 @@
 	<nav class="navbar navbar-default" style="border:none; background-color: #FFFFFF;"> 
 	<!-- EMC Logo -->
 	<div class="navbar-header">
-		<a href="home.html"><img src="" alt="EMC Logo"></a>
+		<a href="home.html"><img src="img/emc-logo.png" alt="EMC Logo" class="emc-logo"></a>
 		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#appNav">
 			<span class="sr-only">Toggle navigation</span> 
 			<span class="icon-bar"></span>

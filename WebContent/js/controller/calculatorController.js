@@ -2,8 +2,12 @@
  * Mortgage Calculator Controller
  * @Framework: AngularJS 
  */ 
+
+var monthlyInterestRates;  // global variable
+
 angular.module('myApp')
 	.controller('calculatorCtrl', ['$scope', '$http', function($scope, $http) {
+		
 		/*$scope.purchase = '';
 		$scope.termInYears = '30';
 		$scope.state = '';
@@ -106,6 +110,16 @@ angular.module('myApp')
 				$http.post('result.html', dataObj)
 				.success(function(data, status, headers, config) {
 					$scope.schedule = data;
+					
+					/** Render google chart **/
+					var purchase = $scope.schedule.purchase;
+					var totalInterest = $scope.schedule.totalInterest;
+					var monthlyInterestRates = [];
+					for (var i = 0; i < $scope.schedule.monthlyRates.length; i++) {
+						monthlyInterestRates.push([i+1, Number(($scope.schedule.monthlyRates[i] * 100).toFixed(2))]);
+				    }
+					drawChart(purchase, totalInterest, monthlyInterestRates);
+					
 				})
 				.error(function(data, status, headers, config) {
 					alert("failure message: " + JSON.stringify({data : data}));  // JSON.stringify() converts a JavaScript value to a JSON string
@@ -161,3 +175,49 @@ angular.module('myApp')
 		};
 		
 	}]);
+
+
+/*
+ * Google Chart
+ */
+google.load("visualization", "1", {packages:["corechart"]});
+function drawChart(purchase, totalInterest, monthlyInterestRates) {
+// Pie Chart
+  var data1 = google.visualization.arrayToDataTable([
+    ['Task', 'Ratio of Total Interest and Purchase'],
+    ['Purchase',     purchase], 
+    ['Total Interest', totalInterest]	
+  ]);
+  var options1 = {
+    title: 'Ratio of Total Interest and Purchase',
+    width: '100%',
+    height: 250,
+    colors: ['#3300FF', '#33CCFF'],
+    pieHole: 0.7,
+    fontSize: 15,
+    pieSliceTextStyle: {
+        color: 'black',
+      },
+  };
+  
+  // Line Chart
+  var data2 = new google.visualization.DataTable();
+	data2.addColumn('number', 'Month');
+	data2.addColumn('number', 'Rate');
+	data2.addRows(monthlyInterestRates);
+	var options2 = {
+		hAxis: {
+	          title: 'Month'
+	        },
+	    vAxis: {
+	          title: 'Monthly Interest Rate'
+	    },
+		width: 1200,
+	    height: 400,
+	};
+	var pieChart = new google.visualization.PieChart(document.getElementById('calPieChart'));
+	  pieChart.draw(data1, options1);
+	  
+	 var lineChart = new google.visualization.LineChart(document.getElementById('calLineChart'));
+	lineChart.draw(data2, options2);
+}
