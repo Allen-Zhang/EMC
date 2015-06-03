@@ -187,10 +187,10 @@ function drawChart(purchase, totalInterest, monthlyInterestRates) {
   var options1 = {
     title: 'Ratio of Total Interest and Purchase',
     width: '100%',
-    height: 250,
+    height: 240,
     colors: ['#3300FF', '#33CCFF'],
     pieHole: 0.7,
-    fontSize: 15,
+    fontSize: 14,
     pieSliceTextStyle: {
         color: 'black',
       },
@@ -206,7 +206,7 @@ function drawChart(purchase, totalInterest, monthlyInterestRates) {
 	          title: 'Month'
 	        },
 	    vAxis: {
-	          title: 'Monthly Interest Rate'
+	          title: 'Monthly Interest Rate %'
 	    },
 		width: 1200,
 	    height: 400,

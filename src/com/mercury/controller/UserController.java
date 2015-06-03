@@ -37,7 +37,6 @@ public class UserController {
 	 * User Login
 	 */
 	@RequestMapping(value = "/home", method = {RequestMethod.GET, RequestMethod.POST})
-//	public ModelAndView homePage(@RequestParam("status") String status) {	
 	public ModelAndView homePage(HttpServletRequest request) {	
 		ModelAndView mav = new ModelAndView("home");
 		String status = request.getParameter("status");
@@ -64,14 +63,13 @@ public class UserController {
 		// username is existed
 		if (us.checkUser(user.getUsername()) != null) {
 			mav.setViewName("account/signup");  // go back to signup page
-			mav.addObject("error", "Sorry, username is already exist.");
+			mav.addObject("error", "Sorry, username already exists.");
 			return mav;
 		} else {
 			// encrypt by md5
 			String encryptedPassword = us.getMd5Password(user.getPassword());  
-			System.out.println("Encrypted Password: " + encryptedPassword);  /*** Testing ***/
+//			System.out.println("Encrypted Password: " + encryptedPassword);  /*** Testing ***/
 			user.setPassword(encryptedPassword);
-			us.saveUser(user);
 			// send email to user to activate the account 
 			String from = "mercurysystemsinc.emc@gmail.com";
 			String to = user.getEmail();
@@ -80,8 +78,9 @@ public class UserController {
 					+ "\n"
 					+ "http://localhost:8080/EMC/activate.html?id="
 					+ user.getUsername();
-			jms.sendMail(from, to, subject, msg);
-			mav.setViewName("account/signup");
+			jms.sendMail(from, to, subject, msg);  // send email first
+			us.saveUser(user);  // then create this account
+			mav.setViewName("home");  // go to home page
 			mav.addObject("success_long", "Congratulation!  Your account is created successfully.<br/>Please check your email (" + to + ") to activate your account.");
 			return mav;
 		}
@@ -119,7 +118,7 @@ public class UserController {
 			mav.addObject("error", "Sorry, your old password is wrong.");
 		} else {
 			us.updatePassword(getLoginUser().getUsername(), newPassword);
-			mav.setViewName("account/updatePassword"); // go to home page
+			mav.setViewName("home"); // go to home page
 			mav.addObject("success", "Your password is updated successfully.");
 		}
 		return mav;
@@ -135,7 +134,7 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/updateEmail", method = RequestMethod.POST)
 	public ModelAndView updateEmail(@RequestParam("newEmail") String newEmail) {
-		ModelAndView mav = new ModelAndView("account/updateEmail");
+		ModelAndView mav = new ModelAndView("home");  // go to home page
 		us.updateEmail(getLoginUser().getUsername(), newEmail);
 		mav.addObject("success", "Your email is updated successfully.");
 		return mav;
@@ -166,12 +165,12 @@ public class UserController {
 					+ "\n" + "http://localhost:8080/EMC/resetPassword.html?username="
 					+user.getUsername();
 			jms.sendMail(from, to, subject, msg);
-			mav.setViewName("home");
+			mav.setViewName("home");  // go to home page
 			mav.addObject("success_long", "Please check your email (" + to + ") to reset your password.");
 			return mav;
 		} else {
-			mav.setViewName("account/forgetPassword");  // go back to signup page
-			mav.addObject("error", "Sorry, username is not existed.");
+			mav.setViewName("account/forgetPassword");  // go back to forgetPassword page
+			mav.addObject("error", "Sorry, username does not exist.");
 			return mav;
 		}
 	}
@@ -191,9 +190,10 @@ public class UserController {
 	public ModelAndView resetPassword(
 			@RequestParam("newPassword") String newPassword,
 			@RequestParam("username") String username) {
-		us.updatePassword(username, newPassword);
+		String encryptedPassword = us.getMd5Password(newPassword);  
+		us.updatePassword(username, encryptedPassword);
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("home");
+		mav.setViewName("home");  // go to home page
 		mav.addObject("success", "Your password is reseted successfully.");
 		return mav;
 	}

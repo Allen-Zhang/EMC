@@ -14,25 +14,25 @@
 <h3>Update Password</h3>
 <form id="updatePassowrdForm" class="form-horizontal" action="updatePassword.html" method="post">
 	<div class="form-group">                    
-        <label for="oldPassword" class="col-sm-3 control-label"><font color="red">* </font>Old Password</label>
-        <div class="col-sm-9">
+        <label for="oldPassword" class="col-sm-4 control-label"><font color="red">* </font>Old Password</label>
+        <div class="col-sm-6">
             <input type="password" class="form-control" id="oldPassword" name="oldPassword" placeholder="Old Password">
         </div>
     </div>
 	<div class="form-group">                    
-        <label for="newPassword" class="col-sm-3 control-label"><font color="red">* </font>New Password</label>
-        <div class="col-sm-9">
+        <label for="newPassword" class="col-sm-4 control-label"><font color="red">* </font>New Password</label>
+        <div class="col-sm-6">
             <input type="password" class="form-control" id="newPassword" name="newPassword" placeholder="New Password">
         </div>
     </div>
     <div class="form-group">                    
-        <label for="confirmedPassword" class="col-sm-3 control-label"><font color="red">* </font>Confirmed Password</label>
-        <div class="col-sm-9">
+        <label for="confirmedPassword" class="col-sm-4 control-label"><font color="red">* </font>Confirmed Password</label>
+        <div class="col-sm-6">
 			<input type="password" class="form-control" id="confirmedPassword" name="confirmedPassword" placeholder="Confirmed Password">
         </div>
     </div>
     <div class="form-group">
-    	<div class="col-sm-offset-3 col-sm-9">
+    	<div class="col-sm-offset-4 col-sm-6">
       		<button type="reset" class="btn btn-primary">Reset</button>
       		<button type="submit" id="updatePasswordBtn" class="btn btn-primary">Update</button>
     	</div>

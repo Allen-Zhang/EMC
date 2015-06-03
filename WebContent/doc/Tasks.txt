@@ -1,17 +1,16 @@
-Z:
-- Redirect
-- Security
+defects:
+- forget password -> no encryption for username (security)
 
-D:
+test:
+- sign up -> activate mail (format!)
+- sign in
+- remember me
+- forget password 
 
-- User_roles table insert? 
-- Calculator (chart)
-- CSS (logo ...)
+normal user (login)
+- update password
+- update email
+- logout
 
-Y:
-- Cache!!!
-
-
-
-- Form validation (login -> wrong username/password)
-- Email link encrypt
+calculator
+pie char (legend!)

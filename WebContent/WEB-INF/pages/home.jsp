@@ -11,11 +11,28 @@
 
 <!-- Main body -->
 <h2 class="text-center">Enhanced Mortgage Calculator</h2>
-<p class="desc">
-	EMC is a calculator to help you to calculator loans. You needs to log in the system 
-	and input the necessary information. Then EMC will output the monthly payment with 
-	the payment schedule. You can also add additional principals for each month and EMC 
-	will calculate how much you can save for interest.
-</p>
+<div class="desc">
+	<p>Mortgage calculators are automated tools that enable users to
+		determine the financial implications of changes in one or more
+		variables in a mortgage financing arrangement. Mortgage calculators
+		are used by consumers to determine monthly repayments, and by mortgage
+		providers to determine the financial suitability of a home loan
+		applicant. 
+	</p>
+	<p>
+		The major variables in a mortgage calculation include loan
+		principal, balance, periodic compound interest rate, number of
+		payments per year, total number of payments and the regular payment
+		amount. More complex calculators can take into account other costs
+		associated with a mortgage, such as local and state taxes, and
+		insurance.
+	</p>
+	<p class="alert alert-success">
+		EMC is enhanced mortgage calculator that help you to calculate loans with some additional features. You needs to log in the system 
+		and input the necessary information. Then EMC will output the monthly payment with 
+		the payment schedule. You can also add additional principals for each month and EMC 
+		will calculate how much you can save for interest.
+	</p>
+</div>
 </body>
 </html>

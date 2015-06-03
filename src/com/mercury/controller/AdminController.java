@@ -51,6 +51,11 @@ public class AdminController {
 		return mav;
 	}
 	
+	@RequestMapping(value = "/showInterestRate", method = RequestMethod.GET)
+	public String showInterestRateTablePage() {
+		return "admin/showInterestRate";
+	}
+	
 	// RESTful web service for get all interest rates
 	@RequestMapping(value = "/allRatesTypes", method = RequestMethod.GET)
 	@ResponseBody

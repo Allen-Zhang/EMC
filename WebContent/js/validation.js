@@ -21,7 +21,7 @@ $(document).ready(function() {
 	$.validator.addMethod("purchase_greater_extraPayment", function(value, element, param) {
         if ($("#purchase").val() >= $("#extraPayment").val() * $("#extraMonth").val()) 
         	return true;
-	}, "ExtraPayment should be less than purchase");
+	}, "Total extra payment should be less than purchase.");
 	
 	// Validation for sign up form
 	$("#signupForm").validate({
@@ -74,10 +74,22 @@ $(document).ready(function() {
 	
 	$("#calculateForm").validate({
 		rules : {
+			state : {
+				required : true
+			},
 			purchase : {
 				required : true,
 				number : true,
 				min : 0,		
+			},
+			downPayment : {
+				required : true
+			},
+			termInYears : {
+				required : true
+			},
+			loanType : {
+				required : true
 			},
 			extraPayment : {
 				number : true,

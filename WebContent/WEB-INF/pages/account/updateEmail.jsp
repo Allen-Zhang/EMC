@@ -14,13 +14,13 @@
 <h3>Update Email</h3>
 <form id="updateEmailForm" class="form-horizontal" action="updateEmail.html" method="post">
 	<div class="form-group">                    
-        <label for="newEmail" class="col-sm-3 control-label"><font color="red">* </font>New Email</label>
-        <div class="col-sm-9">
-            <input type="email" class="form-control" id="newEmail" name="newEmail" placeholder="New Email">
+        <label for="newEmail" class="col-sm-4 control-label"><font color="red">* </font>New Email Address</label>
+        <div class="col-sm-6">
+            <input type="email" class="form-control" id="newEmail" name="newEmail" placeholder="New Email Address">
         </div>
     </div>
     <div class="form-group">
-    	<div class="col-sm-offset-3 col-sm-9">
+    	<div class="col-sm-offset-4 col-sm-6">
       		<button type="reset" class="btn btn-primary">Reset</button>
       		<button type="submit" id="updateEmailBtn" class="btn btn-primary">Update</button>
     	</div>

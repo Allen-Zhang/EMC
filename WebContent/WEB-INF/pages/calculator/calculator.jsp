@@ -26,13 +26,13 @@
 	<div class="tab-content">
 		<!-- Calculator Pane -->
 		<div role="tabpanel" class="tab-pane active" id="calculatorPane">
-			<h3>Mortgage Calculator</h3>
+			<h3>Enhanced Mortgage Calculator</h3>
 			<form id="calculateForm" class="form-horizontal" ng-submit="calculate()">
 				<!-- State -->
 				<div class="form-group">                    
 			        <label for="state" class="col-sm-4 control-label"><font color="red">* </font>State</label>
 			        <div class="col-sm-6">
-				        <select class="form-control" ng-model="state" ng-options="key for (key, value) in stateList">
+				        <select class="form-control" id="state" name="state" ng-model="state" ng-options="key for (key, value) in stateList">
 				      		<option value=""></option>
 				    	</select>
 					</div>
@@ -60,13 +60,13 @@
 			        </label>
 			        <div class="col-sm-6">
 			        	<label class="radio-inline">
-						  	<input type="radio" ng-model="termInYears" value="30">30 years
+						  	<input type="radio" ng-model="termInYears" name="termInYears" value="30">30 years
 						</label>
 						<label class="radio-inline">
-						  	<input type="radio" ng-model="termInYears" value="20">20 years
+						  	<input type="radio" ng-model="termInYears" name="termInYears" value="20">20 years
 						</label>
 						<label class="radio-inline">
-						  	<input type="radio" ng-model="termInYears" value="15">15 years
+						  	<input type="radio" ng-model="termInYears" name="termInYears" value="15">15 years
 						</label>
 			        </div>
 			    </div>
@@ -79,16 +79,16 @@
 			        </label>
 			        <div class="col-sm-6">
 			        	<label class="radio-inline">
-						  	<input type="radio" ng-model="loanType" value="fixed">Fixed rate
+						  	<input type="radio" ng-model="loanType" name="loanType" value="fixed">Fixed rate
 						</label>
 						<label class="radio-inline">
-						  	<input type="radio" ng-model="loanType" ng-disabled="isFixedSelected()" value="5_year_arm">5-year ARM
+						  	<input type="radio" ng-model="loanType" name="loanType" ng-disabled="isFixedSelected()" value="5_year_arm">5-year ARM
 						</label>
 						<label class="radio-inline">
-						  	<input type="radio" ng-model="loanType" ng-disabled="isFixedSelected()" value="7_year_arm">7-year ARM
+						  	<input type="radio" ng-model="loanType" name="loanType" ng-disabled="isFixedSelected()" value="7_year_arm">7-year ARM
 						</label>
 						<label class="radio-inline">
-						  	<input type="radio" ng-model="loanType" ng-disabled="isFixedSelected()" value="10_year_arm">10-year ARM
+						  	<input type="radio" ng-model="loanType" name="loanType" ng-disabled="isFixedSelected()" value="10_year_arm">10-year ARM
 						</label>
 			        </div>
 			    </div>
@@ -100,7 +100,7 @@
 			        	data-placement="top" title="{{downPaymentQuest}}">
 			        </label>
 			        <div class="col-sm-6">
-		            	<select class="form-control" ng-model="downPayment" ng-options="key for (key, value) in downPaymentList">
+		            	<select class="form-control" id="downPayment" name="downPayment" ng-model="downPayment" ng-options="key for (key, value) in downPaymentList">
 				      		<option value=""></option>
 				    	</select>
 			        </div>
