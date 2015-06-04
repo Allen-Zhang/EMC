@@ -19,6 +19,7 @@
 		providers to determine the financial suitability of a home loan
 		applicant. 
 	</p>
+	<br/>
 	<p>
 		The major variables in a mortgage calculation include loan
 		principal, balance, periodic compound interest rate, number of
@@ -27,6 +28,7 @@
 		associated with a mortgage, such as local and state taxes, and
 		insurance.
 	</p>
+	<br/>
 	<p class="alert alert-info">
 		EMC is enhanced mortgage calculator that help you to calculate loans with some additional features. You needs to log in the system 
 		and input the necessary information. Then EMC will output the monthly payment with 

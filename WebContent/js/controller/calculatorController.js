@@ -103,7 +103,7 @@ angular.module('myApp')
 						extraPayment : $scope.extraPayment == '' ? 0 : $scope.extraPayment,
 						extraMonth : $scope.extraMonth == '' ? 0 : $scope.extraMonth
 				};	
-				$http.post('result.html', dataObj)
+				$http.post('calculate.html', dataObj)
 				.success(function(data, status, headers, config) {
 					$scope.schedule = data;
 					

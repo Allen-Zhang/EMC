@@ -73,11 +73,10 @@ public class UserController {
 			// send email to user to activate the account 
 			String from = "mercurysystemsinc.emc@gmail.com";
 			String to = user.getEmail();
-			String subject = "Dear: " + user.getUsername();
-			String msg = "Please click the following link to activate your account"
-					+ "\n"
-					+ "http://localhost:8080/EMC/activate.html?id="
-					+ user.getUsername();
+			String subject = "EMC - Registration Successfully!";
+			String msg = "Dead " + user.getUsername() + ",\n\n" 
+					+ "Thanks for your registration! Please click the following link to activate your account.\n\n"
+					+ "http://localhost:8080/EMC/activate.html?id=" + user.getUsername();
 			jms.sendMail(from, to, subject, msg);  // send email first
 			us.saveUser(user);  // then create this account
 			mav.setViewName("home");  // go to home page
@@ -160,10 +159,10 @@ public class UserController {
 			String from = "mercurysystemsinc.emc@gmail.com";
 			//send to the email address that user entered,not the email of the user in the DB
 			String to = email;
-			String subject = "Dear: " + user.getUsername();
-			String msg = "Please click the following link to reset your password:"
-					+ "\n" + "http://localhost:8080/EMC/resetPassword.html?username="
-					+user.getUsername();
+			String subject = "EMC - Reset Password";
+			String msg = "Dear "  + user.getUsername() + ",\n\n"
+					+ "Please click the following link to reset your password.\n\n"
+					+ "http://localhost:8080/EMC/resetPassword.html?username=" +user.getUsername();
 			jms.sendMail(from, to, subject, msg);
 			mav.setViewName("home");  // go to home page
 			mav.addObject("success_long", "Please check your email (" + to + ") to reset your password.");
